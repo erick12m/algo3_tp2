@@ -1,18 +1,22 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.Scanner;
+
 public class Jugador {
 
-    private String nombre;
-    private Puntaje puntaje;
+    String nombre;
+    int puntos;
 
-    public Jugador (String nombre) {
-        this.nombre = nombre;
-        this.puntaje = new Puntaje ();
+    public Respuesta responderPregunta () {
+
+        Scanner scanner = new Scanner(System.in);
+        String texto = scanner.next();
+        Respuesta respuesta = new Respuesta(texto);
+
+        return respuesta;
     }
 
-    public responderPregunta (String enunciado, Opciones opciones) {
-        System.out.println(enunciado);
-        opciones.presentarOpciones();
-
+    public void actualizarPuntaje (int puntos) {
+        this.puntos += puntos;
     }
 }
