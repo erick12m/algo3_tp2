@@ -26,7 +26,10 @@ public class testVerdaderoOFalso {
         VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
 
         Respuesta respuestaTrue = new Respuesta("true");
+
         when(jugadorMock1.responderPregunta()).thenReturn(respuestaTrue);
+        when(jugadorMock1.actualizarPuntaje(1)).thenCallRealMethod();
+        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
 
         panel.presentarPregunta (jugadorMock1, pregunta);
 

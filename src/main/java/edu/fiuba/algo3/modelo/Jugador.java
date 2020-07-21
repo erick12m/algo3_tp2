@@ -7,6 +7,11 @@ public class Jugador {
     String nombre;
     int puntos;
 
+    public Jugador (String nombre){
+        this.puntos = 0;
+        this.nombre = nombre;
+    }
+
     public Respuesta responderPregunta () {
 
         Scanner scanner = new Scanner(System.in);
@@ -16,8 +21,9 @@ public class Jugador {
         return respuesta;
     }
 
-    public void actualizarPuntaje (int puntos) {
+    public int actualizarPuntaje (int puntos) {
         this.puntos += puntos;
+        return 0;
     }
     public int obtenerPuntos() {
         return puntos;
