@@ -18,7 +18,7 @@ public class testVerdaderoOFalso {
 
         Jugador jugadorMock1 = mock(Jugador.class);
 
-        panel.agregarJugador (jugadorMock1);
+        panel.agregarJugador(jugadorMock1);
         Respuesta respuestaCorrecta = new Respuesta("true");
         var respuestasCorrectas = new ArrayList<Respuesta>();
         respuestasCorrectas.add(respuestaCorrecta);
@@ -31,9 +31,58 @@ public class testVerdaderoOFalso {
         when(jugadorMock1.actualizarPuntaje(1)).thenCallRealMethod();
         when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
 
-        panel.presentarPregunta (jugadorMock1, pregunta);
+        panel.presentarPregunta(jugadorMock1, pregunta);
 
         assertEquals(1, jugadorMock1.obtenerPuntos());
+    }
 
+    @Test
+    public void test02JugadorRespondeTrueIncorrectamenteYNoSumaPuntos() {
+
+        Panel panel = new Panel();
+
+        Jugador jugadorMock1 = mock(Jugador.class);
+
+        panel.agregarJugador(jugadorMock1);
+        Respuesta respuestaCorrecta = new Respuesta("false");
+        var respuestasCorrectas = new ArrayList<Respuesta>();
+        respuestasCorrectas.add(respuestaCorrecta);
+
+        VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
+
+        Respuesta respuestaTrue = new Respuesta("true");
+
+        when(jugadorMock1.responderPregunta()).thenReturn(respuestaTrue);
+        when(jugadorMock1.actualizarPuntaje(0)).thenCallRealMethod();
+        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
+
+        panel.presentarPregunta(jugadorMock1, pregunta);
+
+        assertEquals(0, jugadorMock1.obtenerPuntos());
+    }
+
+    @Test
+    public void test04JugadorRespondeFalseIncorrectamenteYNoSumaPuntos() {
+
+        Panel panel = new Panel();
+
+        Jugador jugadorMock1 = mock(Jugador.class);
+
+        panel.agregarJugador(jugadorMock1);
+        Respuesta respuestaCorrecta = new Respuesta("true");
+        var respuestasCorrectas = new ArrayList<Respuesta>();
+        respuestasCorrectas.add(respuestaCorrecta);
+
+        VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
+
+        Respuesta respuestaFalse = new Respuesta("false");
+
+        when(jugadorMock1.responderPregunta()).thenReturn(respuestaFalse);
+        when(jugadorMock1.actualizarPuntaje(0)).thenCallRealMethod();
+        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
+
+        panel.presentarPregunta(jugadorMock1, pregunta);
+
+        assertEquals(0, jugadorMock1.obtenerPuntos());
     }
 }
