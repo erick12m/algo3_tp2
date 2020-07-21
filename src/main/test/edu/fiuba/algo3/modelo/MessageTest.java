@@ -7,7 +7,6 @@ public class MessageTest {
     @Test
     public void messageGreeting() {
         Message message = new Message("Hello world!");
-
         assertEquals("Hello world!", message.greet());
     }
 }
