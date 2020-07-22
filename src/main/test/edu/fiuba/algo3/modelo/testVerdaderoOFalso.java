@@ -18,7 +18,6 @@ public class testVerdaderoOFalso {
 
         Jugador jugadorMock1 = mock(Jugador.class);
 
-        panel.agregarJugador(jugadorMock1);
         Respuesta respuestaCorrecta = new Respuesta("true");
         var respuestasCorrectas = new ArrayList<Respuesta>();
         respuestasCorrectas.add(respuestaCorrecta);
@@ -60,6 +59,32 @@ public class testVerdaderoOFalso {
 
         assertEquals(0, jugadorMock1.obtenerPuntos());
     }
+
+    @Test
+    public void test03JugadorRespondeFalseCorrectamenteSumaUnPunto() {
+
+        Panel panel = new Panel();
+
+        Jugador jugadorMock1 = mock(Jugador.class);
+
+        panel.agregarJugador(jugadorMock1);
+        Respuesta respuestaCorrecta = new Respuesta("false");
+        var respuestasCorrectas = new ArrayList<Respuesta>();
+        respuestasCorrectas.add(respuestaCorrecta);
+
+        VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
+
+        Respuesta respuestaFalse = new Respuesta("false");
+
+        when(jugadorMock1.responderPregunta()).thenReturn(respuestaFalse);
+        when(jugadorMock1.actualizarPuntaje(1)).thenCallRealMethod();
+        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
+
+        panel.presentarPregunta(jugadorMock1, pregunta);
+
+        assertEquals(1, jugadorMock1.obtenerPuntos());
+    }
+
 
     @Test
     public void test04JugadorRespondeFalseIncorrectamenteYNoSumaPuntos() {
