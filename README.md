@@ -11,7 +11,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 ## Grupo {N}
 
 * **Erick Martinez** - [erick12m](https://github.com/erick12m)
-* **Daniel Lovera** - [DanieLover](https://github.com/danieLovera)
+* **Daniel Lovera** - [DanieLovera](https://github.com/danieLovera)
 * **Lisandro Torresetti** - [LisandroTorresetti](https://github.com/LisandroTorresetti)
 * **Martin Sosa** - [Martinsosa95](https://github.com/Martinsosa95)
 * **Alejo Rodriguez** - [alejorodriguez96](https://github.com/alejorodriguez96)
