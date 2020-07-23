@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/github/erick12m/algo3_tp2.svg?branch=master)](https://travis-ci.com/github/erick12m/algo3_tp2)
+[![Build Status](https://travis-ci.com/erick12m/algo3_tp2.svg?branch=master)](https://travis-ci.com/erick12m/algo3_tp2)
 
 [![codecov](https://codecov.io/gh/erick12m/algo3_tp2/branch/master/graph/badge.svg)](https://codecov.io/gh/erick12m/algo3_tp2)
 
