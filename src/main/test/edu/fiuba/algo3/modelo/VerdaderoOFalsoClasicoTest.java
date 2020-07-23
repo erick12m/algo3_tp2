@@ -10,7 +10,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
-public class testVerdaderoOFalso {
+public class VerdaderoOFalsoClasicoTest {
     @Test
     public void test01JugadorRespondeTrueCorrectamenteYSumaUnPunto() {
 

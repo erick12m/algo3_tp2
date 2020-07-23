@@ -1,19 +1,20 @@
-[![Build Status](https://travis-ci.org/fiuba/algo3_proyecto_base_tp2.svg?branch=master)](https://travis-ci.org/fiuba/algo3_proyecto_base_tp2)
+[![Build Status](https://travis-ci.com/github/erick12m/algo3_tp2.svg?branch=master)](https://travis-ci.com/github/erick12m/algo3_tp2)
 
-[![codecov](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2/branch/master/graph/badge.svg)](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2)
+[![codecov](https://codecov.io/gh/erick12m/algo3_tp2/branch/master/graph/badge.svg)](https://codecov.io/gh/erick12m/algo3_tp2)
 
 
 
-# TP2 Algoritmos 3: {nombre}
+# TP2 Algoritmos 3: {AlgoHoot}
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
 ## Grupo {N}
 
-* **Integrante 1** - [integrante1](https://github.com/integrante1)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Erick Martinez** - [erick12m](https://github.com/erick12m)
+* **Daniel Lovera** - [DanieLover](https://github.com/danieLovera)
+* **Lisandro Torresetti** - [LisandroTorresetti](https://github.com/LisandroTorresetti)
+* **Martin Sosa** - [Martinsosa95](https://github.com/Martinsosa95)
+* **Alejo Rodriguez** - [alejorodriguez96](https://github.com/alejorodriguez96)
 
 Corrector: **{Corrector}**
 
