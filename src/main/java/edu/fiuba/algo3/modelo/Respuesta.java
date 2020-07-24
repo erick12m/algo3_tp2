@@ -16,17 +16,29 @@ public class Respuesta {
         return this.respuesta;
     }
 
-    public boolean compararCon(Respuesta respuestaJugador){
+
+    protected Resultado compararConVarias(Respuesta respuestasJugador){
+        Resultado puntos = new Resultado(0, 0, this.respuesta.size());
+        for(String respuestaJugador: respuestasJugador.respuesta){
+            if(this.respuesta.contains(respuestaJugador)){
+                puntos.sumarCorrecta();
+            }
+        }
+        return puntos;
+    }
+
+    public boolean compararCon(Respuesta respuestaJugador) {
         String respuestaJug = respuestaJugador.getRespuesta().get(0);
         return respuestaJug.equals(this.respuesta.get(0));
     }
+
 
 
     public void asignarPuntaje(int puntosObtenidos){
         this.puntosObtenidos = puntosObtenidos;
     }
 
-    public int getPuntosObtenidos(){
+    public int getPuntosObtenidos() {
         return this.puntosObtenidos;
     }
 }

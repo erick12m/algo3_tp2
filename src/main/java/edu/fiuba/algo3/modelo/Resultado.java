@@ -27,4 +27,8 @@ public class Resultado {
     public int getCorrectas() {
         return correctas;
     }
+
+    public void sumarCorrecta() { this.correctas ++;}
+
+    public int diferencia() {return (correctasEsperadas - correctas);}
 }
