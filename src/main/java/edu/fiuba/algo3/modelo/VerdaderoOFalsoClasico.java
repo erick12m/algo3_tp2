@@ -14,13 +14,12 @@ public class VerdaderoOFalsoClasico extends Pregunta {
 
     @Override
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores) {
-        for(Respuesta respuestaJugador: respuestasJugadores){
+        for(Respuesta respuestaJugador: respuestasJugadores){ //Obtengo un objetoRespuesta
             if (this.respuestaCorrecta.compararCon(respuestaJugador)){
                 respuestaJugador.asignarPuntaje(this.puntos);
             }
 
         }
-
     }
 
     @Override

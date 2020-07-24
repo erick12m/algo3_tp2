@@ -1,14 +1,32 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class Respuesta {
 
-    String texto;
+    private ArrayList<String> respuesta;
+    private int puntosObtenidos = 0;
+    private Boolean respuestaCorrecta; //Quizas sirve despues
 
-    public Respuesta(String texto) {
-        this.texto = texto;
+    public Respuesta(ArrayList<String> respuesta) {
+        this.respuesta = respuesta;
     }
 
-    public String getTexto() {
-        return texto;
+    public ArrayList<String> getRespuesta() {
+        return this.respuesta;
+    }
+
+    public boolean compararCon(Respuesta respuestaJugador){
+        String respuestaJug = respuestaJugador.getRespuesta().get(0);
+        return respuestaJug.equals(this.respuesta.get(0));
+    }
+
+
+    public void asignarPuntaje(int puntosObtenidos){
+        this.puntosObtenidos = puntosObtenidos;
+    }
+
+    public int getPuntosObtenidos(){
+        return this.puntosObtenidos;
     }
 }

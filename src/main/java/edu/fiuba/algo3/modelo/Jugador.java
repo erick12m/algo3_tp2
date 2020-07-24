@@ -1,31 +1,37 @@
 package edu.fiuba.algo3.modelo;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Jugador {
 
-    String nombre;
-    int puntos;
+    public String nombre;
+    //int puntos;
+    private Respuesta respuesta;
+    Puntaje puntaje = new Puntaje();
+
 
     public Jugador (String nombre){
-        this.puntos = 0;
         this.nombre = nombre;
     }
 
-    public Respuesta responderPregunta () {
-
-        Scanner scanner = new Scanner(System.in);
-        String texto = scanner.next();
-        Respuesta respuesta = new Respuesta(texto);
-
-        return respuesta;
+    public void respuestaElegida(ArrayList<String> respuestasElegidas) {
+        this.respuesta = new Respuesta(respuestasElegidas);
     }
 
-    public int actualizarPuntaje (int puntos) {
-        this.puntos += puntos;
-        return 0;
+    public void actualizarPuntaje() {
+        int puntosObtenidos = this.respuesta.getPuntosObtenidos();
+        this.puntaje.actualizarPuntaje(puntosObtenidos);
     }
-    public int obtenerPuntos() {
-        return puntos;
+    public int getPuntaje() {
+        return this.puntaje.getPuntosObtenidos();
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public Respuesta getRespuesta(){
+        return this.respuesta;
     }
 }

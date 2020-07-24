@@ -12,102 +12,125 @@ import static org.mockito.Mockito.when;
 
 public class VerdaderoOFalsoClasicoTest {
     @Test
-    public void test01JugadorRespondeTrueCorrectamenteYSumaUnPunto() {
+    public void test01JugadorRespondeCorrectamenteYSumaUnPunto() {
 
-        Panel panel = new Panel();
+        //Panel panel = new Panel();
 
-        Jugador jugadorMock1 = mock(Jugador.class);
+        Jugador jugador = new Jugador("Rafael"); //No anda con moc
 
-        Respuesta respuestaCorrecta = new Respuesta("true");
-        var respuestasCorrectas = new ArrayList<Respuesta>();
-        respuestasCorrectas.add(respuestaCorrecta);
+        ArrayList<String> respuesta = new ArrayList<String>();
+        respuesta.add("Verdadero");
 
-        VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
+        ArrayList<String> opciones = new ArrayList<String>();
+        opciones.add("Verdadero");
+        opciones.add("Falso");
 
-        Respuesta respuestaTrue = new Respuesta("true");
+        ArrayList<String> respuestaJug = new ArrayList<String>();
+        respuestaJug.add("Verdadero");
 
-        when(jugadorMock1.responderPregunta()).thenReturn(respuestaTrue);
-        when(jugadorMock1.actualizarPuntaje(1)).thenCallRealMethod();
-        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
+        jugador.respuestaElegida(respuestaJug); //El jugador eligio la respuesta Verdadero
 
-        panel.presentarPregunta(jugadorMock1, pregunta);
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
-        assertEquals(1, jugadorMock1.obtenerPuntos());
+        VerdaderoOFalsoClasico verdaderoOFalso = new VerdaderoOFalsoClasico("1 + 1 = 2?", respuestaCorrecta, opciones);
+
+        ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        respuestaJugador.add(jugador.getRespuesta());
+
+        verdaderoOFalso.evaluarRespuesta(respuestaJugador);
+        jugador.actualizarPuntaje();
+
+        assertEquals(1, jugador.getPuntaje());
     }
 
     @Test
-    public void test02JugadorRespondeTrueIncorrectamenteYNoSumaPuntos() {
+    public void test02JugadorRespondeMalYNoSumaPuntos() {
 
-        Panel panel = new Panel();
+        Jugador jugador = new Jugador("Rafael"); //No anda con moc
 
-        Jugador jugadorMock1 = mock(Jugador.class);
+        ArrayList<String> respuesta = new ArrayList<String>();
+        respuesta.add("Verdadero");
 
-        panel.agregarJugador(jugadorMock1);
-        Respuesta respuestaCorrecta = new Respuesta("false");
-        var respuestasCorrectas = new ArrayList<Respuesta>();
-        respuestasCorrectas.add(respuestaCorrecta);
+        ArrayList<String> opciones = new ArrayList<String>();
+        opciones.add("Verdadero");
+        opciones.add("Falso");
 
-        VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
+        ArrayList<String> respuestaJug = new ArrayList<String>();
+        respuestaJug.add("Falso");
 
-        Respuesta respuestaTrue = new Respuesta("true");
+        jugador.respuestaElegida(respuestaJug); //El jugador eligio la respuesta Verdadero
 
-        when(jugadorMock1.responderPregunta()).thenReturn(respuestaTrue);
-        when(jugadorMock1.actualizarPuntaje(0)).thenCallRealMethod();
-        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
-        panel.presentarPregunta(jugadorMock1, pregunta);
+        VerdaderoOFalsoClasico verdaderoOFalso = new VerdaderoOFalsoClasico("1 + 1 = 2?", respuestaCorrecta, opciones);
 
-        assertEquals(0, jugadorMock1.obtenerPuntos());
+        ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        respuestaJugador.add(jugador.getRespuesta());
+
+        verdaderoOFalso.evaluarRespuesta(respuestaJugador);
+        jugador.actualizarPuntaje();
+
+        assertEquals(0, jugador.getPuntaje());
     }
 
     @Test
-    public void test03JugadorRespondeFalseCorrectamenteSumaUnPunto() {
+    public void test03JugadorRespondeCorrectamenteAUnaPreguntaQueEsFalsaYSumaPuntos() {
 
-        Panel panel = new Panel();
+        Jugador jugador = new Jugador("Rafael"); //No anda con moc
 
-        Jugador jugadorMock1 = mock(Jugador.class);
+        ArrayList<String> respuesta = new ArrayList<String>();
+        respuesta.add("Falso");
 
-        panel.agregarJugador(jugadorMock1);
-        Respuesta respuestaCorrecta = new Respuesta("false");
-        var respuestasCorrectas = new ArrayList<Respuesta>();
-        respuestasCorrectas.add(respuestaCorrecta);
+        ArrayList<String> opciones = new ArrayList<String>();
+        opciones.add("Verdadero");
+        opciones.add("Falso");
 
-        VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
+        ArrayList<String> respuestaJug = new ArrayList<String>();
+        respuestaJug.add("Falso");
 
-        Respuesta respuestaFalse = new Respuesta("false");
+        jugador.respuestaElegida(respuestaJug); //El jugador eligio la respuesta Verdadero
 
-        when(jugadorMock1.responderPregunta()).thenReturn(respuestaFalse);
-        when(jugadorMock1.actualizarPuntaje(1)).thenCallRealMethod();
-        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
-        panel.presentarPregunta(jugadorMock1, pregunta);
+        VerdaderoOFalsoClasico verdaderoOFalso = new VerdaderoOFalsoClasico("1 + 1 = 2?", respuestaCorrecta, opciones);
 
-        assertEquals(1, jugadorMock1.obtenerPuntos());
+        ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        respuestaJugador.add(jugador.getRespuesta());
+
+        verdaderoOFalso.evaluarRespuesta(respuestaJugador);
+        jugador.actualizarPuntaje();
+
+        assertEquals(1, jugador.getPuntaje());
     }
 
 
     @Test
-    public void test04JugadorRespondeFalseIncorrectamenteYNoSumaPuntos() {
+    public void test04JugadorRespondeIncorrectamenteAUnaPreguntaQueEsFalsaYNoSumaPuntos() {
 
-        Panel panel = new Panel();
+        Jugador jugador = new Jugador("Rafael"); //No anda con moc
 
-        Jugador jugadorMock1 = mock(Jugador.class);
+        ArrayList<String> respuesta = new ArrayList<String>();
+        respuesta.add("Falso");
 
-        panel.agregarJugador(jugadorMock1);
-        Respuesta respuestaCorrecta = new Respuesta("true");
-        var respuestasCorrectas = new ArrayList<Respuesta>();
-        respuestasCorrectas.add(respuestaCorrecta);
+        ArrayList<String> opciones = new ArrayList<String>();
+        opciones.add("Verdadero");
+        opciones.add("Falso");
 
-        VerdaderoOFalso pregunta = new VerdaderoOFalso("enunciado", respuestasCorrectas);
+        ArrayList<String> respuestaJug = new ArrayList<String>();
+        respuestaJug.add("Verdadero");
 
-        Respuesta respuestaFalse = new Respuesta("false");
+        jugador.respuestaElegida(respuestaJug); //El jugador eligio la respuesta Verdadero
 
-        when(jugadorMock1.responderPregunta()).thenReturn(respuestaFalse);
-        when(jugadorMock1.actualizarPuntaje(0)).thenCallRealMethod();
-        when(jugadorMock1.obtenerPuntos()).thenCallRealMethod();
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
-        panel.presentarPregunta(jugadorMock1, pregunta);
+        VerdaderoOFalsoClasico verdaderoOFalso = new VerdaderoOFalsoClasico("1 + 1 = 2?", respuestaCorrecta, opciones);
 
-        assertEquals(0, jugadorMock1.obtenerPuntos());
+        ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        respuestaJugador.add(jugador.getRespuesta());
+
+        verdaderoOFalso.evaluarRespuesta(respuestaJugador);
+        jugador.actualizarPuntaje();
+
+        assertEquals(0, jugador.getPuntaje());
     }
 }
