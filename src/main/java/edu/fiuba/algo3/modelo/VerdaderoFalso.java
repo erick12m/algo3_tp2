@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class VerdaderoOFalso extends Pregunta {
+public class VerdaderoFalso extends Pregunta {
 
-    protected int puntosPenalidad;
+    private int puntosPenalidad;
 
-    protected VerdaderoOFalso(String enunciado, Respuesta respuestaCorrecta, ArrayList<String> opciones){
+    public VerdaderoFalso(String enunciado, Respuesta respuestaCorrecta, ArrayList<String> opciones){
         this.enunciado = enunciado;
         this.opciones = opciones;
         this.respuestaCorrecta = respuestaCorrecta;

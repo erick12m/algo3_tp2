@@ -30,7 +30,9 @@ public class Resultado {
 
     public void sumarCorrecta() { this.correctas ++;}
 
-    public int diferencia() {return (correctasEsperadas - correctas);}
+    public int diferencia() {
+        return (correctasEsperadas - correctas);
+    }
 
     public void sumarIncorrecta() { this.incorrectas ++;}
 

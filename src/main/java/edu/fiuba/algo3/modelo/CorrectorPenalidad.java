@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-public class PuntajePenalidad implements EstadoPuntaje{
+public class CorrectorPenalidad extends Corrector {
     @Override
-    public int puntuarPregunta(Resultado resultado){
+    public int corregirPregunta(Resultado resultado){
         return (resultado.getCorrectas() - resultado.getIncorrectas());
     }
 }

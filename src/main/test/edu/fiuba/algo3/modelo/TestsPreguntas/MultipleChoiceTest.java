@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.TestsPreguntas;
 
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class MultipleChoiceTest {
         listaCorrectas.add("uno");
         listaCorrectas.add("dos");
         listaCorrectas.add("tres");
-        PuntajeClasico clasico = new PuntajeClasico();
+        CorrectorClasico clasico = new CorrectorClasico();
         var respuestasCorrectas = new Respuesta(listaCorrectas, clasico);
 
         ArrayList<String> opciones = new ArrayList<String>();
@@ -49,7 +50,7 @@ public class MultipleChoiceTest {
         listaCorrectas.add("uno");
         listaCorrectas.add("dos");
         listaCorrectas.add("tres");
-        PuntajeParcial parcial = new PuntajeParcial();
+        CorrectorParcial parcial = new CorrectorParcial();
         var respuestasCorrectas = new Respuesta(listaCorrectas, parcial);
 
         ArrayList<String> opciones = new ArrayList<String>();
@@ -83,7 +84,7 @@ public class MultipleChoiceTest {
         listaCorrectas.add("uno");
         listaCorrectas.add("dos");
         listaCorrectas.add("tres");
-        PuntajePenalidad penalidad = new PuntajePenalidad();
+        CorrectorPenalidad penalidad = new CorrectorPenalidad();
         var respuestasCorrectas = new Respuesta(listaCorrectas, penalidad);
 
         ArrayList<String> opciones = new ArrayList<String>();

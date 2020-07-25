@@ -7,12 +7,12 @@ public class Respuesta {
     private ArrayList<String> respuesta;
     private int puntosObtenidos = 0;
     private Boolean respuestaCorrecta; //Quizas sirve despues
-    private EstadoPuntaje tipoPuntaje;
+    private Corrector tipoPuntaje;
     public Respuesta(ArrayList<String> respuesta) {
         this.tipoPuntaje = tipoPuntaje;
         this.respuesta = respuesta;
     }
-    public Respuesta(ArrayList<String> respuesta, EstadoPuntaje tipoPuntaje) {
+    public Respuesta(ArrayList<String> respuesta, Corrector tipoPuntaje) {
         this.tipoPuntaje = tipoPuntaje;
         this.respuesta = respuesta;
     }
@@ -38,7 +38,7 @@ public class Respuesta {
 
 
     public void asignarPuntaje(Resultado resultado){
-        this.puntosObtenidos = tipoPuntaje.puntuarPregunta(resultado);
+        this.puntosObtenidos = tipoPuntaje.corregirPregunta(resultado);
     }
 
     public int getPuntosObtenidos() {

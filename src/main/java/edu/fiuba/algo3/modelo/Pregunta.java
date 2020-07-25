@@ -5,7 +5,6 @@ public abstract class Pregunta {
 
     public String enunciado;
     public ArrayList<String> opciones; //cuando creamos la pregunta se le pasa una lista de opciones
-    //protected ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>(); // Por simplicidad lo coloque momentaneamete unico y protegido
     protected int puntos;
     protected Respuesta respuestaCorrecta;
 
@@ -23,7 +22,6 @@ public abstract class Pregunta {
     public int getPuntos(){
         return puntos;
     }
-
 
     //METODOS ABSTRACTOS
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
