@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class VerdaderoFalso extends Pregunta {
 
-    private int puntosPenalidad;
-
-    public VerdaderoFalso(String enunciado, Respuesta respuestaCorrecta, ArrayList<String> opciones){
+    public VerdaderoFalso(String enunciado, Respuesta respuestaCorrecta, ArrayList<String> opciones, Corrector corrector){
         this.enunciado = enunciado;
         this.opciones = opciones;
         this.respuestaCorrecta = respuestaCorrecta;
+        this.corrector = corrector;
     }
 
     @Override

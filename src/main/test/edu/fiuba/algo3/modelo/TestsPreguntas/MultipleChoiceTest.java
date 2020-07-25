@@ -19,7 +19,7 @@ public class MultipleChoiceTest {
         listaCorrectas.add("dos");
         listaCorrectas.add("tres");
         CorrectorClasico clasico = new CorrectorClasico();
-        var respuestasCorrectas = new Respuesta(listaCorrectas, clasico);
+        var respuestasCorrectas = new Respuesta(listaCorrectas);
 
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("uno");
@@ -27,7 +27,7 @@ public class MultipleChoiceTest {
         opciones.add("tres");
         opciones.add("cuatro");
 
-        MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones);
+        MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         var respuestasJugador = new ArrayList<String>();
 
 
@@ -42,7 +42,7 @@ public class MultipleChoiceTest {
     }
     //Test Puntaje Parcial
     @Test
-    public void JugadorRespondeCorrectamenteYSumaTantosPuntosComoRespuestasCorrectas(){
+    public void test02JugadorRespondeCorrectamenteYSumaTantosPuntosComoRespuestasCorrectas(){
         Jugador rafael = new Jugador("Rafael");
         Jugador pablo = new Jugador("Pablo");
 
@@ -51,7 +51,7 @@ public class MultipleChoiceTest {
         listaCorrectas.add("dos");
         listaCorrectas.add("tres");
         CorrectorParcial parcial = new CorrectorParcial();
-        var respuestasCorrectas = new Respuesta(listaCorrectas, parcial);
+        var respuestasCorrectas = new Respuesta(listaCorrectas);
 
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("uno");
@@ -59,11 +59,11 @@ public class MultipleChoiceTest {
         opciones.add("tres");
         opciones.add("cuatro");
 
-        MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones);
+        MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, parcial);
         var listaRespuestasJugador2 = new ArrayList<String>();
         rafael.respuestaElegida(respuestasCorrectas);
         listaRespuestasJugador2.add("uno");
-        pablo.respuestaElegida(new Respuesta(listaRespuestasJugador2,parcial));
+        pablo.respuestaElegida(new Respuesta(listaRespuestasJugador2));
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(rafael.getRespuesta());
@@ -77,7 +77,7 @@ public class MultipleChoiceTest {
     }
     //Test Puntaje Penalidad
     @Test
-    public void JugadorResponde2CorrectasY1InorrectaYTiene1Punto(){
+    public void test03JugadorResponde2CorrectasY1InorrectaYTiene1Punto(){
         Jugador rafael = new Jugador("Rafael");
 
         var listaCorrectas = new ArrayList<String>();
@@ -85,7 +85,7 @@ public class MultipleChoiceTest {
         listaCorrectas.add("dos");
         listaCorrectas.add("tres");
         CorrectorPenalidad penalidad = new CorrectorPenalidad();
-        var respuestasCorrectas = new Respuesta(listaCorrectas, penalidad);
+        var respuestasCorrectas = new Respuesta(listaCorrectas);
 
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("uno");
@@ -93,12 +93,12 @@ public class MultipleChoiceTest {
         opciones.add("tres");
         opciones.add("cuatro");
 
-        MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones);
+        MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, penalidad);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("uno");
         listaRespuestasJugador.add("dos");
         listaRespuestasJugador.add("cuatro");
-        rafael.respuestaElegida(new Respuesta(listaRespuestasJugador, penalidad));
+        rafael.respuestaElegida(new Respuesta(listaRespuestasJugador));
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(rafael.getRespuesta());

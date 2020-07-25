@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestsJugador{
+public class JugadorTest{
     @Test
     public void test01ElJugadorSeCreaCorrectamente(){
         Jugador jugador = new Jugador("Rafael");

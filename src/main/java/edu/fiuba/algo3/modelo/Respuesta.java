@@ -4,28 +4,24 @@ import java.util.ArrayList;
 
 public class Respuesta {
 
-    private ArrayList<String> respuesta;
+    private ArrayList<String> respuestas;
     private int puntosObtenidos = 0;
     private Boolean respuestaCorrecta; //Quizas sirve despues
     private Corrector tipoPuntaje;
-    public Respuesta(ArrayList<String> respuesta) {
-        this.tipoPuntaje = tipoPuntaje;
-        this.respuesta = respuesta;
-    }
-    public Respuesta(ArrayList<String> respuesta, Corrector tipoPuntaje) {
-        this.tipoPuntaje = tipoPuntaje;
-        this.respuesta = respuesta;
+
+    public Respuesta(ArrayList<String> respuestas) {
+        this.respuestas = respuestas;
     }
 
     public ArrayList<String> getRespuesta() {
-        return this.respuesta;
+        return this.respuestas;
     }
 
 
     protected Resultado compararCon(Respuesta respuestasJugador){
-        Resultado resultado = new Resultado(0, 0, this.respuesta.size());
+        Resultado resultado = new Resultado(0, 0, this.respuestas.size());
         for(String respuestaJugador: respuestasJugador.getRespuesta()){
-            if(this.respuesta.contains(respuestaJugador)){
+            if(this.respuestas.contains(respuestaJugador)){
                 resultado.sumarCorrecta();
             }else{
                 resultado.sumarIncorrecta();
@@ -35,10 +31,8 @@ public class Respuesta {
     }
 
 
-
-
-    public void asignarPuntaje(Resultado resultado){
-        this.puntosObtenidos = tipoPuntaje.corregirPregunta(resultado);
+    public void asignarPuntaje(int puntosObtenidos){
+        this.puntosObtenidos = puntosObtenidos;
     }
 
     public int getPuntosObtenidos() {

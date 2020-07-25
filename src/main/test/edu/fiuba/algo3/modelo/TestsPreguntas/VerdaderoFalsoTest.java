@@ -23,12 +23,11 @@ public class VerdaderoFalsoTest {
         opciones.add("Falso");
 
         CorrectorClasico clasico = new CorrectorClasico();
-        Respuesta respuestaCorrecta = new Respuesta(respuesta, clasico);
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
 
-
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, clasico);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
@@ -56,11 +55,11 @@ public class VerdaderoFalsoTest {
         ArrayList<String> respuestaJug = new ArrayList<String>();
         respuestaJug.add("Falso");
 
-        jugador.respuestaElegida(new Respuesta(respuestaJug,clasico)); //El jugador eligio la respuesta Verdadero
+        jugador.respuestaElegida(new Respuesta(respuestaJug)); //El jugador eligio la respuesta Verdadero
 
 
 
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, clasico);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
@@ -83,13 +82,13 @@ public class VerdaderoFalsoTest {
         opciones.add("Verdadero");
         opciones.add("Falso");
         CorrectorClasico clasico = new CorrectorClasico();
-        Respuesta respuestaCorrecta = new Respuesta(respuesta, clasico);
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
 
 
 
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, clasico);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
@@ -117,11 +116,11 @@ public class VerdaderoFalsoTest {
         ArrayList<String> respuestaJug = new ArrayList<String>();
         respuestaJug.add("Verdadero");
 
-        jugador.respuestaElegida(new Respuesta(respuestaJug, clasico)); //El jugador eligio la respuesta Verdadero
+        jugador.respuestaElegida(new Respuesta(respuestaJug)); //El jugador eligio la respuesta Verdadero
 
 
 
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, clasico);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
@@ -133,7 +132,7 @@ public class VerdaderoFalsoTest {
     }
 
     @Test
-    public void test01JugadorRespondeCorrectamenteConPenalidadYSumaUnPunto() {
+    public void test05JugadorRespondeCorrectamenteConPenalidadYSumaUnPunto() {
 
         //Panel panel = new Panel();
 
@@ -147,13 +146,13 @@ public class VerdaderoFalsoTest {
         opciones.add("Falso");
 
         CorrectorPenalidad penalidad = new CorrectorPenalidad();
-        Respuesta respuestaCorrecta = new Respuesta(respuesta, penalidad);
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
 
 
 
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
@@ -165,7 +164,7 @@ public class VerdaderoFalsoTest {
     }
 
     @Test
-    public void test02JugadorConUnPuntoRespondeIncorrectamenteYAhoraTiene0Puntos() {
+    public void test06JugadorConUnPuntoRespondeIncorrectamenteConPenalidadYAhoraTiene0Puntos() {
 
         //Panel panel = new Panel();
 
@@ -179,14 +178,14 @@ public class VerdaderoFalsoTest {
         opciones.add("Falso");
 
         CorrectorPenalidad penalidad =  new CorrectorPenalidad();
-        Respuesta respuestaCorrecta = new Respuesta(respuesta, penalidad);
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
         ArrayList<String> respuestaJug = new ArrayList<String>();
         respuestaJug.add("Verdadero");
 
-        jugador.respuestaElegida(new Respuesta(respuestaJug, penalidad)); //El jugador eligio la respuesta Verdadero
+        jugador.respuestaElegida(new Respuesta(respuestaJug)); //El jugador eligio la respuesta Verdadero
 
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
@@ -199,9 +198,9 @@ public class VerdaderoFalsoTest {
         ArrayList<String> respuesta2Jug = new ArrayList<String>();
         respuesta2Jug.add("Falso");
 
-        jugador.respuestaElegida(new Respuesta(respuesta2Jug, penalidad)); //El jugador eligio la respuesta Falso
+        jugador.respuestaElegida(new Respuesta(respuesta2Jug)); //El jugador eligio la respuesta Falso
 
-        VerdaderoFalso verdaderoFalso2 = new VerdaderoFalso("3 - 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso2 = new VerdaderoFalso("3 - 1 = 2?", respuestaCorrecta, opciones, penalidad);
 
         ArrayList<Respuesta> respuestaJugador2 = new ArrayList<Respuesta>();
         respuestaJugador2.add(jugador.getRespuesta());
@@ -213,7 +212,7 @@ public class VerdaderoFalsoTest {
     }
 
     @Test
-    public void test03JugadorCon0PuntosRespondeIncorrectamenteYSigueCon0Puntos() {
+    public void test07JugadorCon0PuntosRespondeIncorrectamenteConPenalidadYSigueCon0Puntos() {
 
         //Panel panel = new Panel();
 
@@ -227,14 +226,14 @@ public class VerdaderoFalsoTest {
         opciones.add("Falso");
 
         CorrectorPenalidad penalidad = new CorrectorPenalidad();
-        Respuesta respuestaCorrecta = new Respuesta(respuesta, penalidad);
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
         ArrayList<String> respuestaJug = new ArrayList<String>();
         respuestaJug.add("Falso");
 
-        jugador.respuestaElegida(new Respuesta(respuestaJug,penalidad)); //El jugador eligio la respuesta Falso
+        jugador.respuestaElegida(new Respuesta(respuestaJug)); //El jugador eligio la respuesta Falso
 
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());

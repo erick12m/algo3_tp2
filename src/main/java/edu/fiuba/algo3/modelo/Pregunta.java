@@ -7,7 +7,7 @@ public abstract class Pregunta {
     public ArrayList<String> opciones; //cuando creamos la pregunta se le pasa una lista de opciones
     protected int puntos;
     protected Respuesta respuestaCorrecta;
-
+    protected Corrector corrector;
 
     public void imprimirEnunciado(){
         System.out.println(enunciado);
@@ -27,7 +27,8 @@ public abstract class Pregunta {
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
         for(Respuesta respuestaJugador: respuestasJugadores){
             Resultado resultado = this.respuestaCorrecta.compararCon(respuestaJugador);
-            respuestaJugador.asignarPuntaje(resultado);
+            int puntosObtenidos = corrector.corregirPregunta(resultado);
+            respuestaJugador.asignarPuntaje(puntosObtenidos);
         }
     }
 
