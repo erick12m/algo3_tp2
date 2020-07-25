@@ -15,8 +15,8 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public void respuestaElegida(ArrayList<String> respuestasElegidas) {
-        this.respuesta = new Respuesta(respuestasElegidas);
+    public void respuestaElegida(Respuesta respuesta) {
+        this.respuesta = respuesta;
     }
 
     public void actualizarPuntaje() {

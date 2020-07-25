@@ -26,7 +26,12 @@ public abstract class Pregunta {
 
 
     //METODOS ABSTRACTOS
-    public abstract void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores); //Cada pregunta deberia saber como evaluar las respuestas
+    public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
+        for(Respuesta respuestaJugador: respuestasJugadores){
+            Resultado resultado = this.respuestaCorrecta.compararCon(respuestaJugador);
+            respuestaJugador.asignarPuntaje(resultado);
+        }
+    }
 
     public abstract void imprimirRespuestaCorrecta();
 

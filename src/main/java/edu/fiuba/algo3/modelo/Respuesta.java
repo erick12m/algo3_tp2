@@ -7,8 +7,13 @@ public class Respuesta {
     private ArrayList<String> respuesta;
     private int puntosObtenidos = 0;
     private Boolean respuestaCorrecta; //Quizas sirve despues
-
+    private EstadoPuntaje tipoPuntaje;
     public Respuesta(ArrayList<String> respuesta) {
+        this.tipoPuntaje = tipoPuntaje;
+        this.respuesta = respuesta;
+    }
+    public Respuesta(ArrayList<String> respuesta, EstadoPuntaje tipoPuntaje) {
+        this.tipoPuntaje = tipoPuntaje;
         this.respuesta = respuesta;
     }
 
@@ -17,25 +22,23 @@ public class Respuesta {
     }
 
 
-    protected Resultado compararConVarias(Respuesta respuestasJugador){
-        Resultado puntos = new Resultado(0, 0, this.respuesta.size());
-        for(String respuestaJugador: respuestasJugador.respuesta){
+    protected Resultado compararCon(Respuesta respuestasJugador){
+        Resultado resultado = new Resultado(0, 0, this.respuesta.size());
+        for(String respuestaJugador: respuestasJugador.getRespuesta()){
             if(this.respuesta.contains(respuestaJugador)){
-                puntos.sumarCorrecta();
+                resultado.sumarCorrecta();
+            }else{
+                resultado.sumarIncorrecta();
             }
         }
-        return puntos;
-    }
-
-    public boolean compararCon(Respuesta respuestaJugador) {
-        String respuestaJug = respuestaJugador.getRespuesta().get(0);
-        return respuestaJug.equals(this.respuesta.get(0));
+        return resultado;
     }
 
 
 
-    public void asignarPuntaje(int puntosObtenidos){
-        this.puntosObtenidos = puntosObtenidos;
+
+    public void asignarPuntaje(Resultado resultado){
+        this.puntosObtenidos = tipoPuntaje.puntuarPregunta(resultado);
     }
 
     public int getPuntosObtenidos() {

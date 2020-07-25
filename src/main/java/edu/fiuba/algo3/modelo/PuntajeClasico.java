@@ -4,7 +4,7 @@ public class PuntajeClasico implements EstadoPuntaje {
 
     @Override
     public int puntuarPregunta(Resultado resultado) {
-
-        return resultado.getCorrectas();
+        if (resultado.diferencia() == 0){return 1;}
+        return 0;
     }
 }
