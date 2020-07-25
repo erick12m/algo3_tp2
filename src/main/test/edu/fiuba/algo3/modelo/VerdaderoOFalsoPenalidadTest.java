@@ -83,9 +83,9 @@ public class VerdaderoOFalsoPenalidadTest {
         VerdaderoOFalsoPenalidad verdaderoOFalso2 = new VerdaderoOFalsoPenalidad("3 - 1 = 2?", respuestaCorrecta, opciones);
 
         ArrayList<Respuesta> respuestaJugador2 = new ArrayList<Respuesta>();
-        respuestaJugador.add(jugador.getRespuesta());
+        respuestaJugador2.add(jugador.getRespuesta());
 
-        verdaderoOFalso.evaluarRespuesta(respuestaJugador);
+        verdaderoOFalso.evaluarRespuesta(respuestaJugador2);
         jugador.actualizarPuntaje();
 
         assertEquals(0, jugador.getPuntaje());
