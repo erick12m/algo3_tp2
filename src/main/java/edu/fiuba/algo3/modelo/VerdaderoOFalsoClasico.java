@@ -6,6 +6,6 @@ public class VerdaderoOFalsoClasico extends VerdaderoOFalso {
 
     public VerdaderoOFalsoClasico(String enunciado, Respuesta respuestaCorrecta, ArrayList<String> opciones) {
         super(enunciado, respuestaCorrecta, opciones);
-        this.puntos = 1;
+        this.puntosPenalidad = 0;
     }
 }
