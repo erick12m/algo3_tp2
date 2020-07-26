@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class CorrectorClasico extends Corrector {
+public class CorrectorClasico implements Corrector {
 
     @Override
     public int corregirPregunta(Resultado resultado) {

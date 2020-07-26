@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public abstract class Corrector {
+public interface Corrector {
 
     abstract int corregirPregunta(Resultado resultado);
 }
