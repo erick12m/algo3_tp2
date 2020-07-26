@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.correccion;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class Respuesta {
     }
 
 
-    protected Resultado compararCon(Respuesta respuestasJugador){
+    public Resultado compararCon(Respuesta respuestasJugador){
         Resultado resultado = new Resultado(0, 0, this.respuestas.size());
         for(String respuestaJugador: respuestasJugador.getRespuesta()){
             if(this.respuestas.contains(respuestaJugador)){

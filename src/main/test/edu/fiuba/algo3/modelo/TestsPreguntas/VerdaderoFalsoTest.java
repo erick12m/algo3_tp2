@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo.TestsPreguntas;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
+import edu.fiuba.algo3.modelo.correccion.CorrectorPenalidad;
+import edu.fiuba.algo3.modelo.correccion.Respuesta;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

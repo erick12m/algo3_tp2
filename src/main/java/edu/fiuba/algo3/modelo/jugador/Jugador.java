@@ -1,6 +1,5 @@
-package edu.fiuba.algo3.modelo;
-import java.util.ArrayList;
-import java.util.Scanner;
+package edu.fiuba.algo3.modelo.jugador;
+import edu.fiuba.algo3.modelo.correccion.Respuesta;
 
 
 public class Jugador {
