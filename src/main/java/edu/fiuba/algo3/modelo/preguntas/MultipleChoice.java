@@ -12,9 +12,4 @@ public class MultipleChoice extends Pregunta{
         this.respuestaCorrecta = respuestasCorrectas;
         this.corrector = corrector;
     }
-
-    @Override
-    public void imprimirRespuestaCorrecta() {
-        String respuestaCorrecta = (this.respuestaCorrecta.getRespuesta()).get(0);
-    }
 }

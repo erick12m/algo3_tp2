@@ -14,8 +14,4 @@ public class VerdaderoFalso extends Pregunta {
         this.corrector = corrector;
     }
 
-    @Override
-    public void imprimirRespuestaCorrecta() {
-        String respuestaCorrecta = (this.respuestaCorrecta.getRespuesta()).get(0);
-    }
 }
