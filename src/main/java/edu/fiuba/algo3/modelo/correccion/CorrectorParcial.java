@@ -4,6 +4,6 @@ public class CorrectorParcial implements Corrector {
 
     @Override
     public int corregirPregunta(Resultado resultado){
-        return resultado.getCorrectas();
+        return resultado.getIncorrectas() == 0 ? resultado.getCorrectas() : 0;
     }
 }
