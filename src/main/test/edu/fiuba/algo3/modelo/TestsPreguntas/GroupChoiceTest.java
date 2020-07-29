@@ -17,8 +17,9 @@ public class GroupChoiceTest {
     private Jugador jugador2;
     private ArrayList<String> opciones;
     private Respuesta respuestaCorrecta;
+
     @BeforeEach
-    protected void setUp(){
+    public void setUp(){
         jugador1 = new Jugador("Rafael");
         jugador2 = new Jugador("Pablo");
 
