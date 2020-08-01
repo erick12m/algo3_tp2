@@ -53,7 +53,7 @@ public class OrderedChoiceTest {
         assertEquals(1, jugador1.getPuntaje());
     }
     @Test
-    public void test02JugadorRespondeOrdenInorrectamenteYNoSumaPuntos() {
+    public void test02JugadorRespondeOrdenIncorrectamenteYNoSumaPuntos() {
         CorrectorClasico clasico = new CorrectorClasico();
 
         OrderedChoice pregunta = new OrderedChoice("Ordene los numeros en forma creciente", respuestaCorrecta, opciones, clasico);
@@ -71,5 +71,50 @@ public class OrderedChoiceTest {
         pregunta.evaluarRespuesta(respuestas);
         jugador1.actualizarPuntaje();
         assertEquals(0, jugador1.getPuntaje());
+    }
+    @Test
+    public void test03JugadorRespondeIncompletamenteYNoSumaPuntos() {
+        CorrectorClasico clasico = new CorrectorClasico();
+
+        OrderedChoice pregunta = new OrderedChoice("Ordene los numeros en forma creciente", respuestaCorrecta, opciones, clasico);
+        var listaRespuestaJugador = new ArrayList<String>();
+        listaRespuestaJugador.add("uno");
+        listaRespuestaJugador.add("dos");
+        listaRespuestaJugador.add("tres");
+        var respuestaJugador = new Respuesta(listaRespuestaJugador);
+        jugador1.respuestaElegida(respuestaJugador);
+
+
+        ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
+        respuestas.add(jugador1.getRespuesta());
+        pregunta.evaluarRespuesta(respuestas);
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
+    }
+    @Test
+    public void test04Jugador1OrdenaCorrectamenteYSumaUnPuntoJugador2OrdenaIncorrectamenteYNoSumaPuntos() {
+        CorrectorClasico clasico = new CorrectorClasico();
+
+        OrderedChoice pregunta = new OrderedChoice("Ordene los numeros en forma creciente", respuestaCorrecta, opciones, clasico);
+
+        var listaRespuestaJugador = new ArrayList<String>();
+        //Orden inverso
+        listaRespuestaJugador.add("cuatro");
+        listaRespuestaJugador.add("tres");
+        listaRespuestaJugador.add("dos");
+        listaRespuestaJugador.add("uno");
+        var respuestaJugador = new Respuesta(listaRespuestaJugador);
+        jugador2.respuestaElegida(respuestaJugador);
+        jugador1.respuestaElegida(respuestaCorrecta);
+
+
+        ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
+        respuestas.add(jugador1.getRespuesta());
+        respuestas.add(jugador2.getRespuesta());
+        pregunta.evaluarRespuesta(respuestas);
+        jugador1.actualizarPuntaje();
+        jugador2.actualizarPuntaje();
+        assertEquals(1, jugador1.getPuntaje());
+        assertEquals(0, jugador2.getPuntaje());
     }
 }

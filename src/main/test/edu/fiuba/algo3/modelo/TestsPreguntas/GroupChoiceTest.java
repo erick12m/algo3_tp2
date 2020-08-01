@@ -53,9 +53,9 @@ public class GroupChoiceTest {
         assertEquals(1, jugador1.getPuntaje());
     }
     @Test
-    public void test02JugadorRespondeOrdenInorrectamenteYNoSumaPuntos() {
+    public void test02JugadorAgrupaIncorrectamenteYNoSumaPuntos() {
         CorrectorClasico clasico = new CorrectorClasico();
-        GroupChoice pregunta = new GroupChoice("Ordene los numeros en forma creciente", respuestaCorrecta, opciones, clasico);
+        GroupChoice pregunta = new GroupChoice("Separe pares de impares", respuestaCorrecta, opciones, clasico);
 
         var grupoJugador1 = new ArrayList<String>();
         var grupoJugador2 = new ArrayList<String>();
@@ -72,5 +72,57 @@ public class GroupChoiceTest {
         pregunta.evaluarRespuesta(respuestas);
         jugador1.actualizarPuntaje();
         assertEquals(0, jugador1.getPuntaje());
+    }
+    @Test
+    public void test03JugadorAgrupaIncompletamenteYNoSumaPuntos() {
+        CorrectorClasico clasico = new CorrectorClasico();
+        GroupChoice pregunta = new GroupChoice("Separe pares de impares", respuestaCorrecta, opciones, clasico);
+
+        var grupoJugador1 = new ArrayList<String>();
+        var grupoJugador2 = new ArrayList<String>();
+        grupoJugador1.add("uno");
+        grupoJugador2.add("cuatro");
+        grupoJugador2.add("tres");
+        var respuestaJugador = new Respuesta(grupoJugador1,grupoJugador2);
+        jugador1.respuestaElegida(respuestaJugador);
+        ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
+        respuestas.add(jugador1.getRespuesta());
+        pregunta.evaluarRespuesta(respuestas);
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
+    }
+    @Test
+    public void test04Jugador1AgrupaCorrectamenteYSumaUnPuntoJugador2AgrupaIncorrectamenteYNoSumaPuntos() {
+        CorrectorClasico clasico = new CorrectorClasico();
+        GroupChoice pregunta = new GroupChoice("Separe pares de impares", respuestaCorrecta, opciones, clasico);
+
+        var grupo1Jugador1 = new ArrayList<String>();
+        var grupo2Jugador1 = new ArrayList<String>();
+        var grupo1Jugador2 = new ArrayList<String>();
+        var grupo2Jugador2 = new ArrayList<String>();
+        //Las respuestas de cada uno están desordenadas para este test
+        grupo1Jugador1.add("tres");
+        grupo1Jugador1.add("uno");
+        grupo2Jugador1.add("cuatro");
+        grupo2Jugador1.add("dos");
+
+        grupo1Jugador2.add("uno");
+        grupo1Jugador2.add("cuatro");
+        grupo2Jugador2.add("dos");
+        grupo2Jugador2.add("tres");
+        var respuestaJugador1 = new Respuesta(grupo1Jugador1,grupo2Jugador1);
+        var respuestaJugador2 = new Respuesta(grupo1Jugador2,grupo2Jugador2);
+        jugador1.respuestaElegida(respuestaJugador1);
+        jugador2.respuestaElegida(respuestaJugador2);
+
+
+        ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
+        respuestas.add(jugador1.getRespuesta());
+        respuestas.add(jugador2.getRespuesta());
+        pregunta.evaluarRespuesta(respuestas);
+        jugador1.actualizarPuntaje();
+        jugador2.actualizarPuntaje();
+        assertEquals(1, jugador1.getPuntaje());
+        assertEquals(0, jugador2.getPuntaje());
     }
 }
