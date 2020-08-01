@@ -1,13 +1,14 @@
 package edu.fiuba.algo3.modelo.jugador;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
+import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
 
 
 public class Jugador {
 
     public String nombre;
-    //int puntos;
     private Respuesta respuesta;
     Puntaje puntaje = new Puntaje();
+    private int usosExclusividad = 2;
 
 
     public Jugador (String nombre){
@@ -32,5 +33,10 @@ public class Jugador {
 
     public Respuesta getRespuesta(){
         return this.respuesta;
+    }
+
+    public void usarExclusividad() throws NoTieneExclusividadException {
+        if (usosExclusividad == 0){throw new NoTieneExclusividadException();}
+        usosExclusividad --;
     }
 }

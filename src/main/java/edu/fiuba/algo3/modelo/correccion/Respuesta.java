@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.correccion;
 
+import edu.fiuba.algo3.modelo.Exclusividad;
+
 import java.util.ArrayList;
 
 public class Respuesta {
@@ -8,7 +10,6 @@ public class Respuesta {
     private ArrayList<String> primerGrupo;
     private ArrayList<String> segundoGrupo;
     private int puntosObtenidos = 0;
-    private Boolean respuestaCorrecta; //Quizas sirve despues
 
     public Respuesta(ArrayList<String> respuestas) {
         this.respuestas = respuestas;
@@ -42,14 +43,9 @@ public class Respuesta {
         return resultado;
     }
     public Resultado compararOrden(Respuesta respuestasJugador){
-        Resultado resultado = new Resultado(0, 0, this.respuestas.size());
-        var respuestas = respuestasJugador.getRespuesta();
-        for (int i = 0; i < respuestas.size(); i++){
-            if (this.respuestas.get(i).equals(respuestas.get(i))){
-                resultado.sumarCorrecta();
-            }else{
-                resultado.sumarIncorrecta();
-            }
+        Resultado resultado = new Resultado(0, 0, 1);
+        if (this.respuestas.equals(respuestasJugador.getRespuesta())){
+            resultado.sumarCorrecta();
         }
         return resultado;
     }
@@ -68,8 +64,13 @@ public class Respuesta {
     public void asignarPuntaje(int puntosObtenidos){
         this.puntosObtenidos = puntosObtenidos;
     }
-
     public int getPuntosObtenidos() {
         return this.puntosObtenidos;
+    }
+    public boolean esCorrecta(){
+        return this.puntosObtenidos > 0;
+    }
+    public void usarExclusividad(Exclusividad exclusividad) {
+        this.puntosObtenidos = exclusividad.calcularExclusividad(this.puntosObtenidos);
     }
 }
