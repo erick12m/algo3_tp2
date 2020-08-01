@@ -18,8 +18,9 @@ public class VerdaderoFalsoTest {
     private Jugador jugador2;
     private Pregunta pregunta;
     private ArrayList<String> opciones;
+
     @BeforeEach
-    protected void setUp(){
+    public void setUp(){
         jugador1 = new Jugador("Rafael");
         jugador2 = new Jugador("Pablo");
         opciones = new ArrayList<String>();
