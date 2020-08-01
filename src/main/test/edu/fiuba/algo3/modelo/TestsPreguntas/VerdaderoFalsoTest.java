@@ -15,8 +15,6 @@ public class VerdaderoFalsoTest {
     @Test
     public void test01JugadorRespondeCorrectamenteClasicoYSumaUnPunto() {
 
-        //Panel panel = new Panel();
-
         Jugador jugador = new Jugador("Rafael"); //No anda con moc
 
         ArrayList<String> respuesta = new ArrayList<String>();
@@ -138,8 +136,6 @@ public class VerdaderoFalsoTest {
     @Test
     public void test05JugadorRespondeCorrectamenteConPenalidadYSumaUnPunto() {
 
-        //Panel panel = new Panel();
-
         Jugador jugador = new Jugador("Rafael"); //No anda con moc
 
         ArrayList<String> respuesta = new ArrayList<String>();
@@ -169,8 +165,6 @@ public class VerdaderoFalsoTest {
 
     @Test
     public void test06JugadorConUnPuntoRespondeIncorrectamenteConPenalidadYAhoraTiene0Puntos() {
-
-        //Panel panel = new Panel();
 
         Jugador jugador = new Jugador("Rafael"); //No anda con moc
 
@@ -217,8 +211,6 @@ public class VerdaderoFalsoTest {
 
     @Test
     public void test07JugadorCon0PuntosRespondeIncorrectamenteConPenalidadYSigueCon0Puntos() {
-
-        //Panel panel = new Panel();
 
         Jugador jugador = new Jugador("Rafael"); //No anda con moc
 

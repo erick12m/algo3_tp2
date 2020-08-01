@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.correccion.Respuesta;
 public class Jugador {
 
     public String nombre;
-    //int puntos;
     private Respuesta respuesta;
     Puntaje puntaje = new Puntaje();
 
