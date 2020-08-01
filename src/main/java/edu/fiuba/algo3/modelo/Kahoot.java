@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
-import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
