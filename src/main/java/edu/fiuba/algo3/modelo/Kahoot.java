@@ -17,12 +17,6 @@ public class Kahoot {
     private ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
     private static Pregunta preguntaActual;
 
-    /*private static final Kahoot INSTANCE = new Kahoot();
-
-    private Kahoot() { }
-    public static Kahoot getInstance(){
-        return INSTANCE;
-    }*/
     public void setPreguntaActual(Pregunta preguntaActual){
         this.preguntaActual = preguntaActual;
     }

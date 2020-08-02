@@ -12,15 +12,15 @@ public class Jugador {
     private String nombre;
     private Respuesta respuesta;
     private Puntaje puntaje;
-    private int usosExclusividad = 2;
+    private int usosExclusividad = 1;
     private int multiplicador = 1;
-    private int usosMultiplicadorx2 = 2;
-    private int usosMultiplicadorx3 = 2;
+    private int usosMultiplicadorx2 = 1;
+    private int usosMultiplicadorx3 = 1;
 
     //TODO REVISAR BIEN ESTA PARTE QUE SOLO RESTA LOS USOS DE EXCLUSIVIDAD
     public void usarExclusividad() throws NoTieneExclusividadException {
         if (!Kahoot.esPreguntaConPenalidad() && usosExclusividad > 0) {
-            usosExclusividad--;
+            this.usosExclusividad--;
         } else {
             throw new NoTieneExclusividadException();
         }
@@ -28,8 +28,8 @@ public class Jugador {
 
     public void activarMultiplicadorx2() throws NoTieneMultiplicadorException {
         if (Kahoot.esPreguntaConPenalidad() && usosMultiplicadorx2 > 0){
-            usosMultiplicadorx2--;
-            multiplicador = 2;
+            this.usosMultiplicadorx2--;
+            this.multiplicador = 2;
         } else {
             throw new NoTieneMultiplicadorException();
         }
@@ -37,8 +37,8 @@ public class Jugador {
 
     public void activarMultiplicadorx3() throws NoTieneMultiplicadorException {
         if (Kahoot.esPreguntaConPenalidad() && usosMultiplicadorx3 > 0){
-            usosMultiplicadorx3--;
-            multiplicador = 3;
+            this.usosMultiplicadorx3--;
+            this.multiplicador = 3;
         } else {
             throw new NoTieneMultiplicadorException();
         }
@@ -57,7 +57,7 @@ public class Jugador {
     public void actualizarPuntaje() {
         int puntosObtenidos = respuesta.getPuntosObtenidos();
         puntaje.actualizarPuntaje(puntosObtenidos * multiplicador);
-        multiplicador = 1;
+        this.multiplicador = 1;
     }
 
     public String getNombre(){

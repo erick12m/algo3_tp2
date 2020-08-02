@@ -28,6 +28,7 @@ public class Exclusividad {
         if (respuestasCorrectas.size() == 1){
             respuestasCorrectas.get(0).usarExclusividad(this);
         }
+        this.usos = 0;
     }
     public int calcularExclusividad(int puntos){
         return puntos * usos * 2;
