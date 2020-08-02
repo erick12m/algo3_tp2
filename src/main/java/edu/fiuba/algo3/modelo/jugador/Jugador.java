@@ -47,7 +47,7 @@ public class Jugador {
 
     public void actualizarPuntaje() {
         int puntosObtenidos = respuesta.getPuntosObtenidos();
-        puntaje.actualizarPuntaje(puntosObtenidos);
+        puntaje.actualizarPuntaje(puntosObtenidos * multiplicador);
         multiplicador = 1;
     }
 

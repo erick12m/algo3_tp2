@@ -12,10 +12,4 @@ public class CorrectorPenalidad implements Corrector {
     public boolean tienePenalidad() {
         return true;
     }
-
-    /*public int corregirPregunta (Resultado resultado, Multiplicador multiplicador) {
-        int puntos = corregirPregunta (resultado);
-        puntos = multiplicador.multiplicarPuntaje(puntos);
-        return puntos;
-    }*/
 }
