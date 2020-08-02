@@ -44,7 +44,7 @@ public class Kahoot {
         } catch (NoTieneExclusividadException e) {
         }
     }
-
+    // TODO ACORDARSE DE DEFINIR QUE HACER CON LA PREGUNTA ACTUAL Y EL PARAMETRO PREGUNTA
     public void puntuarPregunta(Pregunta pregunta){
         var respuestas = this.obtenerRespuestas();
         pregunta.evaluarRespuesta(respuestas);

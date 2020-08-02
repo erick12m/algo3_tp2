@@ -12,10 +12,19 @@ public class Jugador {
     private String nombre;
     private Respuesta respuesta;
     private Puntaje puntaje;
-    private int usosExclusividad;
+    private int usosExclusividad = 2;
     private int multiplicador = 1;
     private int usosMultiplicadorx2 = 2;
     private int usosMultiplicadorx3 = 2;
+
+    //TODO REVISAR BIEN ESTA PARTE QUE SOLO RESTA LOS USOS DE EXCLUSIVIDAD
+    public void usarExclusividad() throws NoTieneExclusividadException {
+        if (!Kahoot.esPreguntaConPenalidad() && usosExclusividad > 0) {
+            usosExclusividad--;
+        } else {
+            throw new NoTieneExclusividadException();
+        }
+    }
 
     public void activarMultiplicadorx2() throws NoTieneMultiplicadorException {
         if (Kahoot.esPreguntaConPenalidad() && usosMultiplicadorx2 > 0){
@@ -38,7 +47,7 @@ public class Jugador {
     public Jugador (String nombre) {
         this.nombre = nombre;
         this.puntaje = new Puntaje();
-        this.usosExclusividad = 2;
+
     }
 
     public void respuestaElegida(Respuesta respuesta) {
@@ -49,11 +58,6 @@ public class Jugador {
         int puntosObtenidos = respuesta.getPuntosObtenidos();
         puntaje.actualizarPuntaje(puntosObtenidos * multiplicador);
         multiplicador = 1;
-    }
-
-    public void usarExclusividad() throws NoTieneExclusividadException {
-        if (usosExclusividad == 0){throw new NoTieneExclusividadException();}
-        usosExclusividad --;
     }
 
     public String getNombre(){

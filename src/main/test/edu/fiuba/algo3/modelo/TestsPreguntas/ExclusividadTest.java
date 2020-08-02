@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.TestsPreguntas;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
+import edu.fiuba.algo3.modelo.correccion.CorrectorPenalidad;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
@@ -34,6 +35,7 @@ public class ExclusividadTest {
         Respuesta respuestasCorrectas = new Respuesta(listaCorrectas);
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
+        kahoot.setPreguntaActual(pregunta);
         kahoot.usarExclusividad(jugador1);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");
@@ -45,6 +47,7 @@ public class ExclusividadTest {
         assertEquals(2, jugador1.getPuntaje());
         assertEquals(0, jugador2.getPuntaje());
     }
+
     @Test
     public void test02UnJugadorUsaExclusividadPeroAmbosRespondenCorrectamenteYNoHaceEfecto() {
         var jugador1 = new Jugador("Rafael");
@@ -65,6 +68,7 @@ public class ExclusividadTest {
         Respuesta respuestasCorrectas = new Respuesta(listaCorrectas);
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
+        kahoot.setPreguntaActual(pregunta);
         kahoot.usarExclusividad(jugador1);
         jugador2.respuestaElegida(respuestasCorrectas);
         jugador1.respuestaElegida(respuestasCorrectas);
@@ -73,6 +77,7 @@ public class ExclusividadTest {
         assertEquals(1, jugador1.getPuntaje());
         assertEquals(1, jugador2.getPuntaje());
     }
+
     @Test
     public void test03AmbosJugadoresUsanExclusividadYElUnicoQueRespondeCorrectamenteGana4Puntos() {
         var jugador1 = new Jugador("Rafael");
@@ -93,6 +98,7 @@ public class ExclusividadTest {
         Respuesta respuestasCorrectas = new Respuesta(listaCorrectas);
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
+        kahoot.setPreguntaActual(pregunta);
         kahoot.usarExclusividad(jugador1);
         kahoot.usarExclusividad(jugador2);
         var listaRespuestasJugador = new ArrayList<String>();
