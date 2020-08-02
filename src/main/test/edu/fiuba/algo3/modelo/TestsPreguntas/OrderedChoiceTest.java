@@ -117,4 +117,30 @@ public class OrderedChoiceTest {
         assertEquals(1, jugador1.getPuntaje());
         assertEquals(0, jugador2.getPuntaje());
     }
+    @Test
+    public void test05AmbosJugadoresOrdenanIncorrectamenteYNoSumanPuntos() {
+        CorrectorClasico clasico = new CorrectorClasico();
+
+        OrderedChoice pregunta = new OrderedChoice("Ordene los numeros en forma creciente", respuestaCorrecta, opciones, clasico);
+
+        var listaRespuestaJugador = new ArrayList<String>();
+        //Orden inverso
+        listaRespuestaJugador.add("cuatro");
+        listaRespuestaJugador.add("tres");
+        listaRespuestaJugador.add("dos");
+        listaRespuestaJugador.add("uno");
+        var respuestaJugador = new Respuesta(listaRespuestaJugador);
+        jugador2.respuestaElegida(respuestaJugador);
+        jugador1.respuestaElegida(respuestaJugador);
+
+
+        ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
+        respuestas.add(jugador1.getRespuesta());
+        respuestas.add(jugador2.getRespuesta());
+        pregunta.evaluarRespuesta(respuestas);
+        jugador1.actualizarPuntaje();
+        jugador2.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
+        assertEquals(0, jugador2.getPuntaje());
+    }
 }
