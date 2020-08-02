@@ -1,14 +1,10 @@
 package edu.fiuba.algo3.modelo.TestsPreguntas;
 
 import edu.fiuba.algo3.modelo.Kahoot;
-import edu.fiuba.algo3.modelo.Opcion;
 import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
-import edu.fiuba.algo3.modelo.correccion.CorrectorPenalidad;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
-import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
