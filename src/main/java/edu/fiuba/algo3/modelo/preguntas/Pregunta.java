@@ -8,25 +8,19 @@ import java.util.ArrayList;
 public abstract class Pregunta {
 
     public String enunciado;
-    public ArrayList<String> opciones; //cuando creamos la pregunta se le pasa una lista de opciones
+    public ArrayList<String> opciones;
     protected Respuesta respuestaCorrecta;
     protected Corrector corrector;
 
-
-
-
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
-        for(Respuesta respuestaJugador: respuestasJugadores){
-            Resultado resultado = this.respuestaCorrecta.compararCon(respuestaJugador);
+        for(Respuesta respuestaJugador: respuestasJugadores) {
+            Resultado resultado = respuestaCorrecta.compararCon(respuestaJugador);
             int puntosObtenidos = corrector.corregirPregunta(resultado);
             respuestaJugador.asignarPuntaje(puntosObtenidos);
         }
     }
 
-
-
-
-
-
-
+    public boolean tienePenalidad(){
+        return corrector.tienePenalidad();
+    }
 }

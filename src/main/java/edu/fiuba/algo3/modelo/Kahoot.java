@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
+import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
@@ -14,6 +15,17 @@ public class Kahoot {
     private Exclusividad exclusividad = new Exclusividad();
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
+    private static Pregunta preguntaActual;
+
+    /*private static final Kahoot INSTANCE = new Kahoot();
+
+    private Kahoot() { }
+    public static Kahoot getInstance(){
+        return INSTANCE;
+    }*/
+    public void setPreguntaActual(Pregunta preguntaActual){
+        this.preguntaActual = preguntaActual;
+    }
 
     public void agregarJugador(Jugador jugador) {
         this.jugadores.add(jugador);
@@ -40,4 +52,7 @@ public class Kahoot {
         this.jugadores.forEach(Jugador::actualizarPuntaje);
     }
 
+    public static boolean esPreguntaConPenalidad() {
+        return preguntaActual.tienePenalidad();
+    }
 }

@@ -132,8 +132,6 @@ public class VerdaderoFalsoTest {
 
         jugador1.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
 
-
-
         VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
 
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();

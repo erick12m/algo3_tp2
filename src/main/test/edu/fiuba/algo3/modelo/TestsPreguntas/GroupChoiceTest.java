@@ -45,7 +45,6 @@ public class GroupChoiceTest {
 
         jugador1.respuestaElegida(respuestaCorrecta);
 
-
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
@@ -65,7 +64,6 @@ public class GroupChoiceTest {
         grupoJugador2.add("tres");
         var respuestaJugador = new Respuesta(grupoJugador1,grupoJugador2);
         jugador1.respuestaElegida(respuestaJugador);
-
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(jugador1.getRespuesta());

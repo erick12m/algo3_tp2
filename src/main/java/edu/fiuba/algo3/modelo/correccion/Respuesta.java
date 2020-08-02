@@ -20,17 +20,6 @@ public class Respuesta {
         this.segundoGrupo = segundoGrupo;
     }
 
-    public ArrayList<String> getRespuesta() {
-        return this.respuestas;
-    }
-    public ArrayList<String> getPrimerGrupo() {
-        return this.primerGrupo;
-    }
-    public ArrayList<String> getSegundoGrupo() {
-        return this.segundoGrupo;
-    }
-
-
     public Resultado compararCon(Respuesta respuestasJugador){
         Resultado resultado = new Resultado(0, 0, this.respuestas.size());
         for(String respuestaJugador: respuestasJugador.getRespuesta()){
@@ -51,26 +40,41 @@ public class Respuesta {
     }
     public Resultado compararGrupos(Respuesta respuestasJugador){
         Resultado resultado = new Resultado(0, 0, 1);
+
         if (this.primerGrupo.containsAll(respuestasJugador.getPrimerGrupo())
                 && this.segundoGrupo.containsAll(respuestasJugador.getSegundoGrupo())){
             resultado.sumarCorrecta();
-        }else{
+        } else {
             resultado.sumarIncorrecta();
         }
         return resultado;
     }
 
+    public boolean esCorrecta(){
+        return this.puntosObtenidos > 0;
+    }
+
+    public void usarExclusividad(Exclusividad exclusividad) {
+        this.puntosObtenidos = exclusividad.calcularExclusividad(this.puntosObtenidos);
+    }
 
     public void asignarPuntaje(int puntosObtenidos){
         this.puntosObtenidos = puntosObtenidos;
     }
+
     public int getPuntosObtenidos() {
-        return this.puntosObtenidos;
+        return puntosObtenidos;
     }
-    public boolean esCorrecta(){
-        return this.puntosObtenidos > 0;
+
+    public ArrayList<String> getRespuesta() {
+        return respuestas;
     }
-    public void usarExclusividad(Exclusividad exclusividad) {
-        this.puntosObtenidos = exclusividad.calcularExclusividad(this.puntosObtenidos);
+
+    public ArrayList<String> getPrimerGrupo() {
+        return primerGrupo;
+    }
+
+    public ArrayList<String> getSegundoGrupo() {
+        return segundoGrupo;
     }
 }
