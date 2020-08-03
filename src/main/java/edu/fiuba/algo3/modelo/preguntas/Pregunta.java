@@ -23,4 +23,12 @@ public abstract class Pregunta {
     public boolean tienePenalidad(){
         return corrector.tienePenalidad();
     }
+
+    public ArrayList<String> getOpciones(){
+        return this.opciones;
+    }
+
+    public String getEnunciado(){
+        return this.enunciado;
+    }
 }

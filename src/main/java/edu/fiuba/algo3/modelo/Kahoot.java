@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
-import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
@@ -14,7 +13,6 @@ public class Kahoot {
     hacer lo de puntaje exclusivo */
     private Exclusividad exclusividad = new Exclusividad();
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
-    private ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
     private static Pregunta preguntaActual;
 
     public void setPreguntaActual(Pregunta preguntaActual){
@@ -39,9 +37,9 @@ public class Kahoot {
         }
     }
     // TODO ACORDARSE DE DEFINIR QUE HACER CON LA PREGUNTA ACTUAL Y EL PARAMETRO PREGUNTA
-    public void puntuarPregunta(Pregunta pregunta){
+    public void puntuarPregunta(){
         var respuestas = this.obtenerRespuestas();
-        pregunta.evaluarRespuesta(respuestas);
+        preguntaActual.evaluarRespuesta(respuestas);
         exclusividad.aplicar(respuestas);
         this.jugadores.forEach(Jugador::actualizarPuntaje);
     }
