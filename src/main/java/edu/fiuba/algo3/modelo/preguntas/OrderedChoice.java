@@ -12,6 +12,7 @@ public class OrderedChoice extends Pregunta{
         this.opciones = opciones;
         this.respuestaCorrecta = respuestasCorrectas;
         this.corrector = corrector;
+        this.nombre = "Ordered Choice";
     }
     @Override
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){

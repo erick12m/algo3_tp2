@@ -14,9 +14,14 @@ public class Kahoot {
     private Exclusividad exclusividad = new Exclusividad();
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private static Pregunta preguntaActual;
+    public static Jugador jugadorActual;
 
     public void setPreguntaActual(Pregunta preguntaActual){
-        this.preguntaActual = preguntaActual;
+        Kahoot.preguntaActual = preguntaActual;
+    }
+
+    public void setJugadorActual(Jugador jugadorActual){
+        Kahoot.jugadorActual = jugadorActual;
     }
 
     public void agregarJugador(Jugador jugador) {
@@ -46,5 +51,13 @@ public class Kahoot {
 
     public static boolean esPreguntaConPenalidad() {
         return preguntaActual.tienePenalidad();
+    }
+
+    public Pregunta getPreguntaActual() {
+        return Kahoot.preguntaActual;
+    }
+
+    public Jugador getJugadorActual() {
+        return Kahoot.jugadorActual;
     }
 }

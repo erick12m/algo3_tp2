@@ -11,6 +11,7 @@ public abstract class Pregunta {
     public ArrayList<String> opciones;
     protected Respuesta respuestaCorrecta;
     protected Corrector corrector;
+    protected String nombre;
 
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
         for(Respuesta respuestaJugador: respuestasJugadores) {
@@ -22,6 +23,10 @@ public abstract class Pregunta {
 
     public boolean tienePenalidad(){
         return corrector.tienePenalidad();
+    }
+
+    public String getNombre (){
+        return this.nombre;
     }
 
     public ArrayList<String> getOpciones(){

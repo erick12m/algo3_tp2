@@ -41,7 +41,7 @@ public class ExclusividadTest {
         jugador2.respuestaElegida(respuestasJugador);
         jugador1.respuestaElegida(respuestasCorrectas);
 
-        kahoot.puntuarPregunta(pregunta);
+        kahoot.puntuarPregunta();
         assertEquals(2, jugador1.getPuntaje());
         assertEquals(0, jugador2.getPuntaje());
     }
@@ -71,7 +71,7 @@ public class ExclusividadTest {
         jugador2.respuestaElegida(respuestasCorrectas);
         jugador1.respuestaElegida(respuestasCorrectas);
 
-        kahoot.puntuarPregunta(pregunta);
+        kahoot.puntuarPregunta();
         assertEquals(1, jugador1.getPuntaje());
         assertEquals(1, jugador2.getPuntaje());
     }
@@ -106,7 +106,7 @@ public class ExclusividadTest {
         jugador2.respuestaElegida(respuestasJugador);
         jugador1.respuestaElegida(respuestasCorrectas);
 
-        kahoot.puntuarPregunta(pregunta);
+        kahoot.puntuarPregunta();
         assertEquals(4, jugador1.getPuntaje());
         assertEquals(0, jugador2.getPuntaje());
     }
@@ -139,7 +139,7 @@ public class ExclusividadTest {
         jugador2.respuestaElegida(respuestasJugador);
         jugador1.respuestaElegida(respuestasCorrectas);
 
-        kahoot.puntuarPregunta(pregunta);
+        kahoot.puntuarPregunta();
         assertEquals(2, jugador1.getPuntaje());
         assertEquals(0, jugador2.getPuntaje());
 
@@ -156,7 +156,7 @@ public class ExclusividadTest {
         jugador1.respuestaElegida(respuestasCorrectas2);
         jugador2.respuestaElegida(respuestasCorrectas2);
 
-        kahoot.puntuarPregunta(pregunta);
+        kahoot.puntuarPregunta();
         assertEquals(3, jugador1.getPuntaje());
         assertEquals(1, jugador2.getPuntaje());
     }
@@ -189,7 +189,7 @@ public class ExclusividadTest {
         jugador2.respuestaElegida(respuestasJugador);
         jugador1.respuestaElegida(respuestasCorrectas);
 
-        kahoot.puntuarPregunta(pregunta);
+        kahoot.puntuarPregunta();
         assertEquals(2, jugador1.getPuntaje());
         assertEquals(0, jugador2.getPuntaje());
 
@@ -205,7 +205,7 @@ public class ExclusividadTest {
         jugador1.respuestaElegida(respuestasCorrectas2);
         jugador2.respuestaElegida(respuestasCorrectas2);
 
-        kahoot.puntuarPregunta(pregunta);
+        kahoot.puntuarPregunta();
         assertEquals(3, jugador1.getPuntaje());
         assertEquals(1, jugador2.getPuntaje());
     }

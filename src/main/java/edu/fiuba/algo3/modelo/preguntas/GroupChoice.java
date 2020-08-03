@@ -11,6 +11,7 @@ public class GroupChoice extends Pregunta{
         this.opciones = opciones;
         this.respuestaCorrecta = respuestasCorrectas;
         this.corrector = corrector;
+        this.nombre = "Group Choice";
     }
     @Override
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){

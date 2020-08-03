@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -32,14 +34,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        //var javaVersion = SystemInfo.javaVersion();
-        //var javafxVersion = SystemInfo.javafxVersion();
 
-        //var label = new Label("Hello World, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        //var scene = new Scene(new StackPane(label), 640, 480);
-        //stage.setScene(scene);
-        //stage.show();
         //Creating an array of Buttons
+        Kahoot kahoot = new Kahoot();
         var jugador1 = new Jugador("Rafael");
         var opciones = new ArrayList<String>();
         opciones.add("1");
@@ -47,16 +44,17 @@ public class App extends Application {
         opciones.add("3");
         opciones.add("4");
         ArrayList<String> respuesta = new ArrayList<String>();
-        respuesta.add("Verdadero");
+        respuesta.add("2");
+        respuesta.add("4");
 
         CorrectorClasico clasico = new CorrectorClasico();
         Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
-        jugador1.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
-
-        MultipleChoice verdaderoFalso = new MultipleChoice("Seleccione los numeros pares", respuestaCorrecta, opciones, clasico);
+        MultipleChoice pregunta = new MultipleChoice("Seleccione los numeros pares", respuestaCorrecta, opciones, clasico);
+        kahoot.setJugadorActual(jugador1);
+        kahoot.setPreguntaActual(pregunta);
         ArrayList<Button> botones = new ArrayList<Button>();
-        for (String opcion : verdaderoFalso.getOpciones()){
+        for (String opcion : kahoot.getPreguntaActual().getOpciones()){
             var boton = new Button(opcion);
             boton.setMinWidth(100);
             boton.setMinHeight(50);
@@ -69,18 +67,35 @@ public class App extends Application {
         rectangulo.setWidth(200);
         rectangulo.setArcHeight(10);
         rectangulo.setArcWidth(10);
-        rectangulo.setFill(Color.LIGHTGRAY);
+        rectangulo.setFill(Color.web("#0231B3"));
+
+        Rectangle panelJugador = new Rectangle();
+        panelJugador.setHeight(50);
+        panelJugador.setWidth(200);
+        panelJugador.setArcHeight(10);
+        panelJugador.setArcWidth(10);
+        panelJugador.setFill(Color.web("#0F50FF"));
 
         //Instantiating the VBox class
         VBox vBox = new VBox();
 
         //Setting the space between the nodes of a VBox pane
-        vBox.setSpacing(10);
+        vBox.setSpacing(0);
         vBox.setAlignment(Pos.CENTER);
+
         Text texto = new Text();
-        texto.setText(verdaderoFalso.getEnunciado());
+        texto.setText(pregunta.getNombre() +":\n\n\n" + pregunta.getEnunciado());
+        texto.setFill(Color.WHITE);
+        texto.setTextAlignment(TextAlignment.CENTER);
         StackPane stack = new StackPane();
         stack.getChildren().addAll(rectangulo,texto);
+
+        Text nombreJugador = new Text();
+        nombreJugador.setText("Juega: " + kahoot.getJugadorActual().getNombre());
+        nombreJugador.setFill(Color.WHITE);
+        StackPane stackJugador = new StackPane();
+        stackJugador.getChildren().addAll(panelJugador, nombreJugador);
+
         //Setting the orientation for the Tile Pane
         tilePane.setOrientation(Orientation.HORIZONTAL);
         //Setting the alignment for the Tile Pane
@@ -99,14 +114,12 @@ public class App extends Application {
         list.addAll(botones);
 
         ObservableList lista2 = vBox.getChildren();
-        lista2.addAll(stack,tilePane);
+        lista2.addAll(stackJugador, stack, tilePane);
 
         //Creating a scene object
         Scene scene = new Scene(vBox);
-
         //Setting title to the Stage
-        stage.setTitle("Tile Pane Example");
-
+        stage.setTitle("AlgoHoot");
         //Adding scene to the stage
         stage.setScene(scene);
 
