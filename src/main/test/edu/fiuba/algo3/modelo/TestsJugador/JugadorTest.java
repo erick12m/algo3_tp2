@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.TestsJugador;
 
 import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
 import edu.fiuba.algo3.modelo.correccion.CorrectorPenalidad;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
@@ -161,13 +162,11 @@ public class JugadorTest {
         assertEquals(4, jugador.getPuntaje());
 
     }
-}
-
- /*   @Test
-    public void testChevere(){
+    /* TODO descomentar cuando se filtre que el multiplicador no actue en penalidad
+    @Test
+    public void test06ElJugadorIntentaActivaMultiplicadorx2EnPreguntaSinPenalidadYnoHaceEfecto() throws NoTieneMultiplicadorException {
         Kahoot kahoot = new Kahoot();
         Jugador jugador = new Jugador("Rafael");
-
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -175,10 +174,19 @@ public class JugadorTest {
         ArrayList<String> respuesta = new ArrayList<String>();
         respuesta.add("Verdadero");
 
-        CorrectorClasico penalidad = new CorrectorClasico();
+        CorrectorClasico clasico = new CorrectorClasico();
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
 
-        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", new Respuesta(opciones), opciones, penalidad);
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, clasico);
         kahoot.setPreguntaActual(verdaderoFalso);
-        jugador.activarMultiplicador();
-    }
-*/
+        ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
+        respuestaJugador.add(jugador.getRespuesta());
+
+        jugador.activarMultiplicadorx2();
+
+        verdaderoFalso.evaluarRespuesta(respuestaJugador);
+        jugador.actualizarPuntaje();
+        assertEquals(1, jugador.getPuntaje());
+    } */
+}

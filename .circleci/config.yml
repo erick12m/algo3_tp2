@@ -9,6 +9,9 @@ jobs:
   build:
     docker:
       - image: circleci/openjdk:11.0-stretch-node-browsers-legacy
+    ignore:
+      -"src/main/java/edu.fiuba.algo3/Controladores"
+      -"src/main/java/edu.fiuba.algo3/Vistas"
     steps:
       - checkout
       - run : mvn test

@@ -73,7 +73,7 @@ public class Kahoot {
     }
     // TODO ACORDARSE DE DEFINIR QUE HACER CON LA PREGUNTA ACTUAL Y EL PARAMETRO PREGUNTA
     public void puntuarPregunta(){
-        var respuestas = this.obtenerRespuestas();
+        var respuestas   = this.obtenerRespuestas();
         preguntaActual.evaluarRespuesta(respuestas);
         exclusividad.aplicar(respuestas);
         this.jugadores.forEach(Jugador::actualizarPuntaje);
