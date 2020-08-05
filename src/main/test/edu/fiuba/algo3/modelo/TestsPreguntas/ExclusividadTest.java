@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.TestsPreguntas;
 
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
+import edu.fiuba.algo3.modelo.correccion.CorrectorPenalidad;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
@@ -208,4 +209,37 @@ public class ExclusividadTest {
         assertEquals(3, jugador1.getPuntaje());
         assertEquals(1, jugador2.getPuntaje());
     }
+    @Test
+    public void test06JugadorIntentaActivarPreguntaConExclusividadPeroNoHaceEfectoEnPreguntaConPenalidad() {
+        var jugador1 = new Jugador("Rafael");
+        var jugador2 = new Jugador("Pablo");
+        Kahoot kahoot = new Kahoot();
+        kahoot.agregarJugador(jugador1);
+        kahoot.agregarJugador(jugador2);
+        var opciones = new ArrayList<String>();
+        opciones.add("uno");
+        opciones.add("dos");
+        opciones.add("tres");
+        opciones.add("cuatro");
+
+        var listaCorrectas = new ArrayList<String>();
+        listaCorrectas.add("uno");
+        listaCorrectas.add("dos");
+        listaCorrectas.add("tres");
+        Respuesta respuestasCorrectas = new Respuesta(listaCorrectas);
+        CorrectorPenalidad penalidad = new CorrectorPenalidad();
+        MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, penalidad);
+        kahoot.setPreguntaActual(pregunta);
+        kahoot.usarExclusividad(jugador1);
+        var listaRespuestasJugador = new ArrayList<String>();
+        listaRespuestasJugador.add("cuatro");
+        var respuestasJugador = new Respuesta(listaRespuestasJugador);
+        jugador2.respuestaElegida(respuestasJugador);
+        jugador1.respuestaElegida(respuestasCorrectas);
+
+        kahoot.puntuarPregunta();
+        assertEquals(3, jugador1.getPuntaje());
+        assertEquals(0, jugador2.getPuntaje());
+    }
+
 }
