@@ -12,6 +12,7 @@ public class VerdaderoFalso extends Pregunta {
         this.opciones = opciones;
         this.respuestaCorrecta = respuestaCorrecta;
         this.corrector = corrector;
+        this.nombre = "Verdadero o Falso";
     }
 
 }

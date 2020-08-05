@@ -1,32 +1,39 @@
 package edu.fiuba.algo3.modelo.preguntas;
+import edu.fiuba.algo3.modelo.correccion.Corrector;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.correccion.Resultado;
-import edu.fiuba.algo3.modelo.correccion.Corrector;
 
 import java.util.ArrayList;
 
 public abstract class Pregunta {
 
     public String enunciado;
-    public ArrayList<String> opciones; //cuando creamos la pregunta se le pasa una lista de opciones
+    public ArrayList<String> opciones;
     protected Respuesta respuestaCorrecta;
     protected Corrector corrector;
-
-
-
+    protected String nombre;
 
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
-        for(Respuesta respuestaJugador: respuestasJugadores){
-            Resultado resultado = this.respuestaCorrecta.compararCon(respuestaJugador);
+        for(Respuesta respuestaJugador: respuestasJugadores) {
+            Resultado resultado = respuestaCorrecta.compararCon(respuestaJugador);
             int puntosObtenidos = corrector.corregirPregunta(resultado);
             respuestaJugador.asignarPuntaje(puntosObtenidos);
         }
     }
 
+    public boolean tienePenalidad(){
+        return corrector.tienePenalidad();
+    }
 
+    public String getNombre (){
+        return this.nombre;
+    }
 
+    public ArrayList<String> getOpciones(){
+        return this.opciones;
+    }
 
-
-
-
+    public String getEnunciado(){
+        return this.enunciado;
+    }
 }

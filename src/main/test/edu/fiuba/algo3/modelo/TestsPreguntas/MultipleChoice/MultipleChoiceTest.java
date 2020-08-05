@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.TestsPreguntas;
+package edu.fiuba.algo3.modelo.TestsPreguntas.MultipleChoice;
 
 import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
 import edu.fiuba.algo3.modelo.correccion.CorrectorParcial;
@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.correccion.CorrectorPenalidad;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,148 +14,95 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MultipleChoiceTest {
+    private Jugador jugador1;
+    private Jugador jugador2;
+    private ArrayList<String> opciones;
+    private Respuesta respuestasCorrectas;
+
+    @BeforeEach
+    public void setUp(){
+        jugador1 = new Jugador("Rafael");
+        jugador2 = new Jugador("Pablo");
+
+        opciones = new ArrayList<String>();
+        opciones.add("uno");
+        opciones.add("dos");
+        opciones.add("tres");
+        opciones.add("cuatro");
+
+        var listaCorrectas = new ArrayList<String>();
+        listaCorrectas.add("uno");
+        listaCorrectas.add("dos");
+        listaCorrectas.add("tres");
+        respuestasCorrectas = new Respuesta(listaCorrectas);
+
+    }
     //Test Puntaje Clasico
     @Test
     public void test01PuntajeClasicoJugadorRespondeCorrectamenteYSumaUnPunto() {
-
-        Jugador jugador = new Jugador("Rafael"); //No anda con moc
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorClasico clasico = new CorrectorClasico();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
-
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
-        var respuestasJugador = new ArrayList<String>();
 
-
-        jugador.respuestaElegida(respuestasCorrectas);
-
+        jugador1.respuestaElegida(respuestasCorrectas);
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(jugador.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        jugador.actualizarPuntaje();
-        assertEquals(1, jugador.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(1, jugador1.getPuntaje());
     }
     @Test
     public void test02PuntajeClasicoJugadorRespondeIncorrectamenteYSigueEn0Puntos(){
-        Jugador jugador = new Jugador("Rafael"); //No anda con moc
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorClasico clasico = new CorrectorClasico();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
-
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         var respuestasJugador = new ArrayList<String>();
         respuestasJugador.add("cuatro");
 
-        jugador.respuestaElegida(new Respuesta(respuestasJugador));
+        jugador1.respuestaElegida(new Respuesta(respuestasJugador));
 
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(jugador.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        jugador.actualizarPuntaje();
-        assertEquals(0, jugador.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
     }
     @Test
     public void test03PuntajeClasicoJugadorRespondeIncorrectamenteEligiendoMenosOpcionesCorrectasYSigueTeniendoCeroPuntos() {
-
-        Jugador jugador = new Jugador("Rafael");
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorClasico clasico = new CorrectorClasico();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
-
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("uno");
         var respuestasJugador = new Respuesta(listaRespuestasJugador);
-        jugador.respuestaElegida(respuestasJugador);
+        jugador1.respuestaElegida(respuestasJugador);
 
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(jugador.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        jugador.actualizarPuntaje();
-        assertEquals(0, jugador.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
     }
     @Test
     public void test04PuntajeClasicoJugadorRespondeIncorrectamenteEligiendoOpcionIncorrectaYSigueTeniendoCeroPuntos() {
-
-        Jugador jugador = new Jugador("Rafael");
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorClasico clasico = new CorrectorClasico();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
 
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");
         var respuestasJugador = new Respuesta(listaRespuestasJugador);
-        jugador.respuestaElegida(respuestasJugador);
+        jugador1.respuestaElegida(respuestasJugador);
 
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(jugador.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        jugador.actualizarPuntaje();
-        assertEquals(0, jugador.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
     }
     @Test
     public void test05PuntajeClasicoRafaelRespondeCorrectamenteYGana1PuntoYPabloIncorrectamenteYSigueEn0() {
-
-        Jugador jugador1 = new Jugador("Rafael");
-        Jugador jugador2 = new Jugador("Pablo");
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorClasico clasico = new CorrectorClasico();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
-
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");
@@ -174,54 +122,27 @@ public class MultipleChoiceTest {
     //Test Puntaje Parcial
     @Test
     public void test06PuntajeParcialJugadorRespondeCorrectamenteYSumaTantosPuntosComoRespuestasCorrectas(){
-        Jugador rafael = new Jugador("Rafael");
-        Jugador pablo = new Jugador("Pablo");
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorParcial parcial = new CorrectorParcial();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
 
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, parcial);
         var listaRespuestasJugador2 = new ArrayList<String>();
-        rafael.respuestaElegida(respuestasCorrectas);
+        jugador1.respuestaElegida(respuestasCorrectas);
         listaRespuestasJugador2.add("uno");
-        pablo.respuestaElegida(new Respuesta(listaRespuestasJugador2));
+        jugador2.respuestaElegida(new Respuesta(listaRespuestasJugador2));
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(rafael.getRespuesta());
-        respuestas.add(pablo.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
+        respuestas.add(jugador2.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        rafael.actualizarPuntaje();
-        pablo.actualizarPuntaje();
-        assertEquals(3, rafael.getPuntaje());
-        assertEquals(1,pablo.getPuntaje());
+        jugador1.actualizarPuntaje();
+        jugador2.actualizarPuntaje();
+        assertEquals(3, jugador1.getPuntaje());
+        assertEquals(1,jugador2.getPuntaje());
 
     }
     @Test
     public void test07PuntajeParcialJugadorRespondeAlgunasCorrectasYUnaIncorrectaYNoSumaPuntos(){
-        Jugador jugador = new Jugador("Rafael"); //No anda con moc
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorParcial parcial = new CorrectorParcial();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
 
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, parcial);
         var respuestasJugador = new ArrayList<String>();
@@ -229,31 +150,18 @@ public class MultipleChoiceTest {
         respuestasJugador.add("dos");
         respuestasJugador.add("cuatro");
 
-        jugador.respuestaElegida(new Respuesta(respuestasJugador));
+        jugador1.respuestaElegida(new Respuesta(respuestasJugador));
 
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(jugador.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        jugador.actualizarPuntaje();
-        assertEquals(0, jugador.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
     }
     @Test
     public void test08PuntajeParcialRafaelRespondeCorrectamenteDosYPabloUnaYObtienenPuntajeCorrecto(){
-        Jugador jugador1 = new Jugador("Rafael");
-        Jugador jugador2 = new Jugador("Pablo");
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorParcial parcial = new CorrectorParcial();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
 
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, parcial);
         var listaRespuestasJugador1 = new ArrayList<String>();
@@ -278,98 +186,59 @@ public class MultipleChoiceTest {
     //Test Puntaje Penalidad
     @Test
     public void test09PuntajePenalidadJugadorResponde2CorrectasY1IncorrectaYTiene1Punto(){
-        Jugador rafael = new Jugador("Rafael");
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorPenalidad penalidad = new CorrectorPenalidad();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
 
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, penalidad);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("uno");
         listaRespuestasJugador.add("dos");
         listaRespuestasJugador.add("cuatro");
-        rafael.respuestaElegida(new Respuesta(listaRespuestasJugador));
+        jugador1.respuestaElegida(new Respuesta(listaRespuestasJugador));
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(rafael.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        rafael.actualizarPuntaje();
-        assertEquals(1, rafael.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(1, jugador1.getPuntaje());
 
     }
     @Test
     public void test10PuntajePenalidadJugadorQueTeniaUnPuntoRespondeIncorrectamenteYLoPierde(){
-        Jugador rafael = new Jugador("Rafael");
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorPenalidad penalidad = new CorrectorPenalidad();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
 
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, penalidad);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("uno");
-        rafael.respuestaElegida(new Respuesta(listaRespuestasJugador));
+        jugador1.respuestaElegida(new Respuesta(listaRespuestasJugador));
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(rafael.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        rafael.actualizarPuntaje();
-        assertEquals(1, rafael.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(1, jugador1.getPuntaje());
 
         listaRespuestasJugador.remove(0);
         listaRespuestasJugador.add("cuatro");
-        rafael.respuestaElegida(new Respuesta(listaRespuestasJugador));
+        jugador1.respuestaElegida(new Respuesta(listaRespuestasJugador));
         respuestas.remove(0);
-        respuestas.add(rafael.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        rafael.actualizarPuntaje();
-        assertEquals(0, rafael.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
     }
     @Test
     public void test11PuntajePenalidadJugadorQueTiene0PuntosRespondeMalYSigueTeniendo0Puntos(){
-        Jugador rafael = new Jugador("Rafael");
-
-        var listaCorrectas = new ArrayList<String>();
-        listaCorrectas.add("uno");
-        listaCorrectas.add("dos");
-        listaCorrectas.add("tres");
         CorrectorPenalidad penalidad = new CorrectorPenalidad();
-        var respuestasCorrectas = new Respuesta(listaCorrectas);
-
-        ArrayList<String> opciones = new ArrayList<String>();
-        opciones.add("uno");
-        opciones.add("dos");
-        opciones.add("tres");
-        opciones.add("cuatro");
 
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, penalidad);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");
-        rafael.respuestaElegida(new Respuesta(listaRespuestasJugador));
+        jugador1.respuestaElegida(new Respuesta(listaRespuestasJugador));
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
-        respuestas.add(rafael.getRespuesta());
+        respuestas.add(jugador1.getRespuesta());
         pregunta.evaluarRespuesta(respuestas);
-        rafael.actualizarPuntaje();
-        assertEquals(0, rafael.getPuntaje());
+        jugador1.actualizarPuntaje();
+        assertEquals(0, jugador1.getPuntaje());
     }
 }

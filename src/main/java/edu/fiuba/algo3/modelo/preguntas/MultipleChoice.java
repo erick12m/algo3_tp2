@@ -11,5 +11,6 @@ public class MultipleChoice extends Pregunta{
         this.opciones = opciones;
         this.respuestaCorrecta = respuestasCorrectas;
         this.corrector = corrector;
+        this.nombre = "Multiple Choice";
     }
 }
