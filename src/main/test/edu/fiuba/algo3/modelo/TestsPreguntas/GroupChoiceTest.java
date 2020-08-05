@@ -188,4 +188,24 @@ public class GroupChoiceTest {
         assertEquals(0, jugador1.getPuntaje());
         assertEquals(0, jugador2.getPuntaje());
     }
+    @Test
+    public void test07JugadorAgrupaCorrectamenteEnDistintoOrdenYSumaPuntos() {
+        CorrectorClasico clasico = new CorrectorClasico();
+        GroupChoice pregunta = new GroupChoice("Separe pares de impares", respuestaCorrecta, opciones, clasico);
+
+        var grupoJugador1 = new ArrayList<String>();
+        var grupoJugador2 = new ArrayList<String>();
+        grupoJugador1.add("cuatro");
+        grupoJugador1.add("dos");
+        grupoJugador2.add("tres");
+        grupoJugador2.add("uno");
+        var respuestaJugador = new Respuesta(grupoJugador1,grupoJugador2);
+        jugador1.respuestaElegida(respuestaJugador);
+
+        ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
+        respuestas.add(jugador1.getRespuesta());
+        pregunta.evaluarRespuesta(respuestas);
+        jugador1.actualizarPuntaje();
+        assertEquals(1, jugador1.getPuntaje());
+    }
 }

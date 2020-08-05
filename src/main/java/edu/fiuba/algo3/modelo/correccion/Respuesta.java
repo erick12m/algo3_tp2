@@ -2,7 +2,9 @@ package edu.fiuba.algo3.modelo.correccion;
 
 import edu.fiuba.algo3.modelo.Exclusividad;
 
+import java.text.CollationElementIterator;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Respuesta {
 
@@ -16,6 +18,8 @@ public class Respuesta {
     }
 
     public Respuesta(ArrayList<String> primerGrupo, ArrayList<String> segundoGrupo) {
+        Collections.sort(primerGrupo);
+        Collections.sort(segundoGrupo);
         this.primerGrupo = primerGrupo;
         this.segundoGrupo = segundoGrupo;
     }
@@ -40,9 +44,12 @@ public class Respuesta {
     }
     public Resultado compararGrupos(Respuesta respuestasJugador){
         Resultado resultado = new Resultado(0, 0, 1);
-
-        if (this.primerGrupo.containsAll(respuestasJugador.getPrimerGrupo())
-                && this.segundoGrupo.containsAll(respuestasJugador.getSegundoGrupo())){
+        var primerGrupoJugador = respuestasJugador.getPrimerGrupo();
+        var segundoGrupoJugador = respuestasJugador.getSegundoGrupo();
+        Collections.sort(primerGrupoJugador);
+        Collections.sort(segundoGrupoJugador);
+        if ((this.primerGrupo.equals(primerGrupoJugador) || this.segundoGrupo.equals(primerGrupoJugador))
+                && (this.segundoGrupo.equals(segundoGrupoJugador) || this.primerGrupo.equals(segundoGrupoJugador))){
             resultado.sumarCorrecta();
         } else {
             resultado.sumarIncorrecta();
