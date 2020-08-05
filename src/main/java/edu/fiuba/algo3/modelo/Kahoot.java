@@ -6,23 +6,25 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class Kahoot {
     private Exclusividad exclusividad = new Exclusividad();
-    private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+    private Queue<Jugador> jugadores = new LinkedList<>();
     private static Pregunta preguntaActual;
     public static Jugador jugadorActual;
     private ArrayList<Pregunta> listaDePreguntas;
 
-    /*private Kahoot(String nombreJugador1, String nombreJugador2){
+    public Kahoot(String nombreJugador1, String nombreJugador2) {
         this.crearJugadores(nombreJugador1, nombreJugador2);
         //listaDePreguntas = FabricaDePreguntas.crearPreguntas(); TODO implementar despues la fabrica de preguntas
-    }*/
+    }
 
     public String getGanador(){
-        Jugador jugador1 = jugadores.get(0);
-        Jugador jugador2 = jugadores.get(1);
+        Jugador jugador1 = jugadores.poll();
+        Jugador jugador2 = jugadores.poll();
         int puntosJugador1 = jugador1.getPuntaje();
         int puntosJugador2 = jugador2.getPuntaje();
 
@@ -38,20 +40,23 @@ public class Kahoot {
         Jugador jugador1  = new Jugador(nombreJugador1);
         Jugador jugador2 = new Jugador(nombreJugador2);
 
-        jugadores.add(jugador1);
-        jugadores.add(jugador2);
-
+        jugadores.offer(jugador1);
+        jugadores.offer(jugador2);
+        // TODO no pude hacer el random con la cola
         //El que comienza respondiendo se elige de manera random
-        double numRandom = Math.random();
-        jugadorActual = (numRandom > 0.5) ? jugador1 : jugador2;
+        //double numRandom = Math.random();
+        //jugadorActual = (numRandom > 0.5) ? jugador1 : jugador2;
+        jugadorActual = jugadores.remove();
+        jugadores.offer(jugadorActual);
     }
 
     public void setPreguntaActual(Pregunta preguntaActual){
         Kahoot.preguntaActual = preguntaActual;
     }
 
-    public void setJugadorActual(Jugador jugadorActual){
-        Kahoot.jugadorActual = jugadorActual;
+    public void siguienteJugador(){
+        this.jugadorActual =  jugadores.remove();
+        jugadores.offer(this.jugadorActual);
     }
 
     public void agregarJugador(Jugador jugador) {

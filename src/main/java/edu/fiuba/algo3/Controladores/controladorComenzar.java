@@ -17,7 +17,7 @@ public class controladorComenzar implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         ContenedorCargaDeNombres contenedorCargaDeNombres = new ContenedorCargaDeNombres(ventana);
-        Scene escenaCarga = new Scene(contenedorCargaDeNombres, 550, 400);
+        Scene escenaCarga = new Scene(contenedorCargaDeNombres, 640, 359);
         ventana.setScene(escenaCarga);
     }
 }
