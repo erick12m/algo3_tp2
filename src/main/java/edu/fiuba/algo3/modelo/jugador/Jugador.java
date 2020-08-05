@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.jugador;
 import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.modelo.Multiplicador;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
@@ -13,9 +14,7 @@ public class Jugador {
     private Respuesta respuesta;
     private Puntaje puntaje;
     private int usosExclusividad = 1;
-    private int multiplicador = 1;
-    private int usosMultiplicadorx2 = 1;
-    private int usosMultiplicadorx3 = 1;
+    private Multiplicador multiplicador = new Multiplicador();
 
     //TODO REVISAR BIEN ESTA PARTE QUE SOLO RESTA LOS USOS DE EXCLUSIVIDAD
     public void usarExclusividad() throws NoTieneExclusividadException {
@@ -25,23 +24,13 @@ public class Jugador {
             throw new NoTieneExclusividadException();
         }
     }
-
+    //TODO recordar filtrar lo de si es con penalidad
     public void activarMultiplicadorx2() throws NoTieneMultiplicadorException {
-        if (Kahoot.esPreguntaConPenalidad() && usosMultiplicadorx2 > 0){
-            this.usosMultiplicadorx2--;
-            this.multiplicador = 2;
-        } else {
-            throw new NoTieneMultiplicadorException();
-        }
+        this.multiplicador.activarMultiplicador(2);
     }
 
     public void activarMultiplicadorx3() throws NoTieneMultiplicadorException {
-        if (Kahoot.esPreguntaConPenalidad() && usosMultiplicadorx3 > 0){
-            this.usosMultiplicadorx3--;
-            this.multiplicador = 3;
-        } else {
-            throw new NoTieneMultiplicadorException();
-        }
+        this.multiplicador.activarMultiplicador(3);
     }
 
     public Jugador (String nombre) {
@@ -56,8 +45,8 @@ public class Jugador {
 
     public void actualizarPuntaje() {
         int puntosObtenidos = respuesta.getPuntosObtenidos();
-        puntaje.actualizarPuntaje(puntosObtenidos * multiplicador);
-        this.multiplicador = 1;
+        puntaje.actualizarPuntaje(this.multiplicador.usarMultiplicador(puntosObtenidos));
+        this.multiplicador.resetear();
     }
 
     public String getNombre(){
