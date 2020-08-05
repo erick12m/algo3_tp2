@@ -30,7 +30,7 @@ public class VerdaderoFalsoTest {
     @Test
     public void test01JugadorRespondeCorrectamenteClasicoYSumaUnPunto() {
 
-<
+
         ArrayList<String> respuesta = new ArrayList<String>();
         respuesta.add("Verdadero");
 
@@ -125,7 +125,7 @@ public class VerdaderoFalsoTest {
 
     @Test
     public void test05JugadorRespondeCorrectamenteConPenalidadYSumaUnPunto() {
-<
+
         ArrayList<String> respuesta = new ArrayList<String>();
         respuesta.add("Verdadero");
 
