@@ -1,0 +1,3 @@
+ignore:
+  - "src/main/java/edu.fiuba.algo3/Controladores"
+  - "src/main/java/edu.fiuba.algo3/Vistas"
