@@ -36,4 +36,32 @@ public abstract class Pregunta {
     public String getEnunciado(){
         return this.enunciado;
     }
+
+    public Respuesta getRespuestaCorrecta() {
+        return this.respuestaCorrecta;
+    }
+
+    public Corrector getCorrector() {
+        return this.corrector;
+    }
+
+    public void setEnunciado(String enunciado){
+        this.enunciado = enunciado;
+    }
+
+    public void setOpciones(ArrayList<String> opciones){
+        this.opciones = opciones;
+    }
+
+    public void setRespuestaCorrecta(Respuesta respuestaCorrecta){
+        this.respuestaCorrecta = respuestaCorrecta;
+    }
+
+    public void setCorrector (Corrector corrector){
+        this.corrector = corrector;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }
