@@ -15,11 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ExclusividadTest {
     @Test
     public void test01RafaelRespondeCorrectamenteConExclusividadYGana2PuntosYPabloIncorrectamenteYSigueEn0() {
-        var jugador1 = new Jugador("Rafael");
-        var jugador2 = new Jugador("Pablo");
-        Kahoot kahoot = new Kahoot();
-        kahoot.agregarJugador(jugador1);
-        kahoot.agregarJugador(jugador2);
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("uno");
         opciones.add("dos");
@@ -34,10 +30,13 @@ public class ExclusividadTest {
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         kahoot.setPreguntaActual(pregunta);
+        var jugador1 = kahoot.getJugadorActual();
         kahoot.usarExclusividad(jugador1);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");
         var respuestasJugador = new Respuesta(listaRespuestasJugador);
+        kahoot.siguienteJugador();
+        var jugador2 = kahoot.getJugadorActual();
         jugador2.respuestaElegida(respuestasJugador);
         jugador1.respuestaElegida(respuestasCorrectas);
 
@@ -48,11 +47,7 @@ public class ExclusividadTest {
 
     @Test
     public void test02UnJugadorUsaExclusividadPeroAmbosRespondenCorrectamenteYNoHaceEfecto() {
-        var jugador1 = new Jugador("Rafael");
-        var jugador2 = new Jugador("Pablo");
-        Kahoot kahoot = new Kahoot();
-        kahoot.agregarJugador(jugador1);
-        kahoot.agregarJugador(jugador2);
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("uno");
         opciones.add("dos");
@@ -67,7 +62,10 @@ public class ExclusividadTest {
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         kahoot.setPreguntaActual(pregunta);
+        var jugador1 = kahoot.getJugadorActual();
         kahoot.usarExclusividad(jugador1);
+        kahoot.siguienteJugador();
+        var jugador2 = kahoot.getJugadorActual();
         jugador2.respuestaElegida(respuestasCorrectas);
         jugador1.respuestaElegida(respuestasCorrectas);
 
@@ -78,11 +76,7 @@ public class ExclusividadTest {
 
     @Test
     public void test03AmbosJugadoresUsanExclusividadYElUnicoQueRespondeCorrectamenteGana4Puntos() {
-        var jugador1 = new Jugador("Rafael");
-        var jugador2 = new Jugador("Pablo");
-        Kahoot kahoot = new Kahoot();
-        kahoot.agregarJugador(jugador1);
-        kahoot.agregarJugador(jugador2);
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("uno");
         opciones.add("dos");
@@ -97,6 +91,9 @@ public class ExclusividadTest {
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         kahoot.setPreguntaActual(pregunta);
+        var jugador1 = kahoot.getJugadorActual();
+        kahoot.siguienteJugador();
+        var jugador2 = kahoot.getJugadorActual();
         kahoot.usarExclusividad(jugador1);
         kahoot.usarExclusividad(jugador2);
         var listaRespuestasJugador = new ArrayList<String>();
@@ -113,11 +110,7 @@ public class ExclusividadTest {
 
     @Test
     public void test04JugadorIntentaUsarExclusividadPorSegundaVezYNoHaceEfecto() {
-        var jugador1 = new Jugador("Rafael");
-        var jugador2 = new Jugador("Pablo");
-        Kahoot kahoot = new Kahoot();
-        kahoot.agregarJugador(jugador1);
-        kahoot.agregarJugador(jugador2);
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("uno");
         opciones.add("dos");
@@ -132,6 +125,9 @@ public class ExclusividadTest {
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         kahoot.setPreguntaActual(pregunta);
+        var jugador1 = kahoot.getJugadorActual();
+        kahoot.siguienteJugador();
+        var jugador2 = kahoot.getJugadorActual();
         kahoot.usarExclusividad(jugador1);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");
@@ -163,11 +159,7 @@ public class ExclusividadTest {
 
     @Test
     public void test05JugadorUsaExclusividadUnTurnoYAlSiguienteTurnoNoAplicaElEfecto() {
-        var jugador1 = new Jugador("Rafael");
-        var jugador2 = new Jugador("Pablo");
-        Kahoot kahoot = new Kahoot();
-        kahoot.agregarJugador(jugador1);
-        kahoot.agregarJugador(jugador2);
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("uno");
         opciones.add("dos");
@@ -182,6 +174,9 @@ public class ExclusividadTest {
         CorrectorClasico clasico = new CorrectorClasico();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, clasico);
         kahoot.setPreguntaActual(pregunta);
+        var jugador1 = kahoot.getJugadorActual();
+        kahoot.siguienteJugador();
+        var jugador2 = kahoot.getJugadorActual();
         kahoot.usarExclusividad(jugador1);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");
@@ -211,11 +206,7 @@ public class ExclusividadTest {
     }
     @Test
     public void test06JugadorIntentaActivarPreguntaConExclusividadPeroNoHaceEfectoEnPreguntaConPenalidad() {
-        var jugador1 = new Jugador("Rafael");
-        var jugador2 = new Jugador("Pablo");
-        Kahoot kahoot = new Kahoot();
-        kahoot.agregarJugador(jugador1);
-        kahoot.agregarJugador(jugador2);
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("uno");
         opciones.add("dos");
@@ -230,6 +221,9 @@ public class ExclusividadTest {
         CorrectorPenalidad penalidad = new CorrectorPenalidad();
         MultipleChoice pregunta = new MultipleChoice("Elegir los numeros en palabras 1 2 3", respuestasCorrectas, opciones, penalidad);
         kahoot.setPreguntaActual(pregunta);
+        var jugador1 = kahoot.getJugadorActual();
+        kahoot.siguienteJugador();
+        var jugador2 = kahoot.getJugadorActual();
         kahoot.usarExclusividad(jugador1);
         var listaRespuestasJugador = new ArrayList<String>();
         listaRespuestasJugador.add("cuatro");

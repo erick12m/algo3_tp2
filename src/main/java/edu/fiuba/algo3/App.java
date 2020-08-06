@@ -1,6 +1,5 @@
 package edu.fiuba.algo3;
 
-import com.google.gson.Gson;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
@@ -37,8 +36,7 @@ public class App extends Application {
     public void start(Stage stage) {
 
         //Creating an array of Buttons
-        Kahoot kahoot = new Kahoot();
-        var jugador1 = new Jugador("Rafael");
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("1");
         opciones.add("2");
@@ -53,7 +51,6 @@ public class App extends Application {
 
         MultipleChoice pregunta = new MultipleChoice("Seleccione los numeros pares", respuestaCorrecta, opciones, clasico);
 
-        kahoot.setJugadorActual(jugador1);
         kahoot.setPreguntaActual(pregunta);
         ArrayList<Button> botones = new ArrayList<Button>();
         for (String opcion : kahoot.getPreguntaActual().getOpciones()){

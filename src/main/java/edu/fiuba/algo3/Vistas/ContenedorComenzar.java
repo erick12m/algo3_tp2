@@ -8,10 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ContenedorComenzar extends BorderPane {
+public class ContenedorComenzar extends StackPane {
 
     public ContenedorComenzar(Stage primaryStage){
 
@@ -27,19 +28,20 @@ public class ContenedorComenzar extends BorderPane {
         botonSalir.setOnAction(e -> primaryStage.close());
         //botonSonido.setOnAction(e -> mediaPlayer.pause());
 
-        Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",1500,150,true,true);
+        Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,359,true,true);
         final ImageView imagenVista = new ImageView(imagen);
-
-        VBox botoneraPrincipal = new VBox(40, imagenVista, botonComenzar, botonSalir);
+        VBox botoneraPrincipal = new VBox(40, botonComenzar, botonSalir);
         HBox botoneraSecundaria = new HBox(300, botonSonido);
-
+        BorderPane border = new BorderPane();
+        border.setTop(botoneraSecundaria);
+        border.setBottom(botoneraPrincipal);
         //Alineaciones
         botoneraPrincipal.setAlignment(Pos.CENTER); //alinea los botones principales
         botoneraSecundaria.setPadding(new Insets(10)); //separa los botones secundarios de la ventana
         botoneraSecundaria.setAlignment(Pos.TOP_CENTER); //alinea los botones secundarios
 
-        this.setTop(botoneraSecundaria);
-        this.setCenter(botoneraPrincipal);
+
+        this.getChildren().addAll(imagenVista,border);
 
     }
 

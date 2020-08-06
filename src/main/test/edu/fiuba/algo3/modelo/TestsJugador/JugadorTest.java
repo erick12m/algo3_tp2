@@ -28,8 +28,7 @@ public class JugadorTest {
 
     @Test
     public void test03ElJugadorActivaMultiplicadorx2YDevuelveDoblePuntos() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot();
-        Jugador jugador = new Jugador("Rafael");
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -43,6 +42,7 @@ public class JugadorTest {
         VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
         kahoot.setPreguntaActual(verdaderoFalso);
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        var jugador = kahoot.getJugadorActual();
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         respuestaJugador.add(jugador.getRespuesta());
 
@@ -55,8 +55,7 @@ public class JugadorTest {
 
     @Test
     public void test04ElJugadorActivaMultiplicadorx3YDevuelveDoblePuntos() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot();
-        Jugador jugador = new Jugador("Rafael");
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -70,6 +69,7 @@ public class JugadorTest {
         VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
         kahoot.setPreguntaActual(verdaderoFalso);
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        var jugador = kahoot.getJugadorActual();
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         respuestaJugador.add(jugador.getRespuesta());
 
@@ -81,8 +81,7 @@ public class JugadorTest {
     }
     @Test
     public void test04ElJugadorActivaMultiplicadorx2YEnLaSiguientePreguntaNoHaceEfecto() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot();
-        Jugador jugador = new Jugador("Rafael");
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -95,7 +94,7 @@ public class JugadorTest {
 
         VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
         kahoot.setPreguntaActual(verdaderoFalso);
-
+        var jugador = kahoot.getJugadorActual();
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
@@ -123,8 +122,7 @@ public class JugadorTest {
 
     @Test
     public void test05ElJugadorActivaMultiplicadorx3YEnLaSiguientePreguntaNoHaceEfecto() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot();
-        Jugador jugador = new Jugador("Rafael");
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -137,7 +135,7 @@ public class JugadorTest {
 
         VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
         kahoot.setPreguntaActual(verdaderoFalso);
-
+        var jugador = kahoot.getJugadorActual();
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
