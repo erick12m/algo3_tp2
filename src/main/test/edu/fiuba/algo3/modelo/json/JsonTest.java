@@ -1,19 +1,23 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.modelo.json;
 
 import com.google.gson.*;
+import edu.fiuba.algo3.json.AdaptadorCorrector;
+import edu.fiuba.algo3.modelo.correccion.Corrector;
 import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
 import edu.fiuba.algo3.modelo.correccion.Respuesta;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
-public class JsonPrueba {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    static public void main(String[] args) throws IOException {
+public class JsonTest {
+
+    @Test
+    public void test01() throws IOException {
         var opciones = new ArrayList<String>();
         opciones.add("1");
         opciones.add("2");
@@ -29,9 +33,13 @@ public class JsonPrueba {
         MultipleChoice pregunta = new MultipleChoice("Seleccione los numeros pares", respuestaCorrecta, opciones, clasico);
 
         // Creamos el objeto Gson que se encargara de las conversiones
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        // Convertimos un objecto sencillo a JSON
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Corrector.class, new AdaptadorCorrector());
+        //builder.registerTypeAdapter(Pregunta.class, new AbstractElementAdapter());
+        Gson gson = builder.setPrettyPrinting().create();
+
+        // Convertimos una pregunta a JSON
         String json = gson.toJson(pregunta);
         System.out.println(json);
         System.out.println();
@@ -39,6 +47,12 @@ public class JsonPrueba {
         FileWriter writer = new FileWriter("preguntas.json");
         writer.write(json);
         writer.close();
+
+        // Pasa de JSON a pregunta
+        MultipleChoice preguntaJson = gson.fromJson(json, MultipleChoice.class);
+        System.out.println(preguntaJson);
+
+        assertEquals(pregunta.getEnunciado(), preguntaJson.getEnunciado());
 
     }
 

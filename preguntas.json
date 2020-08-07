@@ -1,6 +1,9 @@
 {
   "nombre": "Multiple Choice",
-  "corrector": {},
+  "corrector": {
+    "CLASSNAME": "edu.fiuba.algo3.modelo.correccion.CorrectorClasico",
+    "DATA": {}
+  },
   "enunciado": "Seleccione los numeros pares",
   "opciones": [
     "1",
