@@ -1,1 +1,18 @@
-{"enunciado":"Seleccione los numeros pares","opciones":["1","2","3","4"],"respuestaCorrecta":{"respuestas":["2","4"],"puntosObtenidos":0},"corrector":{},"nombre":"Multiple Choice"}
+{
+  "nombre": "Multiple Choice",
+  "corrector": {},
+  "enunciado": "Seleccione los numeros pares",
+  "opciones": [
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
+  "respuestaCorrecta": {
+    "respuestas": [
+      "2",
+      "4"
+    ],
+    "puntosObtenidos": 0
+  }
+}

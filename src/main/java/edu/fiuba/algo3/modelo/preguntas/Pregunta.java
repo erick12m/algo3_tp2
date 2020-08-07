@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public abstract class Pregunta {
 
-    public String enunciado;
-    public ArrayList<String> opciones;
-    protected Respuesta respuestaCorrecta;
-    protected Corrector corrector;
     protected String nombre;
+    protected Corrector corrector;
+    protected String enunciado;
+    protected ArrayList<String> opciones;
+    protected Respuesta respuestaCorrecta;
 
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
         for(Respuesta respuestaJugador: respuestasJugadores) {

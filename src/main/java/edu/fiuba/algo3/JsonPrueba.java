@@ -29,7 +29,7 @@ public class JsonPrueba {
         MultipleChoice pregunta = new MultipleChoice("Seleccione los numeros pares", respuestaCorrecta, opciones, clasico);
 
         // Creamos el objeto Gson que se encargara de las conversiones
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         // Convertimos un objecto sencillo a JSON
         String json = gson.toJson(pregunta);
