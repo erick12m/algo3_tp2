@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import edu.fiuba.algo3.json.AdaptadorCorrector;
+import edu.fiuba.algo3.json.GestorObjetosJson;
 import edu.fiuba.algo3.modelo.correcciones.Corrector;
 
 import java.io.*;
@@ -25,27 +26,34 @@ public class FabricaPreguntas {
     }
 
     private static ArrayList<Pregunta> crearVerdaderoFalso() throws FileNotFoundException {
-        return recuperarObjetosJson(new TypeToken<ArrayList<VerdaderoFalso>>(){}.getType()
+        Gson gson = GestorObjetosJson.crearGJson();
+        return GestorObjetosJson.recuperarObjetosJson(gson,new TypeToken<ArrayList<VerdaderoFalso>>(){}.getType()
                 ,"preguntasVerdaderoFalso.json");
     }
 
     private static ArrayList<Pregunta> crearMultipleChoice() throws FileNotFoundException {
-
-        return recuperarObjetosJson(new TypeToken<ArrayList<MultipleChoice>>(){}.getType()
+        Gson gson = GestorObjetosJson.crearGJson();
+        return GestorObjetosJson.recuperarObjetosJson(gson, new TypeToken<ArrayList<MultipleChoice>>(){}.getType()
                 ,"preguntasMultipleChoice.json");
     }
 
     private static ArrayList<Pregunta> crearOrderedChoice() throws FileNotFoundException{
-        return recuperarObjetosJson(new TypeToken<ArrayList<OrderedChoice>>(){}.getType()
+        Gson gson = GestorObjetosJson.crearGJson();
+        return GestorObjetosJson.recuperarObjetosJson(gson, new TypeToken<ArrayList<OrderedChoice>>(){}.getType()
                 ,"preguntasOrderedChoice.json");
     }
 
     private static ArrayList<Pregunta> crearGroupChoice() throws FileNotFoundException {
-        return recuperarObjetosJson(new TypeToken<ArrayList<GroupChoice>>(){}.getType()
+        Gson gson = GestorObjetosJson.crearGJson();
+        return GestorObjetosJson.recuperarObjetosJson(gson, new TypeToken<ArrayList<GroupChoice>>(){}.getType()
                 ,"preguntasGroupChoice.json");
+
+        //SE ELIMINARIA EL gson Y EL LLAMADO A LA CLASE ESTATICA GESTOROBJETOSJSON E IGUAL ANDANDARIA
+        //SI SE DECIDE ELIMINAR LA CLASE GestorObjetosJson
     }
 
-    private static ArrayList<Pregunta> recuperarObjetosJson(Type tipoPreguntas
+    //TODO SI LA CLASE GESTOR DE OBJETOS ES MUY EXAGERADA SE ELIMINA Y QUEDA ESTO
+    /*private static ArrayList<Pregunta> recuperarObjetosJson(Type tipoPreguntas
             ,String rutaObjetosJson) throws FileNotFoundException {
 
         GsonBuilder builder = new GsonBuilder();
@@ -56,5 +64,5 @@ public class FabricaPreguntas {
         ArrayList<Pregunta> preguntasJson = gson.fromJson(bufferedReader, tipoPreguntas);
 
         return preguntasJson;
-    }
+    }*/
 }
