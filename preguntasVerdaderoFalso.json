@@ -1,0 +1,39 @@
+[
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "1 + 1 = 2?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Verdadero"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "1 + 2 = 2?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Falso"
+      ],
+      "puntosObtenidos": 0
+    }
+  }
+]

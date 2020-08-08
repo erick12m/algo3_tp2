@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.correccion;
+package edu.fiuba.algo3.modelo.correcciones;
 
 public interface Corrector {
 

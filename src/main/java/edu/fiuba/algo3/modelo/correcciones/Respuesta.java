@@ -1,8 +1,7 @@
-package edu.fiuba.algo3.modelo.correccion;
+package edu.fiuba.algo3.modelo.correcciones;
 
-import edu.fiuba.algo3.modelo.Exclusividad;
+import edu.fiuba.algo3.modelo.utilizablesJugador.Exclusividad;
 
-import java.text.CollationElementIterator;
 import java.util.ArrayList;
 import java.util.Collections;
 

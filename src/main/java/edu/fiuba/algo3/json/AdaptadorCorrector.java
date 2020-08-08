@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.json;
 
 import com.google.gson.*;
-import edu.fiuba.algo3.modelo.correccion.Corrector;
-import edu.fiuba.algo3.modelo.correccion.Corrector.*;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.correcciones.Corrector;
 
 import java.lang.reflect.Type;
 
@@ -31,12 +29,10 @@ public class AdaptadorCorrector implements JsonSerializer, JsonDeserializer {
         return jsonObject;
     }
 
-    /****** Helper method to get the className of the object to be deserialized *****/
     public Class getObjectClass(String className) {
         try {
             return Class.forName(className);
         } catch (ClassNotFoundException e) {
-            //e.printStackTrace();
             throw new JsonParseException(e.getMessage());
         }
     }

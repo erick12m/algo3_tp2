@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.TestsPreguntas.MultipleChoice;
 
-import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
-import edu.fiuba.algo3.modelo.correccion.CorrectorParcial;
-import edu.fiuba.algo3.modelo.correccion.CorrectorPenalidad;
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
+import edu.fiuba.algo3.modelo.correcciones.CorrectorClasico;
+import edu.fiuba.algo3.modelo.correcciones.CorrectorParcial;
+import edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
 import org.junit.jupiter.api.BeforeEach;

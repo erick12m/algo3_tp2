@@ -1,0 +1,89 @@
+[
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Seleccione los numeros pares",
+    "opciones": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "2",
+        "4"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Seleccione los numeros impares",
+    "opciones": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "1",
+        "3"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Quien vino primero?",
+    "opciones": [
+      "El huevo",
+      "Aun no sabemos la respuesta a esta interrogante",
+      "La gallina",
+      "La respuesta esta en tu corazon"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Aun no sabemos la respuesta a esta interrogante"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Cuales de los siguientes elementos pertenecen a la tabla periodica",
+    "opciones": [
+      "Potasio K",
+      "Cianuro CN",
+      "Molibdeno Mo",
+      "Wolframio W"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Potasio K",
+        "Molibdeno Mo",
+        "Wolframio W"
+      ],
+      "puntosObtenidos": 0
+    }
+  }
+]

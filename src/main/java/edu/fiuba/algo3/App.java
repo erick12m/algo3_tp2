@@ -1,25 +1,19 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Kahoot;
-import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.correcciones.CorrectorClasico;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
-import edu.fiuba.algo3.modelo.preguntas.VerdaderoFalso;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;

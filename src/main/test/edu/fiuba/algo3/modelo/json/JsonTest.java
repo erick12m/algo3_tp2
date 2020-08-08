@@ -1,18 +1,21 @@
 package edu.fiuba.algo3.modelo.json;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import edu.fiuba.algo3.json.AdaptadorCorrector;
-import edu.fiuba.algo3.modelo.correccion.Corrector;
-import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
-import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
+import edu.fiuba.algo3.modelo.TestsPreguntas.GroupChoiceTest;
+import edu.fiuba.algo3.modelo.correcciones.Corrector;
+import edu.fiuba.algo3.modelo.correcciones.CorrectorClasico;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
+import edu.fiuba.algo3.modelo.preguntas.*;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JsonTest {
 
@@ -32,28 +35,42 @@ public class JsonTest {
 
         MultipleChoice pregunta = new MultipleChoice("Seleccione los numeros pares", respuestaCorrecta, opciones, clasico);
 
-        // Creamos el objeto Gson que se encargara de las conversiones
-
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Corrector.class, new AdaptadorCorrector());
-        //builder.registerTypeAdapter(Pregunta.class, new AbstractElementAdapter());
         Gson gson = builder.setPrettyPrinting().create();
 
         // Convertimos una pregunta a JSON
         String json = gson.toJson(pregunta);
-        System.out.println(json);
-        System.out.println();
-
-        FileWriter writer = new FileWriter("preguntas.json");
-        writer.write(json);
-        writer.close();
 
         // Pasa de JSON a pregunta
-        MultipleChoice preguntaJson = gson.fromJson(json, MultipleChoice.class);
-        System.out.println(preguntaJson);
+        Type tipoPreguntas = new TypeToken<ArrayList<MultipleChoice>>(){}.getType();
+        InputStream is = new FileInputStream (new File ("preguntasMultipleChoice.json"));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+        ArrayList<MultipleChoice> preguntaJson = gson.fromJson(bufferedReader, tipoPreguntas);
 
-        assertEquals(pregunta.getEnunciado(), preguntaJson.getEnunciado());
-
+        assertEquals(pregunta.getEnunciado(), preguntaJson.get(0).getEnunciado());
     }
 
+    @Test // LA PRUEBA NO SE SI NECESITAN IR, ESTAN PARA CHEQUEAR SI FUNCIONABA
+    public void test02SeCreanLasPreguntasConLaFabricaYDevuelveUnArregloDeTamanio10() throws FileNotFoundException {
+
+        ArrayList<Pregunta> preguntas = FabricaPreguntas.crearPreguntas();
+        assertEquals(10, preguntas.size());
+
+        // OBVIO ESTO NO HACE FALTA SOLO PARA CHECAR SI ANDABA
+        System.out.println(preguntas.get(0).getEnunciado());
+        System.out.println(preguntas.get(1).getEnunciado());
+        System.out.println(preguntas.get(2).getEnunciado());
+        System.out.println(preguntas.get(3).getEnunciado());
+        System.out.println(preguntas.get(4).getEnunciado());
+        System.out.println(preguntas.get(5).getEnunciado());
+        System.out.println(preguntas.get(6).getEnunciado());
+        System.out.println(preguntas.get(7).getEnunciado());
+        System.out.println(preguntas.get(8).getEnunciado());
+        System.out.println(preguntas.get(9).getEnunciado());
+        /*System.out.println(preguntas.get(9).getNombre());
+        System.out.println(preguntas.get(6).getNombre());
+        System.out.println(preguntas.get(6).getCorrector().tienePenalidad());
+        System.out.println(preguntas.get(7).getCorrector().tienePenalidad());*/
+    }
 }

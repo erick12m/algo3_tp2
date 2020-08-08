@@ -1,0 +1,49 @@
+[
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Ordene los numeros en forma creciente",
+    "opciones": [
+      "uno",
+      "dos",
+      "tres",
+      "cuatro"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "uno",
+        "dos",
+        "tres",
+        "cuatro"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Ordene de mayor a menor segun el numero de copas ganadas por equipo",
+    "opciones": [
+      "Independiente",
+      "River",
+      "Boca",
+      "Racing"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing"
+      ],
+      "puntosObtenidos": 0
+    }
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe los pares de los impares",
+    "opciones": [
+      "uno",
+      "dos",
+      "tres",
+      "cuatro"
+    ],
+    "respuestaCorrecta": {
+      "primerGrupo": [
+        "tres",
+        "uno"
+      ],
+      "segundoGrupo": [
+        "cuatro",
+        "dos"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Separe los deportes que requieran balon de los que no",
+    "opciones": [
+      "Beisbol",
+      "Futbol",
+      "Surf",
+      "Atletismo"
+    ],
+    "respuestaCorrecta": {
+      "primerGrupo": [
+        "Beisbol",
+        "Futbol"
+      ],
+      "segundoGrupo": [
+        "Surf",
+        "Atletismo"
+      ],
+      "puntosObtenidos": 0
+    }
+  }
+]
