@@ -15,10 +15,14 @@ public abstract class Pregunta {
 
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
         for(Respuesta respuestaJugador: respuestasJugadores) {
-            Resultado resultado = respuestaCorrecta.compararCon(respuestaJugador);
+            Resultado resultado = obtenerResultado(respuestaJugador);
             int puntosObtenidos = corrector.corregirPregunta(resultado);
             respuestaJugador.asignarPuntaje(puntosObtenidos);
         }
+    }
+
+    public Resultado obtenerResultado(Respuesta respuestaJugador){
+        return respuestaCorrecta.compararCon(respuestaJugador);
     }
 
     public boolean tienePenalidad(){
