@@ -15,11 +15,7 @@ public class OrderedChoice extends Pregunta{
         this.nombre = "Ordered Choice";
     }
     @Override
-    public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
-        for(Respuesta respuestaJugador: respuestasJugadores){
-            Resultado resultado = this.respuestaCorrecta.compararOrden(respuestaJugador);
-            int puntosObtenidos = corrector.corregirPregunta(resultado);
-            respuestaJugador.asignarPuntaje(puntosObtenidos);
-        }
+    public Resultado obtenerResultado(Respuesta respuestaJugador){
+           return respuestaCorrecta.compararOrden(respuestaJugador);
     }
 }

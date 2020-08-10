@@ -13,12 +13,9 @@ public class GroupChoice extends Pregunta{
         this.corrector = corrector;
         this.nombre = "Group Choice";
     }
+
     @Override
-    public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
-        for(Respuesta respuestaJugador: respuestasJugadores){
-            Resultado resultado = this.respuestaCorrecta.compararGrupos(respuestaJugador);
-            int puntosObtenidos = corrector.corregirPregunta(resultado);
-            respuestaJugador.asignarPuntaje(puntosObtenidos);
-        }
+    public Resultado obtenerResultado(Respuesta respuestaJugador){
+            return respuestaCorrecta.compararGrupos(respuestaJugador);
     }
 }
