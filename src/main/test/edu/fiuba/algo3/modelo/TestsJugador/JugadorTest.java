@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.TestsJugador;
 
 import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.modelo.correcciones.CorrectorClasico;
 import edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
+import edu.fiuba.algo3.modelo.excepciones.RondaFinalizadaException;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.VerdaderoFalso;
 import org.junit.jupiter.api.Test;
@@ -44,7 +46,6 @@ public class JugadorTest {
         var jugador = kahoot.getJugadorActual();
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         respuestaJugador.add(jugador.getRespuesta());
-
         jugador.activarMultiplicadorx2();
 
         verdaderoFalso.evaluarRespuesta(respuestaJugador);
@@ -71,7 +72,6 @@ public class JugadorTest {
         var jugador = kahoot.getJugadorActual();
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         respuestaJugador.add(jugador.getRespuesta());
-
         jugador.activarMultiplicadorx3();
 
         verdaderoFalso.evaluarRespuesta(respuestaJugador);
@@ -97,7 +97,6 @@ public class JugadorTest {
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
-
         jugador.activarMultiplicadorx2();
 
         verdaderoFalso.evaluarRespuesta(respuestaJugador);
@@ -138,7 +137,6 @@ public class JugadorTest {
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
         respuestaJugador.add(jugador.getRespuesta());
-
         jugador.activarMultiplicadorx3();
 
         verdaderoFalso.evaluarRespuesta(respuestaJugador);
@@ -159,11 +157,10 @@ public class JugadorTest {
         assertEquals(4, jugador.getPuntaje());
 
     }
-    /* TODO descomentar cuando se filtre que el multiplicador no actue en penalidad
+
     @Test
-    public void test06ElJugadorIntentaActivaMultiplicadorx2EnPreguntaSinPenalidadYnoHaceEfecto() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot();
-        Jugador jugador = new Jugador("Rafael");
+    public void test06ElJugadorIntentaActivaMultiplicadorx2EnPreguntaSinPenalidadYnoHaceEfecto() throws NoTieneMultiplicadorException, RondaFinalizadaException {
+        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -177,6 +174,8 @@ public class JugadorTest {
         VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, clasico);
         kahoot.setPreguntaActual(verdaderoFalso);
         ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        kahoot.siguienteJugador();
+        var jugador = kahoot.getJugadorActual();
         jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
         respuestaJugador.add(jugador.getRespuesta());
 
@@ -185,5 +184,5 @@ public class JugadorTest {
         verdaderoFalso.evaluarRespuesta(respuestaJugador);
         jugador.actualizarPuntaje();
         assertEquals(1, jugador.getPuntaje());
-    } */
+    }
 }

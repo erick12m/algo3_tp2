@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.jugador;
 import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.modelo.correcciones.Corrector;
 import edu.fiuba.algo3.modelo.utilizablesJugador.Multiplicador;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
@@ -16,7 +17,7 @@ public class Jugador {
 
     //TODO REVISAR BIEN ESTA PARTE QUE SOLO RESTA LOS USOS DE EXCLUSIVIDAD
     public void usarExclusividad() throws NoTieneExclusividadException {
-        if (!Kahoot.esPreguntaConPenalidad() && usosExclusividad > 0) {
+        if (usosExclusividad > 0) {
             this.usosExclusividad--;
         } else {
             throw new NoTieneExclusividadException();
@@ -24,11 +25,15 @@ public class Jugador {
     }
     //TODO recordar filtrar lo de si es con penalidad
     public void activarMultiplicadorx2() throws NoTieneMultiplicadorException {
-        this.multiplicador.activarMultiplicador(2);
+        if (Kahoot.esPreguntaConPenalidad()){
+            this.multiplicador.activarMultiplicador(2);
+        }
     }
 
     public void activarMultiplicadorx3() throws NoTieneMultiplicadorException {
-        this.multiplicador.activarMultiplicador(3);
+        if (Kahoot.esPreguntaConPenalidad()){
+            this.multiplicador.activarMultiplicador(3);
+        }
     }
 
     public Jugador (String nombre) {

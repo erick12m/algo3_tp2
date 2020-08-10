@@ -11,12 +11,7 @@ public class Exclusividad {
     private int usos = 0;
 
     public void sumarUso(Jugador jugador) throws NoTieneExclusividadException {
-
-        try {
-            jugador.usarExclusividad();
-        } catch (NoTieneExclusividadException e) {
-            return;
-        }
+        jugador.usarExclusividad();
         this.usos++;
     }
 

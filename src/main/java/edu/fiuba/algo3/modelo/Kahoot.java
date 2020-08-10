@@ -1,13 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
+import edu.fiuba.algo3.modelo.excepciones.GameOverException;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
+import edu.fiuba.algo3.modelo.excepciones.RondaFinalizadaException;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.utilizablesJugador.Exclusividad;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
@@ -16,11 +21,33 @@ public class Kahoot {
     private Queue<Jugador> jugadores = new LinkedList<>();
     private static Pregunta preguntaActual;
     public static Jugador jugadorActual;
-    private ArrayList<Pregunta> listaDePreguntas;
+    private Queue<Pregunta> listaDePreguntas;
+    private int contador = 0;
 
     public Kahoot(String nombreJugador1, String nombreJugador2) {
         this.crearJugadores(nombreJugador1, nombreJugador2);
-        //listaDePreguntas = FabricaDePreguntas.crearPreguntas(); TODO implementar despues la fabrica de preguntas
+        try{
+            listaDePreguntas = new LinkedList<>(FabricaPreguntas.crearPreguntas());
+        } catch (FileNotFoundException e){
+        }
+    }
+
+    public void siguientePregunta() throws GameOverException {
+        try{
+            preguntaActual = listaDePreguntas.remove();
+            contador = 0;
+        } catch(NoSuchElementException e){
+            throw new GameOverException();
+        }
+    }
+
+    public void siguienteJugador() throws RondaFinalizadaException {
+        if (contador == 2){
+            throw new RondaFinalizadaException();
+        }
+        jugadorActual = jugadores.remove();
+        jugadores.offer(jugadorActual);
+        contador++;
     }
 
     public String getGanador(){
@@ -53,15 +80,7 @@ public class Kahoot {
 
     public void setPreguntaActual(Pregunta preguntaActual){
         Kahoot.preguntaActual = preguntaActual;
-    }
-
-    public void siguienteJugador(){
-        this.jugadorActual =  jugadores.remove();
-        jugadores.offer(this.jugadorActual);
-    }
-
-    public void agregarJugador(Jugador jugador) {
-        this.jugadores.add(jugador);
+        contador = 0;
     }
 
     public ArrayList<Respuesta> obtenerRespuestas() {
@@ -71,11 +90,9 @@ public class Kahoot {
         return respuestas;
     }
 
-    public void usarExclusividad(Jugador jugador){
-        try {
-            this.exclusividad.sumarUso(jugador);
-        } catch (NoTieneExclusividadException e) {
-        }
+    public void usarExclusividad(Jugador jugador) throws NoTieneExclusividadException {
+        if (this.preguntaActual.tienePenalidad()){ return; }
+        this.exclusividad.sumarUso(jugador);
     }
     // TODO ACORDARSE DE DEFINIR QUE HACER CON LA PREGUNTA ACTUAL Y EL PARAMETRO PREGUNTA
     public void puntuarPregunta(){
