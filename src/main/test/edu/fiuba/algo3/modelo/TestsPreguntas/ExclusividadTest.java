@@ -21,7 +21,8 @@ public class ExclusividadTest {
     private ArrayList<String> opciones;
     @BeforeEach
     public void setUp(){
-        kahoot = new Kahoot("Rafael", "Pablo");
+        kahoot = new Kahoot();
+        kahoot.crearJugadores("Rafael", "Pablo");
         opciones = new ArrayList<String>();
         opciones.add("uno");
         opciones.add("dos");

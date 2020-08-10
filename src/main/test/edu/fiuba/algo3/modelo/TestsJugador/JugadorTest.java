@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import edu.fiuba.algo3.modelo.excepciones.RondaFinalizadaException;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.VerdaderoFalso;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,6 +16,14 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JugadorTest {
+
+    private Kahoot kahoot;
+
+    @BeforeEach
+    public void setUp(){
+        kahoot = new Kahoot();
+        kahoot.crearJugadores("Rafael", "Roger");
+    }
     @Test
     public void test01ElJugadorSeCreaCorrectamente() {
         Jugador jugador = new Jugador("Rafael");
@@ -29,7 +38,6 @@ public class JugadorTest {
 
     @Test
     public void test03ElJugadorActivaMultiplicadorx2YDevuelveDoblePuntos() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -55,7 +63,6 @@ public class JugadorTest {
 
     @Test
     public void test04ElJugadorActivaMultiplicadorx3YDevuelveDoblePuntos() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -80,7 +87,6 @@ public class JugadorTest {
     }
     @Test
     public void test04ElJugadorActivaMultiplicadorx2YEnLaSiguientePreguntaNoHaceEfecto() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -120,7 +126,6 @@ public class JugadorTest {
 
     @Test
     public void test05ElJugadorActivaMultiplicadorx3YEnLaSiguientePreguntaNoHaceEfecto() throws NoTieneMultiplicadorException {
-        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -160,7 +165,6 @@ public class JugadorTest {
 
     @Test
     public void test06ElJugadorIntentaActivaMultiplicadorx2EnPreguntaSinPenalidadYnoHaceEfecto() throws NoTieneMultiplicadorException, RondaFinalizadaException {
-        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");

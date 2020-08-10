@@ -63,4 +63,8 @@ public class Jugador {
     public Respuesta getRespuesta(){
         return respuesta;
     }
+
+    public void setearPuntaje(int puntos){ //Para testear
+        puntaje.actualizarPuntaje(puntos);
+    }
 }

@@ -30,7 +30,8 @@ public class App extends Application {
     public void start(Stage stage) {
 
         //Creating an array of Buttons
-        Kahoot kahoot = new Kahoot("Rafael", "Pablo");
+        Kahoot kahoot = new Kahoot();
+        kahoot.crearJugadores("Rafael", "Pablo");
         var opciones = new ArrayList<String>();
         opciones.add("1");
         opciones.add("2");

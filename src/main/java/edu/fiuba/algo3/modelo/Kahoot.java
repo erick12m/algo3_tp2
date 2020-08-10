@@ -24,10 +24,10 @@ public class Kahoot {
     private Queue<Pregunta> listaDePreguntas;
     private int contador = 0;
 
-    public Kahoot(String nombreJugador1, String nombreJugador2) {
-        this.crearJugadores(nombreJugador1, nombreJugador2);
+    public Kahoot() {
         try{
             listaDePreguntas = new LinkedList<>(FabricaPreguntas.crearPreguntas());
+            preguntaActual = listaDePreguntas.remove();
         } catch (FileNotFoundException e){
         }
     }
@@ -64,7 +64,7 @@ public class Kahoot {
     }
 
 
-    private void crearJugadores(String nombreJugador1, String nombreJugador2){
+    public void crearJugadores(String nombreJugador1, String nombreJugador2){
         Jugador jugador1  = new Jugador(nombreJugador1);
         Jugador jugador2 = new Jugador(nombreJugador2);
 
@@ -113,4 +113,6 @@ public class Kahoot {
     public Jugador getJugadorActual() {
         return Kahoot.jugadorActual;
     }
+
+    public Queue<Jugador> getJugadores(){return jugadores;} //Para testear
 }
