@@ -61,8 +61,7 @@ public class KahootTest {
         kahoot.siguientePregunta();
         var preguntaNueva = kahoot.getPreguntaActual();
 
-        assertNotEquals(preguntaActual.getNombre(), preguntaNueva.getNombre());
-        //TODO Puede dar error si las dos preguntas que desencolas son del mismo tipo
+        assertNotEquals(preguntaActual, preguntaNueva);
     }
 
     @Test

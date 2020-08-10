@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.Vistas;
 
+import edu.fiuba.algo3.Controladores.ContenedorPrincipal;
 import edu.fiuba.algo3.Controladores.controladorTexto;
+import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -31,6 +34,21 @@ public class ContenedorCargaDeNombres extends BorderPane {
 
         //Acciones botones
         botonSalir.setOnAction(e -> ventana.close());
+        botonJugar.setOnAction(e -> {
+            if (nombreJugador1.getText().equals("") ||  nombreJugador2.getText().equals("")){
+                System.out.println("Estan vacios"); //TODO mostrar el error en una ventana nueva
+            }
+            else{
+                //System.out.println("No estan vacios");
+                //ventana.close();
+                Kahoot kahoot = new Kahoot();
+                kahoot.crearJugadores(nombreJugador1.getText(), nombreJugador2.getText());
+                ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, kahoot);
+                Scene juego = new Scene(contenedorPrincipal, 640, 359);
+                ventana.setScene(juego);
+
+            }
+        }); //Cuanto tocamos esto tenemos que chequear que los nombres esten bien
 
         controladorTexto textoEventHandler = new controladorTexto(botonJugar);
         nombreJugador1.setOnKeyPressed(textoEventHandler);
