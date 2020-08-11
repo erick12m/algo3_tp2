@@ -62,7 +62,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void test04ElJugadorActivaMultiplicadorx3YDevuelveDoblePuntos() throws NoTieneMultiplicadorException {
+    public void test04ElJugadorActivaMultiplicadorx3YDevuelveTriplePuntos() throws NoTieneMultiplicadorException {
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
@@ -189,4 +189,48 @@ public class JugadorTest {
         jugador.actualizarPuntaje();
         assertEquals(1, jugador.getPuntaje());
     }
+
+    @Test
+    public void test07ElJugadorActivaMultiplicadorx2IntentaUsarloNuevamenteYLanzaUnaExcepcion() throws NoTieneMultiplicadorException {
+        ArrayList<String> opciones = new ArrayList<String>();
+        opciones.add("Verdadero");
+        opciones.add("Falso");
+
+        ArrayList<String> respuesta = new ArrayList<String>();
+        respuesta.add("Verdadero");
+
+        CorrectorPenalidad penalidad = new CorrectorPenalidad();
+        Respuesta respuestaCorrecta = new Respuesta(respuesta);
+
+        VerdaderoFalso verdaderoFalso = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
+        kahoot.setPreguntaActual(verdaderoFalso);
+        ArrayList<Respuesta> respuestaJugador = new ArrayList<Respuesta>();
+        var jugador = kahoot.getJugadorActual();
+        jugador.respuestaElegida(respuestaCorrecta); //El jugador eligio la respuesta Verdadero
+        respuestaJugador.add(jugador.getRespuesta());
+        jugador.activarMultiplicadorx2();
+
+        verdaderoFalso.evaluarRespuesta(respuestaJugador);
+        jugador.actualizarPuntaje();
+        assertEquals(2, jugador.getPuntaje());
+
+
+        //siguiente pregunta
+
+
+        VerdaderoFalso verdaderoFalso2 = new VerdaderoFalso("1 + 1 = 2?", respuestaCorrecta, opciones, penalidad);
+        kahoot.setPreguntaActual(verdaderoFalso2);
+
+        boolean excepcion = false;
+
+        try {
+            jugador.activarMultiplicadorx2();
+        }catch (NoTieneMultiplicadorException e){
+            excepcion = true;
+        }
+
+        assertEquals(true, excepcion);
+    }
+
+
 }

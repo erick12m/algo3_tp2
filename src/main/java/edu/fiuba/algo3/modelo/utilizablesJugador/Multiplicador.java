@@ -11,9 +11,9 @@ public class Multiplicador {
 
     public void activarMultiplicador(int multiplicador) throws NoTieneMultiplicadorException {
         if (!usos.containsKey(multiplicador)){
-            usos.put(multiplicador,2);
+            usos.put(multiplicador,1);
         }
-        if (usos.get(multiplicador) == 0){
+        if (usos.get(multiplicador) <= 0){
             throw new NoTieneMultiplicadorException();
         }
         usos.put(multiplicador,usos.get(multiplicador)-1);
