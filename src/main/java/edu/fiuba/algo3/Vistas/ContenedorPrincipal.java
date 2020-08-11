@@ -3,6 +3,7 @@ package edu.fiuba.algo3.Vistas;
 import edu.fiuba.algo3.Controladores.ControladorPregunta;
 import edu.fiuba.algo3.Vistas.VentanaError;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -16,6 +17,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -26,6 +29,10 @@ public class ContenedorPrincipal extends BorderPane {
 
         public ContenedorPrincipal(Stage ventana, Kahoot kahoot) {
             ControladorPregunta controladorPregunta = new ControladorPregunta(kahoot);
+
+            Image imagen = new Image("file:Imagenes/fondo_azul.jpg",640,460, true, true);
+            final ImageView imagenVista = new ImageView(imagen);
+            this.getChildren().addAll(imagenVista);
 
             Button botonMultiplicadorx2 = new Button("x2");
             Button botonMultiplicadorx3 = new Button("x3");
@@ -103,7 +110,8 @@ public class ContenedorPrincipal extends BorderPane {
             rectangulo.setWidth(640);
             rectangulo.setArcHeight(10);
             rectangulo.setArcWidth(10);
-            rectangulo.setFill(Color.web("#0231B3"));
+            //rectangulo.setFill(Color.web("#0231B3"));
+            rectangulo.setFill(Color.TRANSPARENT);
             ArrayList<Button> botones = new ArrayList<Button>();
             for (String opcion : pregunta.getOpciones()){
                 var boton = new Button(opcion);
@@ -116,7 +124,8 @@ public class ContenedorPrincipal extends BorderPane {
             panelJugador.setWidth(640);
             panelJugador.setArcHeight(10);
             panelJugador.setArcWidth(10);
-            panelJugador.setFill(Color.web("#0F50FF"));
+            //panelJugador.setFill(Color.web("#0F50FF"));
+            panelJugador.setFill(Color.TRANSPARENT);
             VBox vBox = new VBox();
 
             //Setting the space between the nodes of a VBox pane
@@ -124,15 +133,27 @@ public class ContenedorPrincipal extends BorderPane {
             vBox.setAlignment(Pos.CENTER);
 
             Text texto = new Text();
-            texto.setText(pregunta.getNombre() +":\n\n\n" + pregunta.getEnunciado());
-            texto.setFill(Color.WHITE);
+
+            DropShadow ds = new DropShadow();
+            ds.setOffsetY(3.0f);
+            ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
+
+            texto.setEffect(ds);
+            texto.setCache(true);
+            texto.setText(pregunta.getNombre() +":\n\n" + pregunta.getEnunciado());
             texto.setTextAlignment(TextAlignment.CENTER);
+            texto.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+            texto.setWrappingWidth(600);
             StackPane stack = new StackPane();
             stack.getChildren().addAll(rectangulo,texto);
 
             Text nombreJugador = new Text();
             nombreJugador.setText("Juega: " + jugador.getNombre());
-            nombreJugador.setFill(Color.WHITE);
+            nombreJugador.setEffect(ds);
+            nombreJugador.setCache(true);
+            nombreJugador.setTextAlignment(TextAlignment.CENTER);
+            nombreJugador.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+            nombreJugador.setWrappingWidth(600);
             StackPane stackJugador = new StackPane();
             stackJugador.getChildren().addAll(panelJugador, nombreJugador);
 
