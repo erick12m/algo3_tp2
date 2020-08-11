@@ -94,7 +94,7 @@ public class Kahoot {
         if (this.preguntaActual.tienePenalidad()){ return; }
         this.exclusividad.sumarUso(jugador);
     }
-    // TODO ACORDARSE DE DEFINIR QUE HACER CON LA PREGUNTA ACTUAL Y EL PARAMETRO PREGUNTA
+    
     public void puntuarPregunta(){
         var respuestas   = this.obtenerRespuestas();
         preguntaActual.evaluarRespuesta(respuestas);

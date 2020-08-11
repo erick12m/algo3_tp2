@@ -15,7 +15,6 @@ public class Jugador {
     private int usosExclusividad = 1;
     private Multiplicador multiplicador = new Multiplicador();
 
-    //TODO REVISAR BIEN ESTA PARTE QUE SOLO RESTA LOS USOS DE EXCLUSIVIDAD
     public void usarExclusividad() throws NoTieneExclusividadException {
         if (usosExclusividad > 0) {
             this.usosExclusividad--;
@@ -23,7 +22,7 @@ public class Jugador {
             throw new NoTieneExclusividadException();
         }
     }
-    //TODO recordar filtrar lo de si es con penalidad
+
     public void activarMultiplicadorx2() throws NoTieneMultiplicadorException {
         if (Kahoot.esPreguntaConPenalidad()){
             this.multiplicador.activarMultiplicador(2);
