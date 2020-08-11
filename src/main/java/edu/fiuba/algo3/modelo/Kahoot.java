@@ -23,6 +23,7 @@ public class Kahoot {
     public static Jugador jugadorActual;
     private Queue<Pregunta> listaDePreguntas;
     private int contador = 0;
+    int CANTIDAD_JUGADORES = 2;
 
     public Kahoot() {
         try{
@@ -42,7 +43,7 @@ public class Kahoot {
     }
 
     public void siguienteJugador() throws RondaFinalizadaException {
-        if (contador == jugadores.size()){
+        if (contador == CANTIDAD_JUGADORES){
             throw new RondaFinalizadaException();
         }
         jugadorActual = jugadores.remove();

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.Controladores;
 
+import edu.fiuba.algo3.Vistas.VentanaError;
+import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import javafx.scene.layout.BorderPane;
 
 import edu.fiuba.algo3.modelo.Kahoot;
@@ -27,6 +29,34 @@ public class ContenedorPrincipal extends BorderPane {
             Button botonContinuar = new Button("Continuar");
             Button botonGrupo1 = new Button("Grupo 1");
             Button botonGrupo2 = new Button("Grupo 2");
+
+            //Acciones botones
+            botonMultiplicadorx2.setOnAction(e ->{
+                try{
+                   kahoot.getJugadorActual().activarMultiplicadorx2();
+                } catch (NoTieneMultiplicadorException noTieneMultiplicadorException) {
+                    VentanaError.mostrar("", "El jugador no posee multiplicadores x2");
+                }
+            });
+
+            botonMultiplicadorx2.setOnAction(e ->{
+                try{
+                    kahoot.getJugadorActual().activarMultiplicadorx3();
+                } catch (NoTieneMultiplicadorException noTieneMultiplicadorException) {
+                    VentanaError.mostrar("", "El jugador no posee multiplicadores x3");
+                }
+            });
+
+            botonContinuar.setOnAction(e ->{
+                try {
+                    kahoot.siguienteJugador();
+                } catch (RondaFinalizadaException rondaFinalizadaException) {
+                    //ControladorPreguntas
+                    VentanaError.mostrar("", "Nueva Pregunta");
+                }
+            });
+
+
 
             botonExclusividad.setVisible(false);
             botonMultiplicadorx2.setVisible(false);
@@ -109,7 +139,7 @@ public class ContenedorPrincipal extends BorderPane {
             tilePane.getChildren().addAll(botones);
             vBox.getChildren().addAll(stackJugador, stack, tilePane);
 
-            HBox botonera = new HBox(botonExclusividad, botonMultiplicadorx2, botonMultiplicadorx3);
+            HBox botonera = new HBox(botonExclusividad, botonMultiplicadorx2, botonMultiplicadorx3, botonContinuar);
             botonera.setSpacing(10);
             this.setBottom(botonera);
 

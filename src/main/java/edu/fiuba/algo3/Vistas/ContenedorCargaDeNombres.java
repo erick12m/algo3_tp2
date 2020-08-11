@@ -36,11 +36,9 @@ public class ContenedorCargaDeNombres extends BorderPane {
         botonSalir.setOnAction(e -> ventana.close());
         botonJugar.setOnAction(e -> {
             if (nombreJugador1.getText().equals("") ||  nombreJugador2.getText().equals("")){
-                System.out.println("Estan vacios"); //TODO mostrar el error en una ventana nueva
+                VentanaError.mostrar("Error", "Ambos jugadores deben tener un nombre");
             }
             else{
-                //System.out.println("No estan vacios");
-                //ventana.close();
                 Kahoot kahoot = new Kahoot();
                 kahoot.crearJugadores(nombreJugador1.getText(), nombreJugador2.getText());
                 ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, kahoot);
