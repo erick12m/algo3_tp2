@@ -7,11 +7,11 @@ import java.util.Collections;
 
 public class Respuesta {
 
-    private ArrayList<String> respuestas;
-    private ArrayList<String> primerGrupo;
-    private ArrayList<String> segundoGrupo;
+    private ArrayList<String> respuestas = new ArrayList<>();
+    private ArrayList<String> primerGrupo = new ArrayList<>();
+    private ArrayList<String> segundoGrupo = new ArrayList<>();
     private int puntosObtenidos = 0;
-
+    // TODO Si no se crea con dos grupos que guarde en el primero
     public Respuesta(ArrayList<String> respuestas) {
         this.respuestas = respuestas;
     }
@@ -83,4 +83,21 @@ public class Respuesta {
     public ArrayList<String> getSegundoGrupo() {
         return segundoGrupo;
     }
+    /*
+    public String getRespuestaCorrecta(){
+        if (this.primerGrupo.isEmpty()){
+            return this.concatenarRespuestas(this.respuestas);
+        }
+        String cadena = "";
+        cadena.concat(concatenarRespuestas(this.primerGrupo));
+        cadena.concat("\n").concat(concatenarRespuestas(this.segundoGrupo));
+        return cadena;
+    }
+    private String concatenarRespuestas(ArrayList<String> respuestas){
+        String cadena = "";
+        respuestas.forEach(r -> cadena.concat(r).concat(", "));
+        return cadena;
+    }
+
+     */
 }

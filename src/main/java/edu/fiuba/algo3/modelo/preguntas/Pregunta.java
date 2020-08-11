@@ -40,5 +40,10 @@ public abstract class Pregunta {
     public String getEnunciado(){
         return this.enunciado;
     }
+    /*
+    public String getRespuestaCorrecta(){
+        return this.respuestaCorrecta.getRespuestaCorrecta();
+    }
 
+     */
 }

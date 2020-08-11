@@ -6,6 +6,9 @@ import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.animation.PauseTransition;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 import edu.fiuba.algo3.modelo.Kahoot;
@@ -22,11 +25,15 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
 public class ContenedorPrincipal extends BorderPane {
-
+        private final String VERDADEROFALSO = "Verdadero o Falso";
+        private final String ORDEREDCHOICE = "Ordered Choice";
+        private final String MULTIPLECHOICE = "Multiple Choice";
+        private final String GROUPCHOICE = "Group Choice";
         public ContenedorPrincipal(Stage ventana, Kahoot kahoot) {
             ControladorPregunta controladorPregunta = new ControladorPregunta(kahoot);
 
@@ -45,6 +52,23 @@ public class ContenedorPrincipal extends BorderPane {
             botonPrueba.setOnAction(e ->{
                 System.out.println(botonPrueba.getText());
             });
+            PauseTransition delay = new PauseTransition(Duration.seconds(5));
+            delay.setOnFinished( event -> {
+                VentanaError.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
+                botonContinuar.fire();
+            });
+            VistaPregunta vistaPregunta = new VistaVerdaderoFalso(kahoot, controladorPregunta.getBotonesOpciones());
+            switch (kahoot.getPreguntaActual().getNombre()){
+                case VERDADEROFALSO:
+                    vistaPregunta = new VistaVerdaderoFalso(kahoot, controladorPregunta.getBotonesOpciones());
+                    break;
+                case MULTIPLECHOICE:
+                    break;
+                case ORDEREDCHOICE:
+                    break;
+                case GROUPCHOICE:
+                    break;
+            }
 
             //Acciones botones
             botonMultiplicadorx2.setOnAction(e ->{
@@ -63,14 +87,8 @@ public class ContenedorPrincipal extends BorderPane {
                 }
             });
 
-            botonContinuar.setOnAction(e ->{
-                try {
-                    kahoot.siguienteJugador();
-                } catch (RondaFinalizadaException rondaFinalizadaException) {
-                    //ControladorPreguntas
-                    VentanaError.mostrar("", "Nueva Pregunta");
-                }
-            });
+            Label textoTurno = new Label("Turno de ".concat(kahoot.getJugadorActual().getNombre()));
+            TextoTurno.getInstancia().guardarLabel(textoTurno);
 
 
 
@@ -147,15 +165,9 @@ public class ContenedorPrincipal extends BorderPane {
             StackPane stack = new StackPane();
             stack.getChildren().addAll(rectangulo,texto);
 
-            Text nombreJugador = new Text();
-            nombreJugador.setText("Juega: " + jugador.getNombre());
-            nombreJugador.setEffect(ds);
-            nombreJugador.setCache(true);
-            nombreJugador.setTextAlignment(TextAlignment.CENTER);
-            nombreJugador.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-            nombreJugador.setWrappingWidth(600);
+
             StackPane stackJugador = new StackPane();
-            stackJugador.getChildren().addAll(panelJugador, nombreJugador);
+            stackJugador.getChildren().addAll(panelJugador, textoTurno);
 
             //Setting the orientation for the Tile Pane
             tilePane.setOrientation(Orientation.HORIZONTAL);
@@ -166,9 +178,26 @@ public class ContenedorPrincipal extends BorderPane {
             tilePane.setAlignment(Pos.CENTER);
             tilePane.setPrefColumns(2);
 
-            //Retrieving the observable list of the Tile Pane
-            tilePane.getChildren().addAll(botones);
-            vBox.getChildren().addAll(stackJugador, stack, tilePane);
+            vBox.getChildren().addAll(stackJugador, stack, vistaPregunta);
+            botonContinuar.setOnAction(e ->{
+                try {
+                    kahoot.siguienteJugador();
+                    TextoTurno.getInstancia().actualizarLabel(kahoot);
+                } catch (RondaFinalizadaException rondaFinalizadaException) {
+                    //ControladorPreguntas
+                    //Respuesta Correcta
+                    VentanaRespuestaCorrecta.mostrar("La respuesta correcta esta en tu corazon");
+                    try {
+                        kahoot.siguientePregunta();
+                        TextoTurno.getInstancia().actualizarLabel(kahoot);
+                    } catch (GameOverException gameOverException) {
+                        VentanaError.mostrar("", "Finalizó el juego");
+                        ventana.close();
+                    }
+                    VentanaError.mostrar("", "Nueva Pregunta");
+                }
+            });
+
 
             HBox botonera = new HBox(botonExclusividad, botonMultiplicadorx2, botonMultiplicadorx3, botonContinuar, botonPrueba);
             botonera.setSpacing(10);
@@ -177,7 +206,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 
             this.setCenter(vBox);
-
+            delay.play();
 
         }
 

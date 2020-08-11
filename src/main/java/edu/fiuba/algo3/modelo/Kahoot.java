@@ -37,8 +37,10 @@ public class Kahoot {
         try{
             preguntaActual = listaDePreguntas.remove();
             contador = 0;
+            this.siguienteJugador();
         } catch(NoSuchElementException e){
             throw new GameOverException();
+        } catch (RondaFinalizadaException e) {
         }
     }
 
