@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Vistas;
 
-import edu.fiuba.algo3.Controladores.ContenedorPrincipal;
+import edu.fiuba.algo3.Vistas.ContenedorPrincipal;
 import edu.fiuba.algo3.Controladores.controladorTexto;
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Pos;

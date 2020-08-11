@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 public class VentanaError {
     public static void mostrar(String titulo, String mensaje){
+
         Stage ventana = new Stage();
 
         ventana.initModality(Modality.APPLICATION_MODAL);
@@ -17,6 +18,7 @@ public class VentanaError {
 
         Label label = new Label("mensaje");
         label.setText(mensaje);
+
         Button boton = new Button("Ok");
         boton.setOnAction(e -> ventana.close());
 
@@ -26,5 +28,6 @@ public class VentanaError {
 
         ventana.setScene(scene);
         ventana.showAndWait();
+
     }
 }

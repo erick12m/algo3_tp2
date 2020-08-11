@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Controladores;
+package edu.fiuba.algo3.Vistas;
 
 import edu.fiuba.algo3.Vistas.VentanaError;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
