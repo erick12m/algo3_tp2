@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Vistas;
 
-import edu.fiuba.algo3.Controladores.ContenedorPrincipal;
+import edu.fiuba.algo3.Vistas.ContenedorPrincipal;
 import edu.fiuba.algo3.Controladores.controladorTexto;
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.geometry.Pos;
@@ -37,6 +37,7 @@ public class ContenedorCargaDeNombres extends BorderPane {
         botonJugar.setOnAction(e -> {
             if (nombreJugador1.getText().equals("") ||  nombreJugador2.getText().equals("")){
                 System.out.println("Estan vacios"); //TODO mostrar el error en una ventana nueva
+                VentanaError.mostrar("Error", "Ambos jugadores deben colocar su nombre.");
             }
             else{
                 //System.out.println("No estan vacios");

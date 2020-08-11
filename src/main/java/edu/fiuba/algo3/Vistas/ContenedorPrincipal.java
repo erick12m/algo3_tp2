@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Controladores;
+package edu.fiuba.algo3.Vistas;
 
 import javafx.scene.layout.BorderPane;
 
