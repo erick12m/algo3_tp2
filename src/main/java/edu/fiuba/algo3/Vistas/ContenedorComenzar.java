@@ -28,7 +28,7 @@ public class ContenedorComenzar extends StackPane {
         botonSalir.setOnAction(e -> primaryStage.close());
         //botonSonido.setOnAction(e -> mediaPlayer.pause());
 
-        Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,359,true,true);
+        Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,360,true,true);
         final ImageView imagenVista = new ImageView(imagen);
         VBox botoneraPrincipal = new VBox(40, botonComenzar, botonSalir);
         HBox botoneraSecundaria = new HBox(300, botonSonido);

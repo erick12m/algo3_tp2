@@ -7,6 +7,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,6 +18,11 @@ import javafx.stage.Stage;
 public class ContenedorCargaDeNombres extends BorderPane {
 
     public ContenedorCargaDeNombres(Stage ventana){
+
+        Image imagen = new Image("file:Imagenes/fondo_abstracto.jpg",640,460, true, true);
+        final ImageView imagenVista = new ImageView(imagen);
+        this.getChildren().addAll(imagenVista);
+
         Text instruccionesJugador1 = new Text("Nombre jugador 1:");
         Text instruccionesJugador2 = new Text("Nombre jugador 2:");
         TextField nombreJugador1 = new TextField();
@@ -55,7 +62,6 @@ public class ContenedorCargaDeNombres extends BorderPane {
         VBox botoneraCarga = new VBox(40, hBoxJugador1, hBoxJugador2, botonJugar, botonSalir);
         botoneraCarga.setAlignment(Pos.CENTER);//alinea los botones principales
         this.setCenter(botoneraCarga);
-
 
     }
 

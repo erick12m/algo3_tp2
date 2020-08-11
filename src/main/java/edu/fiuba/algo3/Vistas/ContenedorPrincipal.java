@@ -3,6 +3,8 @@ package edu.fiuba.algo3.Vistas;
 import edu.fiuba.algo3.Controladores.ControladorPregunta;
 import edu.fiuba.algo3.Vistas.VentanaError;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 import edu.fiuba.algo3.modelo.Kahoot;
