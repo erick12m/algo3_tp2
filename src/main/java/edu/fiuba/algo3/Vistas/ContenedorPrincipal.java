@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Vistas;
 
+import edu.fiuba.algo3.Controladores.ControladorPregunta;
 import edu.fiuba.algo3.Vistas.VentanaError;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import javafx.scene.layout.BorderPane;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 public class ContenedorPrincipal extends BorderPane {
 
         public ContenedorPrincipal(Stage ventana, Kahoot kahoot) {
+            ControladorPregunta controladorPregunta = new ControladorPregunta(kahoot);
 
             Button botonMultiplicadorx2 = new Button("x2");
             Button botonMultiplicadorx3 = new Button("x3");
@@ -29,6 +31,11 @@ public class ContenedorPrincipal extends BorderPane {
             Button botonContinuar = new Button("Continuar");
             Button botonGrupo1 = new Button("Grupo 1");
             Button botonGrupo2 = new Button("Grupo 2");
+            Button botonPrueba = new Button("Probando");
+
+            botonPrueba.setOnAction(e ->{
+                System.out.println(botonPrueba.getText());
+            });
 
             //Acciones botones
             botonMultiplicadorx2.setOnAction(e ->{
@@ -58,17 +65,18 @@ public class ContenedorPrincipal extends BorderPane {
 
 
 
-            botonExclusividad.setVisible(false);
-            botonMultiplicadorx2.setVisible(false);
-            botonMultiplicadorx3.setVisible(false);
-            try {
-                kahoot.siguientePregunta();
-            } catch (GameOverException e) {
+            //botonExclusividad.setVisible(false);
+            //botonMultiplicadorx2.setVisible(false);
+            //botonMultiplicadorx3.setVisible(false);
+            //try {
+            //    kahoot.siguientePregunta();
+            //} catch (GameOverException e) {
 
-            }
-            kahoot.crearJugadores("Pablo", "Rafael");
+            //}
+            //kahoot.crearJugadores("Pablo", "Rafael");
             var pregunta = kahoot.getPreguntaActual();
 
+            //Seteando visibilidad de los utilizables del jugador
             if (pregunta.tienePenalidad()){
                 botonMultiplicadorx2.setVisible(true);
                 botonMultiplicadorx3.setVisible(true);
@@ -81,11 +89,11 @@ public class ContenedorPrincipal extends BorderPane {
                 botonExclusividad.setVisible(true);
             }
 
-            try{
+            /*try{
                 kahoot.siguienteJugador();
             } catch (RondaFinalizadaException e){
 
-            }
+            }*/
             var jugador = kahoot.getJugadorActual();
             TilePane tilePane = new TilePane();
             Rectangle rectangulo = new Rectangle();
@@ -139,7 +147,7 @@ public class ContenedorPrincipal extends BorderPane {
             tilePane.getChildren().addAll(botones);
             vBox.getChildren().addAll(stackJugador, stack, tilePane);
 
-            HBox botonera = new HBox(botonExclusividad, botonMultiplicadorx2, botonMultiplicadorx3, botonContinuar);
+            HBox botonera = new HBox(botonExclusividad, botonMultiplicadorx2, botonMultiplicadorx3, botonContinuar, botonPrueba);
             botonera.setSpacing(10);
             this.setBottom(botonera);
 

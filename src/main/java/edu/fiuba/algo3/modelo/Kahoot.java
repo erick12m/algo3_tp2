@@ -22,7 +22,7 @@ public class Kahoot {
     private static Pregunta preguntaActual;
     public static Jugador jugadorActual;
     private Queue<Pregunta> listaDePreguntas;
-    private int contador = 0;
+    private int contador = 1;
     int CANTIDAD_JUGADORES = 2;
 
     public Kahoot() {
