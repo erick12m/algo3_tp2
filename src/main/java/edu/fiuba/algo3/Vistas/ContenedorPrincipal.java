@@ -57,10 +57,10 @@ public class ContenedorPrincipal extends BorderPane {
                 VentanaError.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
                 botonContinuar.fire();
             });
-            VistaPregunta vistaPregunta = new VistaVerdaderoFalso(kahoot, controladorPregunta.getBotonesOpciones());
+            VistaPregunta vistaPregunta = new VistaPregunta(kahoot, controladorPregunta.getBotonesOpciones());
             switch (kahoot.getPreguntaActual().getNombre()){
                 case VERDADEROFALSO:
-                    vistaPregunta = new VistaVerdaderoFalso(kahoot, controladorPregunta.getBotonesOpciones());
+                    vistaPregunta = new VistaPregunta(kahoot, controladorPregunta.getBotonesOpciones());
                     break;
                 case MULTIPLECHOICE:
                     break;
@@ -116,33 +116,12 @@ public class ContenedorPrincipal extends BorderPane {
                 botonExclusividad.setVisible(true);
             }
 
-            /*try{
-                kahoot.siguienteJugador();
-            } catch (RondaFinalizadaException e){
 
-            }*/
-            var jugador = kahoot.getJugadorActual();
-            TilePane tilePane = new TilePane();
-            Rectangle rectangulo = new Rectangle();
-            rectangulo.setHeight(150);
-            rectangulo.setWidth(640);
-            rectangulo.setArcHeight(10);
-            rectangulo.setArcWidth(10);
-            //rectangulo.setFill(Color.web("#0231B3"));
-            rectangulo.setFill(Color.TRANSPARENT);
-            ArrayList<Button> botones = new ArrayList<Button>();
-            for (String opcion : pregunta.getOpciones()){
-                var boton = new Button(opcion);
-                boton.setMinWidth(320);
-                boton.setMinHeight(50);
-                botones.add(boton);
-            }
             Rectangle panelJugador = new Rectangle();
             panelJugador.setHeight(50);
             panelJugador.setWidth(640);
             panelJugador.setArcHeight(10);
             panelJugador.setArcWidth(10);
-            //panelJugador.setFill(Color.web("#0F50FF"));
             panelJugador.setFill(Color.TRANSPARENT);
             VBox vBox = new VBox();
 
@@ -150,35 +129,17 @@ public class ContenedorPrincipal extends BorderPane {
             vBox.setSpacing(0);
             vBox.setAlignment(Pos.CENTER);
 
-            Text texto = new Text();
 
-            DropShadow ds = new DropShadow();
-            ds.setOffsetY(3.0f);
-            ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
 
-            texto.setEffect(ds);
-            texto.setCache(true);
-            texto.setText(pregunta.getNombre() +":\n\n" + pregunta.getEnunciado());
-            texto.setTextAlignment(TextAlignment.CENTER);
-            texto.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-            texto.setWrappingWidth(600);
-            StackPane stack = new StackPane();
-            stack.getChildren().addAll(rectangulo,texto);
 
 
             StackPane stackJugador = new StackPane();
             stackJugador.getChildren().addAll(panelJugador, textoTurno);
 
-            //Setting the orientation for the Tile Pane
-            tilePane.setOrientation(Orientation.HORIZONTAL);
-            //Setting the alignment for the Tile Pane
-            tilePane.setTileAlignment(Pos.CENTER);
-            tilePane.setPrefTileWidth(320);
-            tilePane.setPrefTileHeight(50);
-            tilePane.setAlignment(Pos.CENTER);
-            tilePane.setPrefColumns(2);
 
-            vBox.getChildren().addAll(stackJugador, stack, vistaPregunta);
+
+            vBox.getChildren().add(stackJugador);
+            vBox.getChildren().add(vistaPregunta);
             botonContinuar.setOnAction(e ->{
                 try {
                     kahoot.siguienteJugador();
@@ -189,7 +150,10 @@ public class ContenedorPrincipal extends BorderPane {
                     VentanaRespuestaCorrecta.mostrar("La respuesta correcta esta en tu corazon");
                     try {
                         kahoot.siguientePregunta();
+                        TextoPregunta.getInstancia().actualizarLabel(kahoot);
                         TextoTurno.getInstancia().actualizarLabel(kahoot);
+                        vBox.getChildren().remove(1);
+                        vBox.getChildren().add(new VistaPregunta(kahoot, controladorPregunta.getBotonesOpciones()));
                     } catch (GameOverException gameOverException) {
                         VentanaError.mostrar("", "Finalizó el juego");
                         ventana.close();
