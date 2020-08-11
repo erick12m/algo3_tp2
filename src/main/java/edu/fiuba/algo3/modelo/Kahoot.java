@@ -42,7 +42,7 @@ public class Kahoot {
     }
 
     public void siguienteJugador() throws RondaFinalizadaException {
-        if (contador == 2){
+        if (contador == jugadores.size()){
             throw new RondaFinalizadaException();
         }
         jugadorActual = jugadores.remove();
@@ -70,10 +70,6 @@ public class Kahoot {
 
         jugadores.offer(jugador1);
         jugadores.offer(jugador2);
-        // TODO no pude hacer el random con la cola
-        //El que comienza respondiendo se elige de manera random
-        //double numRandom = Math.random();
-        //jugadorActual = (numRandom > 0.5) ? jugador1 : jugador2;
         jugadorActual = jugadores.remove();
         jugadores.offer(jugadorActual);
     }
@@ -94,7 +90,7 @@ public class Kahoot {
         if (this.preguntaActual.tienePenalidad()){ return; }
         this.exclusividad.sumarUso(jugador);
     }
-    
+
     public void puntuarPregunta(){
         var respuestas   = this.obtenerRespuestas();
         preguntaActual.evaluarRespuesta(respuestas);
