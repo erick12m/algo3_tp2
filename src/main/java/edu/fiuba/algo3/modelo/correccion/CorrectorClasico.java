@@ -10,4 +10,9 @@ public class CorrectorClasico implements Corrector {
         }
         return 0;
     }
+
+    @Override
+    public boolean tienePenalidad() {
+        return false;
+    }
 }

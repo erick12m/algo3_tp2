@@ -8,7 +8,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {T8}
 
 * **Erick Martinez** - [erick12m](https://github.com/erick12m)
 * **Daniel Lovera** - [DanieLovera](https://github.com/danieLovera)
@@ -16,7 +16,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Martin Sosa** - [Martinsosa95](https://github.com/Martinsosa95)
 * **Alejo Rodriguez** - [alejorodriguez96](https://github.com/alejorodriguez96)
 
-Corrector: **{Corrector}**
+Corrector: **{Edson Justo}**
 
 ### Pre-requisitos
 

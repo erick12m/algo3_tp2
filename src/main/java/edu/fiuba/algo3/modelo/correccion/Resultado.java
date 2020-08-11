@@ -6,7 +6,6 @@ public class Resultado {
     int incorrectas;
     int correctasEsperadas;
 
-
     public Resultado(int correctas, int incorrectas, int correctasEsperadas) {
         this.correctas = correctas;
         this.incorrectas = incorrectas;
