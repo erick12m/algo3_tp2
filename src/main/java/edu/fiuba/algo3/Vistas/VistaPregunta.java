@@ -42,7 +42,7 @@ public class VistaPregunta extends VBox {
         texto.setWrappingWidth(600);
         TextoPregunta.getInstancia().guardarLabel(texto);
         StackPane stack = new StackPane();
-        stack.getChildren().addAll(rectangulo,texto);
+        //stack.getChildren().addAll(rectangulo,texto);
 
         //Visualizacion Opciones
         TilePane opciones = new TilePane();
