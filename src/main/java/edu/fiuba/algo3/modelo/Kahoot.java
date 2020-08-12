@@ -53,6 +53,15 @@ public class Kahoot {
         contador++;
     }
 
+    public void siguienteTurno() throws GameOverException, RondaFinalizadaException {
+        try{
+            this.siguienteJugador();
+        } catch (RondaFinalizadaException e) {
+            this.siguientePregunta();
+            throw new RondaFinalizadaException();
+        }
+    }
+
     public String getGanador(){
         Jugador jugador1 = jugadores.poll();
         Jugador jugador2 = jugadores.poll();
@@ -115,7 +124,8 @@ public class Kahoot {
 
     public Queue<Jugador> getJugadores(){return jugadores;} //Para testear
 
-    public boolean isOver() {
-        return false;
+
+    public String getRespuestaCorrecta(){
+        return preguntaActual.getRespuestaCorrecta();
     }
 }

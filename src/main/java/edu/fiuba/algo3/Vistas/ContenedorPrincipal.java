@@ -27,9 +27,10 @@ public class ContenedorPrincipal extends BorderPane {
             Button botonContinuar = new Button("Continuar");
             PauseTransition delay = new PauseTransition(Duration.seconds(10));
             delay.setOnFinished( event -> {
-                VentanaError.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
+                VentanaMensaje.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
                 botonContinuar.fire();
             });
+
             Label textoTurno = new Label("Turno de ".concat(controlador.jugadorActual()));
             TextoTurno.getInstancia().guardarLabel(textoTurno);
             //VistaPregunta vistaPregunta = new VistaPregunta(controlador);
@@ -47,7 +48,6 @@ public class ContenedorPrincipal extends BorderPane {
             vBox.getChildren().add(stackJugador);
             StackPane stackPregunta = new StackPane();
             vBox.getChildren().add(stackPregunta);
-            controlador.comenzar(stackPregunta);
 
             ProgressBar tiempoRestante = new ProgressBar();
             IntegerProperty segundos = new SimpleIntegerProperty();
@@ -55,17 +55,21 @@ public class ContenedorPrincipal extends BorderPane {
             Timeline timeline = new Timeline(
                     new KeyFrame(Duration.ZERO, new KeyValue(segundos, 0)),
                     new KeyFrame(Duration.seconds(10), e-> {
-                        VentanaError.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
+                        VentanaMensaje.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
                         botonContinuar.fire();
                     }, new KeyValue(segundos, 10))
             );
             timeline.setCycleCount(Animation.INDEFINITE);
+            controlador.setTimer(timeline);
+            controlador.comenzar(stackPregunta);
+
+
 
 
             botonContinuar.setOnAction(e ->{
-                timeline.stop();
+                //timeline.stop();
                 controlador.siguienteTurno(stackPregunta);
-                timeline.play();
+                //timeline.play();
             });
             tiempoRestante.setMinWidth(530);
             HBox botonera = new HBox(tiempoRestante,botonContinuar);
@@ -77,7 +81,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 
             this.setCenter(vBox);
-            timeline.play();
+            //timeline.play();
 
         }
 

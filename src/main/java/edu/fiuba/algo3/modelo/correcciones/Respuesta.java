@@ -8,18 +8,19 @@ import java.util.Collections;
 public class Respuesta {
 
     private ArrayList<String> respuestas = new ArrayList<>();
-    private ArrayList<String> primerGrupo = new ArrayList<>();
+    //private ArrayList<String> primerGrupo = new ArrayList<>();
     private ArrayList<String> segundoGrupo = new ArrayList<>();
     private int puntosObtenidos = 0;
     // TODO Si no se crea con dos grupos que guarde en el primero
     public Respuesta(ArrayList<String> respuestas) {
+        this.segundoGrupo = new ArrayList<String>();
         this.respuestas = respuestas;
     }
 
     public Respuesta(ArrayList<String> primerGrupo, ArrayList<String> segundoGrupo) {
         Collections.sort(primerGrupo);
         Collections.sort(segundoGrupo);
-        this.primerGrupo = primerGrupo;
+        this.respuestas = primerGrupo;
         this.segundoGrupo = segundoGrupo;
     }
 
@@ -47,8 +48,8 @@ public class Respuesta {
         var segundoGrupoJugador = respuestasJugador.getSegundoGrupo();
         Collections.sort(primerGrupoJugador);
         Collections.sort(segundoGrupoJugador);
-        if ((this.primerGrupo.equals(primerGrupoJugador) || this.segundoGrupo.equals(primerGrupoJugador))
-                && (this.segundoGrupo.equals(segundoGrupoJugador) || this.primerGrupo.equals(segundoGrupoJugador))){
+        if ((this.respuestas.equals(primerGrupoJugador) || this.segundoGrupo.equals(primerGrupoJugador))
+                && (this.segundoGrupo.equals(segundoGrupoJugador) || this.respuestas.equals(segundoGrupoJugador))){
             resultado.sumarCorrecta();
         } else {
             resultado.sumarIncorrecta();
@@ -77,27 +78,27 @@ public class Respuesta {
     }
 
     public ArrayList<String> getPrimerGrupo() {
-        return primerGrupo;
+        return respuestas;
     }
 
     public ArrayList<String> getSegundoGrupo() {
         return segundoGrupo;
     }
-    /*
+
     public String getRespuestaCorrecta(){
-        if (this.primerGrupo.isEmpty()){
-            return this.concatenarRespuestas(this.respuestas);
-        }
         String cadena = "";
-        cadena.concat(concatenarRespuestas(this.primerGrupo));
-        cadena.concat("\n").concat(concatenarRespuestas(this.segundoGrupo));
+        cadena = cadena.concat(concatenarRespuestas(this.respuestas));
+        if (segundoGrupo == null){
+            return cadena;
+        }
+        cadena = cadena.concat("\n").concat(concatenarRespuestas(this.segundoGrupo));
         return cadena;
     }
     private String concatenarRespuestas(ArrayList<String> respuestas){
         String cadena = "";
-        respuestas.forEach(r -> cadena.concat(r).concat(", "));
+        for(String cad: respuestas){
+            cadena = cadena.concat(cad).concat(", ");
+        }
         return cadena;
     }
-
-     */
 }

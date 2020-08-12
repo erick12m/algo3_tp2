@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class VentanaError {
+public class VentanaMensaje {
     public static void mostrar(String titulo, String mensaje){
 
         Stage ventana = new Stage();
