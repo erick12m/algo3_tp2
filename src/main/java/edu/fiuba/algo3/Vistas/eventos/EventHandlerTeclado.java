@@ -13,6 +13,8 @@ public class EventHandlerTeclado implements EventHandler<KeyEvent> {
         this.botonJugar = botonJugar;
     }
 
+
+
     @Override
     public void handle(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER){

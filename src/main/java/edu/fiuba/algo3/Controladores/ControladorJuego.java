@@ -28,6 +28,8 @@ public class ControladorJuego {
             Scene juego = new Scene(contenedorPrincipal, 640, 359);
             ventana.setScene(juego);
 
+
+
         }
 
     }

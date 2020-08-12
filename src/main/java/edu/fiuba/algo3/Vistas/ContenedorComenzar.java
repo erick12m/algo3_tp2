@@ -26,6 +26,8 @@ public class ContenedorComenzar extends StackPane {
         botonComenzar.setOnAction(eventoComenzar);
         botonSalir.setOnAction(e -> primaryStage.close());
 
+
+
         Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,360,true,true);
         final ImageView imagenVista = new ImageView(imagen);
         VBox botoneraPrincipal = new VBox(40, botonComenzar, botonSalir);

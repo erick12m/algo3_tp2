@@ -22,6 +22,8 @@ public class VistaPregunta extends VBox {
     private String respuesta;
 
     public VistaPregunta(ControladorPregunta controladorPregunta) {
+
+
         //Visualizacion pregunta
         Rectangle rectangulo = new Rectangle();
         rectangulo.setHeight(150);

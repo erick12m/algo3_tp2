@@ -10,6 +10,8 @@ public class EventHandlerComenzar implements EventHandler<ActionEvent> {
 
     private Stage ventana;
 
+
+
     public EventHandlerComenzar(Stage ventana){
         this.ventana = ventana;
     }

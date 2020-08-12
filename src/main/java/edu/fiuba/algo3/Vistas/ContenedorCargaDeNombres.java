@@ -21,6 +21,9 @@ public class ContenedorCargaDeNombres extends BorderPane {
         Image imagen = new Image("file:Imagenes/fondo_abstracto.jpg",640,460, true, true);
         final ImageView imagenVista = new ImageView(imagen);
         this.getChildren().addAll(imagenVista);
+
+
+
         //Solicitud de nombres a los jugadores
         Text instruccionesJugador1 = new Text("Nombre jugador 1:");
         Text instruccionesJugador2 = new Text("Nombre jugador 2:");

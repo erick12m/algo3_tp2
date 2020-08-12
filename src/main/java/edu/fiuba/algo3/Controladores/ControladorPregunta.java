@@ -21,6 +21,8 @@ public class ControladorPregunta {
         kahoot.siguientePregunta();
     }
 
+
+
     public ArrayList<Button> getBotonesOpciones(){
         ArrayList<Button> botones = new ArrayList<Button>();
         for (String opcion : kahoot.getPreguntaActual().getOpciones()){

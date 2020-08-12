@@ -74,6 +74,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 
 
+
+
             this.setCenter(vBox);
             timeline.play();
 
