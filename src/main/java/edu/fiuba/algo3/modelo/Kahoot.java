@@ -116,6 +116,6 @@ public class Kahoot {
     public Queue<Jugador> getJugadores(){return jugadores;} //Para testear
 
     public boolean isOver() {
-        return this.listaDePreguntas.isEmpty();
+        return false;
     }
 }
