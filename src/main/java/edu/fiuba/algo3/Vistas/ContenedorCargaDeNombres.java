@@ -24,6 +24,7 @@ public class ContenedorCargaDeNombres extends BorderPane {
 
 
 
+
         //Solicitud de nombres a los jugadores
         Text instruccionesJugador1 = new Text("Nombre jugador 1:");
         Text instruccionesJugador2 = new Text("Nombre jugador 2:");
