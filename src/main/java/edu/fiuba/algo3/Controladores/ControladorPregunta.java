@@ -3,16 +3,15 @@ package edu.fiuba.algo3.Controladores;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.GameOverException;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import javafx.scene.control.Button;
 
 import java.util.ArrayList;
 
 public class ControladorPregunta {
     //Pregunta pregunta;
-    ArrayList<String> opciones;
-    Respuesta respuestaCorrecta;
-    Kahoot kahoot;
+    private ArrayList<String> opciones;
+    private Respuesta respuestaCorrecta;
+    private Kahoot kahoot;
 
     public ControladorPregunta(Kahoot kahoot){
         this.kahoot = kahoot;
@@ -37,5 +36,11 @@ public class ControladorPregunta {
     }
 
 
+    public String getNombre() {
+        return kahoot.getPreguntaActual().getNombre();
+    }
 
+    public String getEnunciado() {
+        return kahoot.getPreguntaActual().getEnunciado();
+    }
 }

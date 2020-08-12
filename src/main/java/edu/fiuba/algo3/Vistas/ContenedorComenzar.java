@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.Vistas;
 
-import edu.fiuba.algo3.Controladores.controladorComenzar;
+import edu.fiuba.algo3.Vistas.eventos.EventHandlerComenzar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,13 +20,11 @@ public class ContenedorComenzar extends StackPane {
         Button botonComenzar = new Button("Comenzar");
         Button botonSalir = new Button("Salir");
         Button botonSonido = new Button("Sonido");
-        //botonSonido.setSelected(true);
 
         //Seteo las acciones
-        controladorComenzar controladorCarga = new controladorComenzar(primaryStage);
-        botonComenzar.setOnAction(controladorCarga);
+        EventHandlerComenzar eventoComenzar = new EventHandlerComenzar(primaryStage);
+        botonComenzar.setOnAction(eventoComenzar);
         botonSalir.setOnAction(e -> primaryStage.close());
-        //botonSonido.setOnAction(e -> mediaPlayer.pause());
 
         Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,360,true,true);
         final ImageView imagenVista = new ImageView(imagen);

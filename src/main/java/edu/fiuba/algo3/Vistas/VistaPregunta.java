@@ -1,10 +1,11 @@
 package edu.fiuba.algo3.Vistas;
 
-import edu.fiuba.algo3.modelo.Kahoot;
+import edu.fiuba.algo3.Controladores.ControladorPregunta;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class VistaPregunta extends VBox {
     private String respuesta;
 
-    public VistaPregunta(Kahoot kahoot, ArrayList<Button> botonesOpciones) {
+    public VistaPregunta(ControladorPregunta controladorPregunta) {
         //Visualizacion pregunta
         Rectangle rectangulo = new Rectangle();
         rectangulo.setHeight(150);
@@ -34,8 +35,8 @@ public class VistaPregunta extends VBox {
         ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
         texto.setEffect(ds);
         texto.setCache(true);
-        texto.setText(kahoot.getPreguntaActual().getNombre() +":\n\n"
-                + kahoot.getPreguntaActual().getEnunciado());
+        texto.setText(controladorPregunta.getNombre() +":\n\n"
+                + controladorPregunta.getEnunciado());
         texto.setTextAlignment(TextAlignment.CENTER);
         texto.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         texto.setWrappingWidth(600);
@@ -51,6 +52,7 @@ public class VistaPregunta extends VBox {
         opciones.setPrefTileHeight(50);
         opciones.setAlignment(Pos.CENTER);
         opciones.setPrefColumns(2);
+        var botonesOpciones = controladorPregunta.getBotonesOpciones();
         opciones.getChildren().addAll(botonesOpciones);
         botonesOpciones.forEach(boton -> {
             boton.setOnAction(e ->{
@@ -58,7 +60,13 @@ public class VistaPregunta extends VBox {
             });
         });
 
-        this.getChildren().addAll(stack,opciones);
+        //Visualizacion utilizables
+        Button botonMultiplicadorx2 = new Button("x2");
+        Button botonMultiplicadorx3 = new Button("x3");
+        Button botonExclusividad = new Button("Exclusividad");
+        HBox botonera = new HBox(botonExclusividad,botonMultiplicadorx2,botonMultiplicadorx3);
+
+        this.getChildren().addAll(stack,opciones,botonera);
     }
 
     public ArrayList<String> getRespuesta(){

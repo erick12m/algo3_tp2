@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Controladores;
+package edu.fiuba.algo3.Vistas.eventos;
 
 import edu.fiuba.algo3.Vistas.ContenedorCargaDeNombres;
 import javafx.event.ActionEvent;
@@ -6,11 +6,11 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class controladorComenzar implements EventHandler<ActionEvent> {
+public class EventHandlerComenzar implements EventHandler<ActionEvent> {
 
     private Stage ventana;
 
-    public controladorComenzar(Stage ventana){
+    public EventHandlerComenzar(Stage ventana){
         this.ventana = ventana;
     }
 
