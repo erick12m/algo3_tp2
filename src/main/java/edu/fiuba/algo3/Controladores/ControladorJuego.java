@@ -24,7 +24,7 @@ public class ControladorJuego {
             this.kahoot = new Kahoot();
             kahoot.crearJugadores(nombreJugador1, nombreJugador2);
             this.controladorPregunta = new ControladorPregunta(kahoot);
-            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, kahoot);
+            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, this);
             Scene juego = new Scene(contenedorPrincipal, 640, 359);
             ventana.setScene(juego);
 
