@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.GameOverException;
 import edu.fiuba.algo3.modelo.excepciones.RondaFinalizadaException;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -17,6 +18,10 @@ public class ControladorJuego {
     private ControladorPregunta controladorPregunta;
     private Respuesta respuestaCorrecta;
     private Timeline timer;
+    private final String VERDADER_O_FALSO =  "Verdadero o Falso";
+    private final String GROUP_CHOICE = "Group Choice";
+    private Pregunta preguntaActual;
+
     public ControladorJuego(Stage ventana){
         this.ventana = ventana;
     }
@@ -27,7 +32,8 @@ public class ControladorJuego {
         }else{
             this.kahoot = new Kahoot();
             kahoot.crearJugadores(nombreJugador1, nombreJugador2);
-            this.controladorPregunta = new ControladorPregunta(kahoot);
+            preguntaActual = kahoot.getPreguntaActual();
+            this.controladorPregunta = this.getControladorCorrecto();
             ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, this);
             Scene juego = new Scene(contenedorPrincipal, 640, 359);
             ventana.setScene(juego);
@@ -48,10 +54,15 @@ public class ControladorJuego {
     public void siguienteTurno(StackPane stackPregunta) {
         timer.stop();
         try {
+            Respuesta respuestaJugador = controladorPregunta.getRespuestaJugador();
+            kahoot.getJugadorActual().respuestaElegida(respuestaJugador);
             kahoot.siguienteTurno();
             this.actualizarTablero();
             timer.play();
         } catch (RondaFinalizadaException e) {
+            this.corregirRespuestas();
+            this.preguntaActual = kahoot.getPreguntaActual();
+            this.controladorPregunta = this.getControladorCorrecto();
             this.mostrarRespuestaCorrecta();
             this.respuestaCorrecta = kahoot.getPreguntaActual().getRespuesta();
             this.actualizarTablero();
@@ -59,6 +70,7 @@ public class ControladorJuego {
             stackPregunta.getChildren().add(new VistaPregunta(controladorPregunta));
         }
         catch (GameOverException gameOverException) {
+                this.corregirRespuestas();
                 this.gameOver();
         }
     }
@@ -82,5 +94,23 @@ public class ControladorJuego {
 
     public void setTimer(Timeline timer){
         this.timer = timer;
+    }
+
+    public ControladorPregunta getControladorCorrecto(){
+        switch (kahoot.getPreguntaActual().getNombre()){
+            case VERDADER_O_FALSO:
+                return new ControlardorVerdaderoFalso(kahoot);
+
+            case GROUP_CHOICE:
+                return new ControladorGroupChoice(kahoot);
+
+            default:
+                return new ControladorMultipleOrderedChoice(kahoot);
+        }
+    }
+
+    public void corregirRespuestas(){
+        kahoot.puntuarPregunta(preguntaActual);
+        kahoot.imprimirPuntajes();
     }
 }

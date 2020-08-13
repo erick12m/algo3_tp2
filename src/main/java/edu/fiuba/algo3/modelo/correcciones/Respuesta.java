@@ -14,14 +14,14 @@ public class Respuesta {
     // TODO Si no se crea con dos grupos que guarde en el primero
     public Respuesta(ArrayList<String> respuestas) {
         this.segundoGrupo = new ArrayList<String>();
-        this.respuestas = respuestas;
+        this.respuestas = new ArrayList<>(respuestas);
     }
 
     public Respuesta(ArrayList<String> primerGrupo, ArrayList<String> segundoGrupo) {
         Collections.sort(primerGrupo);
         Collections.sort(segundoGrupo);
-        this.respuestas = primerGrupo;
-        this.segundoGrupo = segundoGrupo;
+        this.respuestas = new ArrayList<>(primerGrupo);
+        this.segundoGrupo = new ArrayList<>(segundoGrupo);
     }
 
     public Resultado compararCon(Respuesta respuestasJugador){
@@ -30,6 +30,7 @@ public class Respuesta {
             if(this.respuestas.contains(respuestaJugador)){
                 resultado.sumarCorrecta();
             }else{
+                System.out.println("Entre a incorrecta");
                 resultado.sumarIncorrecta();
             }
         }
@@ -46,12 +47,17 @@ public class Respuesta {
         Resultado resultado = new Resultado(0, 0, 1);
         var primerGrupoJugador = respuestasJugador.getPrimerGrupo();
         var segundoGrupoJugador = respuestasJugador.getSegundoGrupo();
-        Collections.sort(primerGrupoJugador);
-        Collections.sort(segundoGrupoJugador);
+        //Collections.sort(primerGrupoJugador);
+        //Collections.sort(segundoGrupoJugador);
+        System.out.println("Respuesta 1: ".concat(String.valueOf(this.respuestas)));
+        System.out.println("Primer grupo: ".concat(String.valueOf(primerGrupoJugador)));
+        System.out.println("Segundo grupo: ".concat(String.valueOf(segundoGrupoJugador)));
+        System.out.println("Respuesta 2: ".concat(String.valueOf(this.segundoGrupo)));
         if ((this.respuestas.equals(primerGrupoJugador) || this.segundoGrupo.equals(primerGrupoJugador))
                 && (this.segundoGrupo.equals(segundoGrupoJugador) || this.respuestas.equals(segundoGrupoJugador))){
             resultado.sumarCorrecta();
         } else {
+            System.out.println("Entre a restar en group");
             resultado.sumarIncorrecta();
         }
         return resultado;

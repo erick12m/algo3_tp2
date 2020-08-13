@@ -26,7 +26,7 @@
   {
     "nombre": "Ordered Choice",
     "corrector": {
-      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
     "enunciado": "Ordene de mayor a menor segun el numero de copas ganadas por equipo",

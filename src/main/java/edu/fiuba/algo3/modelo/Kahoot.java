@@ -103,7 +103,7 @@ public class Kahoot {
         this.exclusividad.sumarUso(jugador);
     }
 
-    public void puntuarPregunta(){
+    public void puntuarPregunta(Pregunta preguntaActual){
         var respuestas   = this.obtenerRespuestas();
         preguntaActual.evaluarRespuesta(respuestas);
         exclusividad.aplicar(respuestas);
@@ -127,5 +127,10 @@ public class Kahoot {
 
     public String getRespuestaCorrecta(){
         return preguntaActual.getRespuestaCorrecta();
+    }
+
+    public void imprimirPuntajes(){
+        System.out.println("Puntaje de los jugadores");
+        this.jugadores.forEach(j -> System.out.println(j.getNombre().concat(": ").concat(String.valueOf(j.getPuntaje()))));
     }
 }

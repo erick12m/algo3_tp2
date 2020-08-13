@@ -28,7 +28,7 @@
   {
     "nombre": "Group Choice",
     "corrector": {
-      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
     "enunciado": "Separe los deportes que requieran balon de los que no",
@@ -44,8 +44,8 @@
         "Futbol"
       ],
       "segundoGrupo": [
-        "Surf",
-        "Atletismo"
+        "Atletismo",
+        "Surf"
       ],
       "puntosObtenidos": 0
     }

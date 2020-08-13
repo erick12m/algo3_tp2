@@ -51,13 +51,13 @@ public class ContenedorPrincipal extends BorderPane {
 
             ProgressBar tiempoRestante = new ProgressBar();
             IntegerProperty segundos = new SimpleIntegerProperty();
-            tiempoRestante.progressProperty().bind(segundos.divide(10.0));
+            tiempoRestante.progressProperty().bind(segundos.divide(60.0));
             Timeline timeline = new Timeline(
                     new KeyFrame(Duration.ZERO, new KeyValue(segundos, 0)),
-                    new KeyFrame(Duration.seconds(10), e-> {
+                    new KeyFrame(Duration.seconds(60), e-> {
                         VentanaMensaje.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
                         botonContinuar.fire();
-                    }, new KeyValue(segundos, 10))
+                    }, new KeyValue(segundos, 60))
             );
             timeline.setCycleCount(Animation.INDEFINITE);
             controlador.setTimer(timeline);

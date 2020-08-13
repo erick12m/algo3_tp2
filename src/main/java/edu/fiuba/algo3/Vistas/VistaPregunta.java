@@ -58,15 +58,51 @@ public class VistaPregunta extends VBox {
         opciones.getChildren().addAll(botonesOpciones);
         botonesOpciones.forEach(boton -> {
             boton.setOnAction(e ->{
-                respuesta = boton.getText();
+                controladorPregunta.guardarRespuesta(boton);
             });
         });
 
-        //Visualizacion utilizables
+
+
+        //Botones utilizables
+        Button botonGrupo1 = new Button("Grupo 1");
+        Button botonGrupo2 = new Button("Grupo 2");
         Button botonMultiplicadorx2 = new Button("x2");
         Button botonMultiplicadorx3 = new Button("x3");
         Button botonExclusividad = new Button("Exclusividad");
-        HBox botonera = new HBox(botonExclusividad,botonMultiplicadorx2,botonMultiplicadorx3);
+
+        //Seteo acciones de los botones especiales
+        botonGrupo1.setOnAction(e ->{
+            controladorPregunta.setGrupo(botonGrupo1.getText());
+        });
+
+        botonGrupo2.setOnAction(e ->{
+            controladorPregunta.setGrupo(botonGrupo2.getText());
+        });
+
+        botonMultiplicadorx2.setOnAction(e ->{
+            controladorPregunta.activarMultiplicadorx2();
+        });
+        botonMultiplicadorx3.setOnAction(e ->{
+            controladorPregunta.activarMultiplicadorx3();
+        });
+
+        botonExclusividad.setOnAction(e ->{
+            controladorPregunta.activarExclusividad();
+        });
+
+
+        HBox botonera = new HBox(botonExclusividad,botonMultiplicadorx2,botonMultiplicadorx3, botonGrupo1, botonGrupo2);
+        //Seteamos las visibilidades en false siempre, asi solo se muestran los botones permitidos
+        botonera.getChildren().forEach(b -> b.setVisible(false));
+
+        //Seteo las visibilidades
+        botonGrupo1.setVisible(controladorPregunta.getNombre().equals("Group Choice"));
+        botonGrupo2.setVisible(controladorPregunta.getNombre().equals("Group Choice"));
+
+        botonMultiplicadorx2.setVisible(controladorPregunta.esPreguntaConPenalidad());
+        botonMultiplicadorx3.setVisible(controladorPregunta.esPreguntaConPenalidad());
+        botonExclusividad.setVisible(!controladorPregunta.esPreguntaConPenalidad());
 
         this.getChildren().addAll(stack,opciones,botonera);
     }
