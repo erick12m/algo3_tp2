@@ -10,6 +10,7 @@ import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ControladorJuego {
@@ -21,6 +22,7 @@ public class ControladorJuego {
     private final String VERDADER_O_FALSO =  "Verdadero o Falso";
     private final String GROUP_CHOICE = "Group Choice";
     private Pregunta preguntaActual;
+    private MediaPlayer media;
 
     public ControladorJuego(Stage ventana){
         this.ventana = ventana;
@@ -114,5 +116,11 @@ public class ControladorJuego {
     public void corregirRespuestas(){
         kahoot.puntuarPregunta(preguntaActual);
         kahoot.imprimirPuntajes();
+    }
+
+    public void setAudio(MediaPlayer media) { this.media = media;}
+
+    public MediaPlayer getMedia() {
+        return this.media;
     }
 }

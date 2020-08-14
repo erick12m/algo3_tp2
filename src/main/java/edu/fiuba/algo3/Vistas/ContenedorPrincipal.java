@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -24,12 +25,21 @@ public class ContenedorPrincipal extends BorderPane {
             Image imagen = new Image("file:Imagenes/fondo_azul.jpg",640,460, true, true);
             final ImageView imagenVista = new ImageView(imagen);
             this.getChildren().addAll(imagenVista);
+            MediaPlayer media = controlador.getMedia();
+            Button botonSonido = new Button("Sonido");
+            botonSonido.setOnAction(e ->{
+                if (media.getStatus().equals(MediaPlayer.Status.PLAYING)) media.pause();
+                else media.play();
+            });
+
             Button botonContinuar = new Button("Continuar");
             PauseTransition delay = new PauseTransition(Duration.seconds(10));
             delay.setOnFinished( event -> {
                 VentanaMensaje.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
                 botonContinuar.fire();
             });
+
+
 
             Label textoTurno = new Label("Turno de ".concat(controlador.jugadorActual()));
             TextoTurno.getInstancia().guardarLabel(textoTurno);
@@ -72,7 +82,7 @@ public class ContenedorPrincipal extends BorderPane {
                 //timeline.play();
             });
             tiempoRestante.setMinWidth(530);
-            HBox botonera = new HBox(tiempoRestante,botonContinuar);
+            HBox botonera = new HBox(tiempoRestante, botonContinuar);
             botonera.setSpacing(30);
             this.setBottom(botonera);
 

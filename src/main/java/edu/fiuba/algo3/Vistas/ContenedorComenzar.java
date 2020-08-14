@@ -32,7 +32,7 @@ public class ContenedorComenzar extends StackPane {
         Button botonSonido = new Button("Sonido");
 
         //Seteo las acciones
-        EventHandlerComenzar eventoComenzar = new EventHandlerComenzar(primaryStage);
+        EventHandlerComenzar eventoComenzar = new EventHandlerComenzar(primaryStage, media);
         botonComenzar.setOnAction(eventoComenzar);
         botonSalir.setOnAction(e -> primaryStage.close());
         botonSonido.setOnAction(e ->{
@@ -60,7 +60,7 @@ public class ContenedorComenzar extends StackPane {
     }
 
     public MediaPlayer iniciarMusica(){
-        String musicFile = "Musica/Pibe_cantina.mp3";
+        String musicFile = "Musica/Africa_toto.mp3";
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
