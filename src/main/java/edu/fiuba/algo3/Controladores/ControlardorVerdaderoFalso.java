@@ -12,8 +12,14 @@ public class ControlardorVerdaderoFalso extends ControladorPregunta{
     @Override
     public void guardarRespuesta(Button botonOpcion){
         String textoBoton = botonOpcion.getText();
-        this.respuestaJugador.clear();
-        this.respuestaJugador.add(textoBoton);
+        if (respuestaJugador.contains(textoBoton)){
+            botonOpcion.setStyle("");
+            this.respuestaJugador.clear();
+        }else {
+            this.respuestaJugador.add(textoBoton);
+            botonOpcion.setStyle("-fx-border-color: #5eba46; -fx-border-width: 5px;");
+        }
+
     }
 
 }

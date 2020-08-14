@@ -27,6 +27,7 @@ public class ControladorGroupChoice extends ControladorPregunta {
                 this.respuestaJugador.clear();
                 break;
         }
+        this.refrescarBotones();
     }
 
     @Override

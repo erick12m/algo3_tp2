@@ -55,6 +55,7 @@ public class VistaPregunta extends VBox {
         opciones.setAlignment(Pos.CENTER);
         opciones.setPrefColumns(2);
         var botonesOpciones = controladorPregunta.getBotonesOpciones();
+        botonesOpciones.forEach(b -> b.setStyle(""));
         opciones.getChildren().addAll(botonesOpciones);
         botonesOpciones.forEach(boton -> {
             boton.setOnAction(e ->{

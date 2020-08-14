@@ -6,12 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Multiplicador {
+    private final int CANT_USOS = 1;
     private Map<Integer,Integer> usos = new HashMap<Integer, Integer>();
     private int multiplicador = 1;
 
     public void activarMultiplicador(int multiplicador) throws NoTieneMultiplicadorException {
         if (!usos.containsKey(multiplicador)){
-            usos.put(multiplicador,1);
+            usos.put(multiplicador,CANT_USOS);
         }
         if (usos.get(multiplicador) <= 0){
             throw new NoTieneMultiplicadorException();

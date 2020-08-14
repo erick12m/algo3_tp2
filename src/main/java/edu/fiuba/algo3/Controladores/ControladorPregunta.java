@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public abstract class ControladorPregunta {
     protected ArrayList<String> opciones;
     protected Respuesta respuestaCorrecta;
+    protected ArrayList<Button> botonesOpciones;
     protected Kahoot kahoot;
     protected ArrayList<String> respuestaJugador = new ArrayList<>();
 
@@ -22,9 +23,11 @@ public abstract class ControladorPregunta {
         String textoOpcion = botonOpcion.getText();
         if (respuestaJugador.contains(textoOpcion)) {
             respuestaJugador.remove(textoOpcion);
+            botonOpcion.setStyle("");
         }
         else {
             respuestaJugador.add(textoOpcion);
+            botonOpcion.setStyle("-fx-border-color: #5eba46; -fx-border-width: 5px;");
         }
     }
 
@@ -39,6 +42,7 @@ public abstract class ControladorPregunta {
             boton.setMinHeight(50);
             botones.add(boton);
         }
+        this.botonesOpciones = botones;
         return botones;
     }
 
@@ -88,5 +92,9 @@ public abstract class ControladorPregunta {
 
     public void setGrupo(String text){
         System.out.println("Setee grupo"); //TODO borrar esto despues, es para debuguear
+    }
+
+    public void refrescarBotones(){
+        this.botonesOpciones.forEach(b -> b.setStyle(""));
     }
 }

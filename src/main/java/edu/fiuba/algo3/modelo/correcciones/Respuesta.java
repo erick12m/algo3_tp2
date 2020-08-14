@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.utilizablesJugador.Exclusividad;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class Respuesta {
 
@@ -30,7 +31,6 @@ public class Respuesta {
             if(this.respuestas.contains(respuestaJugador)){
                 resultado.sumarCorrecta();
             }else{
-                System.out.println("Entre a incorrecta");
                 resultado.sumarIncorrecta();
             }
         }
@@ -47,18 +47,20 @@ public class Respuesta {
         Resultado resultado = new Resultado(0, 0, 1);
         var primerGrupoJugador = respuestasJugador.getPrimerGrupo();
         var segundoGrupoJugador = respuestasJugador.getSegundoGrupo();
-        System.out.println("Respuesta 1: ".concat(String.valueOf(this.respuestas)));
-        System.out.println("Primer grupo: ".concat(String.valueOf(primerGrupoJugador)));
-        System.out.println("Segundo grupo: ".concat(String.valueOf(segundoGrupoJugador)));
-        System.out.println("Respuesta 2: ".concat(String.valueOf(this.segundoGrupo)));
-        if ((this.respuestas.equals(primerGrupoJugador) || this.segundoGrupo.equals(primerGrupoJugador))
-                && (this.segundoGrupo.equals(segundoGrupoJugador) || this.respuestas.equals(segundoGrupoJugador))){
+        // TODO Borrar los println
+        //System.out.println("Respuesta 1: ".concat(String.valueOf(this.respuestas)));
+        //System.out.println("Primer grupo: ".concat(String.valueOf(primerGrupoJugador)));
+        //System.out.println("Segundo grupo: ".concat(String.valueOf(segundoGrupoJugador)));
+        //System.out.println("Respuesta 2: ".concat(String.valueOf(this.segundoGrupo)));
+        if (esGrupoValido(primerGrupoJugador)
+                && esGrupoValido(segundoGrupoJugador)){
             resultado.sumarCorrecta();
-        } else {
-            System.out.println("Entre a restar en group");
-            resultado.sumarIncorrecta();
         }
         return resultado;
+    }
+
+    private boolean esGrupoValido(ArrayList<String> grupo){
+        return this.respuestas.equals(grupo) || this.segundoGrupo.equals(grupo);
     }
 
     public boolean esCorrecta(){
@@ -90,18 +92,10 @@ public class Respuesta {
     }
 
     public String getRespuestaCorrecta(){
-        String cadena = "";
-        cadena = cadena.concat(concatenarRespuestas(this.respuestas));
-        if (segundoGrupo == null){
-            return cadena;
-        }
-        cadena = cadena.concat("\n").concat(concatenarRespuestas(this.segundoGrupo));
-        return cadena;
-    }
-    private String concatenarRespuestas(ArrayList<String> respuestas){
-        String cadena = "";
-        for(String cad: respuestas){
-            cadena = cadena.concat(cad).concat(", ");
+        String cadena = this.respuestas.stream().collect(Collectors.joining(", "));
+        if (segundoGrupo != null){
+            cadena = cadena.concat(" // ")
+                    .concat(this.segundoGrupo.stream().collect(Collectors.joining(", ")));
         }
         return cadena;
     }

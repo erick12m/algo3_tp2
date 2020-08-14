@@ -65,9 +65,10 @@ public class ControladorJuego {
             this.controladorPregunta = this.getControladorCorrecto();
             this.mostrarRespuestaCorrecta();
             this.respuestaCorrecta = kahoot.getPreguntaActual().getRespuesta();
-            this.actualizarTablero();
+
             stackPregunta.getChildren().clear();
             stackPregunta.getChildren().add(new VistaPregunta(controladorPregunta));
+            this.actualizarTablero();
         }
         catch (GameOverException gameOverException) {
                 this.corregirRespuestas();
@@ -84,12 +85,13 @@ public class ControladorJuego {
 
     public void mostrarRespuestaCorrecta(){
         String respuestaCorrecta = this.respuestaCorrecta.getRespuestaCorrecta();
-        VentanaRespuestaCorrecta.mostrar("La respuesta correcta es: ".concat(respuestaCorrecta), timer);
+        VentanaRespuestaCorrecta.mostrar("La respuesta correcta es: ".concat("\n").concat(respuestaCorrecta), timer);
     }
 
     public void actualizarTablero(){
         TextoPregunta.getInstancia().actualizarLabel(kahoot);
         TextoTurno.getInstancia().actualizarLabel(kahoot);
+        this.controladorPregunta.refrescarBotones();
     }
 
     public void setTimer(Timeline timer){
