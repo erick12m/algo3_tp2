@@ -5,7 +5,8 @@ public class CorrectorClasico implements Corrector {
     @Override
     public int corregirPregunta(Resultado resultado) {
 
-        if (resultado.diferencia() == 0) {
+        if (resultado.diferencia() == 0
+                && resultado.getIncorrectas() == 0) {
             return 1;
         }
         return 0;

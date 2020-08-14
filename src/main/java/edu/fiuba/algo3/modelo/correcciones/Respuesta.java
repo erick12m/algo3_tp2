@@ -18,10 +18,10 @@ public class Respuesta {
     }
 
     public Respuesta(ArrayList<String> primerGrupo, ArrayList<String> segundoGrupo) {
-        Collections.sort(primerGrupo);
-        Collections.sort(segundoGrupo);
         this.respuestas = new ArrayList<>(primerGrupo);
         this.segundoGrupo = new ArrayList<>(segundoGrupo);
+        Collections.sort(this.respuestas);
+        Collections.sort(this.segundoGrupo);
     }
 
     public Resultado compararCon(Respuesta respuestasJugador){
@@ -47,8 +47,6 @@ public class Respuesta {
         Resultado resultado = new Resultado(0, 0, 1);
         var primerGrupoJugador = respuestasJugador.getPrimerGrupo();
         var segundoGrupoJugador = respuestasJugador.getSegundoGrupo();
-        //Collections.sort(primerGrupoJugador);
-        //Collections.sort(segundoGrupoJugador);
         System.out.println("Respuesta 1: ".concat(String.valueOf(this.respuestas)));
         System.out.println("Primer grupo: ".concat(String.valueOf(primerGrupoJugador)));
         System.out.println("Segundo grupo: ".concat(String.valueOf(segundoGrupoJugador)));

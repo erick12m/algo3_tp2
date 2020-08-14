@@ -1,14 +1,10 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import edu.fiuba.algo3.json.AdaptadorCorrector;
 import edu.fiuba.algo3.json.GestorObjetosJson;
-import edu.fiuba.algo3.modelo.correcciones.Corrector;
 
-import java.io.*;
-import java.lang.reflect.Type;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 
