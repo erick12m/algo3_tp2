@@ -10,11 +10,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.io.File;
+
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
+
 
 public class ContenedorComenzar extends StackPane {
 
     public ContenedorComenzar(Stage primaryStage){
+
+        MediaPlayer media = this.iniciarMusica();
+
 
         //Creo los botones
         Button botonComenzar = new Button("Comenzar");
@@ -25,6 +35,10 @@ public class ContenedorComenzar extends StackPane {
         EventHandlerComenzar eventoComenzar = new EventHandlerComenzar(primaryStage);
         botonComenzar.setOnAction(eventoComenzar);
         botonSalir.setOnAction(e -> primaryStage.close());
+        botonSonido.setOnAction(e ->{
+            if (media.getStatus().equals(MediaPlayer.Status.PLAYING)) media.pause();
+            else media.play();
+        });
 
 
 
@@ -43,6 +57,16 @@ public class ContenedorComenzar extends StackPane {
 
         this.getChildren().addAll(imagenVista,border);
 
+    }
+
+    public MediaPlayer iniciarMusica(){
+        String musicFile = "Musica/Pibe_cantina.mp3";
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        mediaPlayer.setVolume(0.7);
+        mediaPlayer.setCycleCount(INDEFINITE);
+        return mediaPlayer;
     }
 
 }
