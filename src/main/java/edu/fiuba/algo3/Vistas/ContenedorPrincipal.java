@@ -10,10 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -21,8 +18,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class ContenedorPrincipal extends BorderPane {
+
         public ContenedorPrincipal(Stage ventana, ControladorJuego controlador) {
-            Image imagen = new Image("file:Imagenes/fondo_azul.jpg",640,460, true, true);
+
+            //ventana.setFullScreen(true);
+
+            Image imagen = new Image("file:Imagenes/fondo_azul.jpg",700,460, true, true);
             final ImageView imagenVista = new ImageView(imagen);
             this.getChildren().addAll(imagenVista);
             MediaPlayer media = controlador.getMedia();
@@ -35,11 +36,9 @@ public class ContenedorPrincipal extends BorderPane {
             Button botonContinuar = new Button("Continuar");
             PauseTransition delay = new PauseTransition(Duration.seconds(10));
             delay.setOnFinished( event -> {
-                VentanaMensaje.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
+                Ventana.mostrarMensajeError("Tiempo Finalizado", "Terminó tu tiempo.");
                 botonContinuar.fire();
             });
-
-
 
             Label textoTurno = new Label("Turno de ".concat(controlador.jugadorActual()));
             TextoTurno.getInstancia().guardarLabel(textoTurno);
@@ -60,12 +59,14 @@ public class ContenedorPrincipal extends BorderPane {
             vBox.getChildren().add(stackPregunta);
 
             ProgressBar tiempoRestante = new ProgressBar();
+
             IntegerProperty segundos = new SimpleIntegerProperty();
             tiempoRestante.progressProperty().bind(segundos.divide(60.0));
-            Timeline timeline = new Timeline(
+            Timeline timeline = new Timeline (
                     new KeyFrame(Duration.ZERO, new KeyValue(segundos, 0)),
                     new KeyFrame(Duration.seconds(60), e-> {
-                        VentanaMensaje.mostrar("Tiempo Finalizado", "Terminó tu tiempo.");
+                        // TODO DETENER RELOJ LUEGO DE MENSAJE ERROR
+                        Ventana.mostrarMensajeError("Tiempo Finalizado", "Terminó tu tiempo.");
                         botonContinuar.fire();
                     }, new KeyValue(segundos, 60))
             );
@@ -73,26 +74,22 @@ public class ContenedorPrincipal extends BorderPane {
             controlador.setTimer(timeline);
             controlador.comenzar(stackPregunta);
 
-
-
-
             botonContinuar.setOnAction(e ->{
-                //timeline.stop();
                 controlador.siguienteTurno(stackPregunta);
-                //timeline.play();
             });
-            tiempoRestante.setMinWidth(530);
-            HBox botonera = new HBox(tiempoRestante, botonContinuar);
-            botonera.setSpacing(30);
+            tiempoRestante.setMinWidth(430);
+
+            Region region = new Region();
+            HBox.setHgrow(region, Priority.ALWAYS);
+            HBox botonera = new HBox(tiempoRestante, region, botonContinuar);
+
+            VBox botonOpciones = new VBox (botonSonido);
+            botonera.setSpacing(40);
+            botonOpciones.setAlignment(Pos.TOP_LEFT);
             this.setBottom(botonera);
-
-
-
-
-
             this.setCenter(vBox);
+            this.setTop(botonOpciones);
             //timeline.play();
-
         }
 
 }

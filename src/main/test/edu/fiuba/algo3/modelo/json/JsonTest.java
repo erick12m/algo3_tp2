@@ -56,21 +56,5 @@ public class JsonTest {
 
         ArrayList<Pregunta> preguntas = FabricaPreguntas.crearPreguntas();
         assertEquals(10, preguntas.size());
-
-        // OBVIO ESTO NO HACE FALTA SOLO PARA CHECAR SI ANDABA
-        System.out.println(preguntas.get(0).getEnunciado());
-        System.out.println(preguntas.get(1).getEnunciado());
-        System.out.println(preguntas.get(2).getEnunciado());
-        System.out.println(preguntas.get(3).getEnunciado());
-        System.out.println(preguntas.get(4).getEnunciado());
-        System.out.println(preguntas.get(5).getEnunciado());
-        System.out.println(preguntas.get(6).getEnunciado());
-        System.out.println(preguntas.get(7).getEnunciado());
-        System.out.println(preguntas.get(8).getEnunciado());
-        System.out.println(preguntas.get(9).getEnunciado());
-        /*System.out.println(preguntas.get(9).getNombre());
-        System.out.println(preguntas.get(6).getNombre());
-        System.out.println(preguntas.get(6).getCorrector().tienePenalidad());
-        System.out.println(preguntas.get(7).getCorrector().tienePenalidad());*/
     }
 }

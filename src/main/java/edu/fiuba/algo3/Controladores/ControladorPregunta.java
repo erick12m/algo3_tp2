@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.Controladores;
 
+import edu.fiuba.algo3.Vistas.Ventana;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import javafx.scene.control.Button;
+import javafx.scene.text.TextAlignment;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -34,12 +37,16 @@ public abstract class ControladorPregunta {
     public ArrayList<Button> getBotonesOpciones(){
         ArrayList<Button> botones = new ArrayList<Button>();
         for (String opcion : kahoot.getPreguntaActual().getOpciones()){
+
             var boton = new Button(opcion);
             boton.setOnAction(e ->{
                 boton.getText();
             });
+
             boton.setMinWidth(320);
             boton.setMinHeight(50);
+            boton.setWrapText(true);
+            boton.setTextAlignment(TextAlignment.CENTER);
             botones.add(boton);
         }
         this.botonesOpciones = botones;
@@ -66,7 +73,7 @@ public abstract class ControladorPregunta {
         try {
             kahoot.getJugadorActual().activarMultiplicadorx2();
         } catch (NoTieneMultiplicadorException e) {
-            e.printStackTrace();
+            Ventana.mostrarMensajeError("Error", "La cagaste y no tienes multiplicador");
         }
     }
 
@@ -74,7 +81,9 @@ public abstract class ControladorPregunta {
         try {
             kahoot.getJugadorActual().activarMultiplicadorx3();
         } catch (NoTieneMultiplicadorException e) {
-            e.printStackTrace();
+            Ventana.mostrarMensajeError("Error", "La cagaste y no tienes multiplicador");
+
+            //e.printStackTrace();
         }
     }
 
@@ -82,7 +91,8 @@ public abstract class ControladorPregunta {
         try {
             kahoot.usarExclusividad(kahoot.getJugadorActual());
         } catch (NoTieneExclusividadException e) {
-            e.printStackTrace();
+            Ventana.mostrarMensajeError("Error", "La cagaste y no tienes exclusividad");
+            //e.printStackTrace();
         }
     }
 

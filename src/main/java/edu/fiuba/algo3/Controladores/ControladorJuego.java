@@ -35,14 +35,16 @@ public class ControladorJuego {
 
     public void iniciarJuego(String nombreJugador1, String nombreJugador2) {
         if (nombreJugador1.equals("") ||  nombreJugador2.equals("")){
-            VentanaMensaje.mostrar("Error", "Ambos jugadores deben tener un nombre");
+            Ventana.mostrarMensajeError("Error", "Ambos jugadores deben tener un nombre");
         }else{
             this.kahoot = new Kahoot();
             kahoot.crearJugadores(nombreJugador1, nombreJugador2);
             preguntaActual = kahoot.getPreguntaActual();
             this.controladorPregunta = this.getControladorCorrecto();
             ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, this);
-            Scene juego = new Scene(contenedorPrincipal, 640, 359);
+            Scene juego = new Scene(contenedorPrincipal, 640, 400); // OJO
+            //juego.getStylesheets().add("file:juegoEscena.css");
+
             ventana.setScene(juego);
         }
 
@@ -56,7 +58,7 @@ public class ControladorJuego {
         String ganador = kahoot.getGanador();
         media.stop();
         media = this.iniciarMusica();
-        VentanaGanador.mostrar(ganador, this.ventana);
+        Ventana.mostrarGanador(ganador, this.ventana);
         timer.stop();
     }
 
@@ -94,7 +96,7 @@ public class ControladorJuego {
 
     public void mostrarRespuestaCorrecta(){
         String respuestaCorrecta = this.respuestaCorrecta.getRespuestaCorrecta();
-        VentanaRespuestaCorrecta.mostrar("La respuesta correcta es: ".concat("\n").concat(respuestaCorrecta),kahoot.imprimirPuntajesVista(), timer);
+        Ventana.mostrarRespuestaCorrecta("La respuesta correcta es: ".concat("\n").concat(respuestaCorrecta),kahoot.imprimirPuntajesVista(), timer);
     }
 
     public void actualizarTablero(){

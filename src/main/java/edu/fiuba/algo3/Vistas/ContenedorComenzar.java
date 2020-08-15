@@ -18,13 +18,11 @@ import java.io.File;
 
 import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
-
 public class ContenedorComenzar extends StackPane {
 
     public ContenedorComenzar(Stage primaryStage){
 
         MediaPlayer media = this.iniciarMusica();
-
 
         //Creo los botones
         Button botonComenzar = new Button("Comenzar");
@@ -40,8 +38,6 @@ public class ContenedorComenzar extends StackPane {
             else media.play();
         });
 
-
-
         Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,360,true,true);
         final ImageView imagenVista = new ImageView(imagen);
         VBox botoneraPrincipal = new VBox(40, botonComenzar, botonSalir);
@@ -54,13 +50,11 @@ public class ContenedorComenzar extends StackPane {
         botoneraSecundaria.setPadding(new Insets(10)); //separa los botones secundarios de la ventana
         botoneraSecundaria.setAlignment(Pos.TOP_CENTER); //alinea los botones secundarios
 
-
         this.getChildren().addAll(imagenVista,border);
-
     }
 
     public MediaPlayer iniciarMusica(){
-        String musicFile = "Musica/Africa_toto.mp3";
+        String musicFile = "Musica/Pibe_cantina.mp3";
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
@@ -68,5 +62,4 @@ public class ContenedorComenzar extends StackPane {
         mediaPlayer.setCycleCount(INDEFINITE);
         return mediaPlayer;
     }
-
 }

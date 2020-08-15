@@ -24,7 +24,6 @@ public class VistaPregunta extends VBox {
 
     public VistaPregunta(ControladorPregunta controladorPregunta) {
 
-
         //Visualizacion pregunta
         Rectangle rectangulo = new Rectangle();
         rectangulo.setHeight(150);
@@ -65,8 +64,6 @@ public class VistaPregunta extends VBox {
             });
         });
 
-
-
         //Botones utilizables
         Button botonGrupo1 = new Button("Grupo 1");
         Button botonGrupo2 = new Button("Grupo 2");
@@ -93,7 +90,6 @@ public class VistaPregunta extends VBox {
         botonExclusividad.setOnAction(e ->{
             controladorPregunta.activarExclusividad();
         });
-
 
         HBox botonera = new HBox(botonExclusividad,botonMultiplicadorx2,botonMultiplicadorx3, botonGrupo1, botonGrupo2);
         //Seteamos las visibilidades en false siempre, asi solo se muestran los botones permitidos
