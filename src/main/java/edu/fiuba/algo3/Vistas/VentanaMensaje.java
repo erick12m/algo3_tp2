@@ -16,7 +16,7 @@ public class VentanaMensaje {
         ventana.initModality(Modality.APPLICATION_MODAL);
         ventana.setTitle(titulo);
 
-        Label label = new Label("mensaje");
+        Label label = new Label("Mensaje");
         label.setText(mensaje);
 
         Button boton = new Button("Ok");
