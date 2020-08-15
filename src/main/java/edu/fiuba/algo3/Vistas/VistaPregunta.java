@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class VistaPregunta extends VBox {
     private String respuesta;
@@ -40,7 +41,7 @@ public class VistaPregunta extends VBox {
         texto.setText(controladorPregunta.getNombre() +":\n\n"
                 + controladorPregunta.getEnunciado());
         texto.setTextAlignment(TextAlignment.CENTER);
-        texto.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+        texto.setFont(Font.font("Montserrat", FontWeight.BOLD, 18));
         texto.setWrappingWidth(600);
         TextoPregunta.getInstancia().guardarLabel(texto);
         StackPane stack = new StackPane();
@@ -55,6 +56,7 @@ public class VistaPregunta extends VBox {
         opciones.setAlignment(Pos.CENTER);
         opciones.setPrefColumns(2);
         var botonesOpciones = controladorPregunta.getBotonesOpciones();
+        Collections.shuffle(botonesOpciones);
         botonesOpciones.forEach(b -> b.setStyle(""));
         opciones.getChildren().addAll(botonesOpciones);
         botonesOpciones.forEach(boton -> {

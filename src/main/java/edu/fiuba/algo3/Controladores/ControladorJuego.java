@@ -94,7 +94,7 @@ public class ControladorJuego {
 
     public void mostrarRespuestaCorrecta(){
         String respuestaCorrecta = this.respuestaCorrecta.getRespuestaCorrecta();
-        VentanaRespuestaCorrecta.mostrar("La respuesta correcta es: ".concat("\n").concat(respuestaCorrecta), timer);
+        VentanaRespuestaCorrecta.mostrar("La respuesta correcta es: ".concat("\n").concat(respuestaCorrecta),kahoot.imprimirPuntajesVista(), timer);
     }
 
     public void actualizarTablero(){
@@ -122,7 +122,7 @@ public class ControladorJuego {
 
     public void corregirRespuestas(){
         kahoot.puntuarPregunta(preguntaActual);
-        kahoot.imprimirPuntajes();
+        //kahoot.imprimirPuntajes();
     }
 
     public void setAudio(MediaPlayer media) { this.media = media;}
