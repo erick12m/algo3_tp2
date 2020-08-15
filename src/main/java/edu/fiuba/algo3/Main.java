@@ -13,7 +13,7 @@ public class Main extends Application {
 
         ContenedorComenzar contenedorComenzar = new ContenedorComenzar(primaryStage);
 
-        primaryStage.setTitle("AlgoChess");
+        primaryStage.setTitle("AlgoHoot");
         Scene escena = new Scene(contenedorComenzar, 640, 359);
         primaryStage.setScene(escena);
         primaryStage.getIcons().add(new Image("file:Imagenes/logo_kahoot.jpeg"));

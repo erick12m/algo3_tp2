@@ -3,9 +3,9 @@ package edu.fiuba.algo3.Controladores;
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.scene.control.Button;
 
-public class ControlardorVerdaderoFalso extends ControladorPregunta{
+public class ControladorVerdaderoFalso extends ControladorPregunta{
 
-    public ControlardorVerdaderoFalso(Kahoot kahoot){
+    public ControladorVerdaderoFalso(Kahoot kahoot){
         this.kahoot = kahoot;
     }
 

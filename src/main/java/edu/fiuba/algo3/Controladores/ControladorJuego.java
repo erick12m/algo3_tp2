@@ -103,7 +103,7 @@ public class ControladorJuego {
     public ControladorPregunta getControladorCorrecto(){
         switch (kahoot.getPreguntaActual().getNombre()){
             case VERDADER_O_FALSO:
-                return new ControlardorVerdaderoFalso(kahoot);
+                return new ControladorVerdaderoFalso(kahoot);
 
             case GROUP_CHOICE:
                 return new ControladorGroupChoice(kahoot);
