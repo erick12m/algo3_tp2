@@ -57,6 +57,7 @@ public class ControladorJuego {
         media.stop();
         media = this.iniciarMusica();
         VentanaGanador.mostrar(ganador, this.ventana);
+        timer.stop();
     }
 
     public void siguienteTurno(StackPane stackPregunta) {
