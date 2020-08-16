@@ -24,10 +24,11 @@ public class Kahoot {
     private Queue<Pregunta> listaDePreguntas;
     private int contador = 1;
     int CANTIDAD_JUGADORES = 2;
+    int CANTIDAD_DE_PREGUNTAS = 10;
 
     public Kahoot() {
         try{
-            listaDePreguntas = new LinkedList<>(FabricaPreguntas.crearPreguntas());
+            listaDePreguntas = seleccionarPreguntas(FabricaPreguntas.crearPreguntas());
             preguntaActual = listaDePreguntas.remove();
         } catch (FileNotFoundException e){
         }
@@ -139,5 +140,29 @@ public class Kahoot {
         mensaje.append("Puntaje de los jugadores: \n");
         this.jugadores.forEach(j -> mensaje.append(j.getNombre()+": "+ String.valueOf(j.getPuntaje())+"\n"));
         return mensaje.toString();
+    }
+
+    public Queue<Pregunta> seleccionarPreguntas(ArrayList<Pregunta> preguntas){
+        ArrayList<Pregunta> listaAuxiliar = new ArrayList<>();
+        Queue<Pregunta> preguntasJuego = new LinkedList<>();
+        for(Pregunta preg: preguntas){
+            double numRandom = Math.random();
+            if (numRandom > 0.65){
+                preguntasJuego.add(preg);
+                if (preguntasJuego.size() == CANTIDAD_DE_PREGUNTAS) break; //Asi solo tenemos 10 preguntas
+            }
+            else{
+                listaAuxiliar.add(preg);
+            }
+        }
+
+        while (preguntasJuego.size() < CANTIDAD_DE_PREGUNTAS){ //Puede que no tengamos 10 preguntas, agregamos las descartadas
+            try{
+                preguntasJuego.add(listaAuxiliar.remove(0));
+            } catch (IndexOutOfBoundsException e){
+                break;
+            }
+        }
+        return preguntasJuego;
     }
 }

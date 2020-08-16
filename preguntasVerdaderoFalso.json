@@ -5,7 +5,7 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
-    "enunciado": "1 + 1 = 2?",
+    "enunciado": "7 * 6 + 8 = 50?",
     "opciones": [
       "Verdadero",
       "Falso"
@@ -24,7 +24,237 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
       "DATA": {}
     },
-    "enunciado": "1 + 2 = 2?",
+    "enunciado": "77 + 33 = 100?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Falso"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Existen 5 continentes",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Falso"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "El marrón es un color primario",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Falso"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "El fósforo en la tabla periódica se representa con una F",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Falso"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "La Constitución Nacional Argentina posee 129 artículos",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Verdadero"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Ryan Reynolds es el protagonista de Deadpool",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Verdadero"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "La Primera Guerra Mundial comenzó en 1918",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Falso"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Los Premios Grammy premian a los cantantes",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Verdadero"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "El significado de sarasa es: Hombre afeminado",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Verdadero"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Para llegar por tierra a Tierra del Fuego es necesario pasar por Chile",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Verdadero"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "En Argentina ocurrieron 5 Golpes de Estado",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Falso"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Argentina posee la segunda universidad más antiuga de America Latina",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Verdadero"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Verdadero o Falso",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "La UBA es la universidad más antigua de Argentina",
     "opciones": [
       "Verdadero",
       "Falso"

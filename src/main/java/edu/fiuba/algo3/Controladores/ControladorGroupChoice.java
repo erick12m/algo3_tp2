@@ -34,6 +34,9 @@ public class ControladorGroupChoice extends ControladorPregunta {
     public Respuesta getRespuestaJugador(){
         System.out.println(this.kahoot.getJugadorActual().getNombre().concat(" Grupo 1:").concat(String.valueOf(grupo1)));
         System.out.println(this.kahoot.getJugadorActual().getNombre().concat(" Grupo 2:").concat(String.valueOf(grupo2)));
-        return new Respuesta(grupo1, grupo2);
+        Respuesta respuestaJugador = new Respuesta(grupo1, grupo2);
+        this.grupo1.clear();
+        this.grupo2.clear();
+        return respuestaJugador;
     }
 }

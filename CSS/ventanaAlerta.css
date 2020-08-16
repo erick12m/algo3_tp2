@@ -1,0 +1,21 @@
+.root{
+    -fx-background-color: black;
+}
+.button {
+    -fx-background-color: "#564c3f";
+    -fx-font-family: "Fira Code Retina";
+    -fx-text-fill: "#ffffff";
+    -fx-font-size: 18;
+}
+
+.button:hover {
+    -fx-background-color: "#9a7b55";
+    -fx-cursor: hand;
+}
+
+.label {
+    -fx-font-size: 16;
+    -fx-font-weight: 600;
+    -fx-text-fill: white;
+    -fx-font-family: "Mukti Narrow";
+}

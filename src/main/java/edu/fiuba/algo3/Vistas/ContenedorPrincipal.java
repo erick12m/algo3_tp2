@@ -9,9 +9,10 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -21,13 +22,7 @@ import javafx.util.Duration;
 public class ContenedorPrincipal extends BorderPane {
 
         public ContenedorPrincipal(Stage ventana, ControladorJuego controlador) {
-
-            //ventana.setFullScreen(true);
-
-            //Image imagen = new Image("file:Imagenes/fondo_azul.jpg",700,460, true, true);
-            //final ImageView imagenVista = new ImageView(imagen);
-            //this.getChildren().addAll(imagenVista);
-
+            
             MediaPlayer media = controlador.getMedia();
             Button botonSonido = new Button("Sonido");
             botonSonido.setOnAction(e ->{
@@ -92,7 +87,6 @@ public class ContenedorPrincipal extends BorderPane {
             this.setBottom(botonera);
             this.setCenter(vBox);
             this.setTop(botonOpciones);
-            //timeline.play();
         }
 
 }

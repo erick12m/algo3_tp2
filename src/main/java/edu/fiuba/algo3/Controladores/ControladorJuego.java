@@ -43,7 +43,7 @@ public class ControladorJuego {
             this.controladorPregunta = this.getControladorCorrecto();
             ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, this);
             Scene juego = new Scene(contenedorPrincipal, 720, 480); // OJO
-            juego.getStylesheets().add("file:juegoEscena.css");
+            juego.getStylesheets().add("file:CSS/escenaJuego.css");
 
             ventana.setScene(juego);
             ventana.setMaximized(true);

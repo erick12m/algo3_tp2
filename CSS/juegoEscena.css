@@ -1,0 +1,25 @@
+.root{
+    -fx-background-image: url("Imagenes/fondo_azul.jpg");
+    -fx-scale-shape: true;
+    -fx-background-position: left top, center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+}
+
+.button {
+    -fx-background-color: "#564c3f";
+    -fx-font-family: "Fira Code Retina";
+    -fx-text-fill: "#ffffff";
+    -fx-font-size: 22;
+}
+
+.button:hover {
+    -fx-background-color: "#9a7b55";
+}
+
+.label {
+    -fx-font-size: 25;
+    -fx-font-weight: 600;
+    -fx-text-fill: white;
+    -fx-font-family: "Fira Code Retina";
+}

@@ -4,9 +4,9 @@ import edu.fiuba.algo3.Vistas.eventos.EventHandlerComenzar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -35,20 +35,17 @@ public class ContenedorComenzar extends StackPane {
             else media.play();
         });
 
-        Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,360,true,true);
-        final ImageView imagenVista = new ImageView(imagen);
-
-        VBox botoneraPrincipal = new VBox(40, botonComenzar, botonSalir);
+        HBox botoneraPrincipal = new HBox(40, botonComenzar, botonSalir);
         HBox botoneraSecundaria = new HBox(300, botonSonido);
         BorderPane border = new BorderPane();
         border.setTop(botoneraSecundaria);
-        border.setBottom(botoneraPrincipal);
+        border.setCenter(botoneraPrincipal);
         //Alineaciones
-        botoneraPrincipal.setAlignment(Pos.CENTER); //alinea los botones principales
+        botoneraPrincipal.setAlignment(Pos.BOTTOM_CENTER); //alinea los botones principales
         botoneraSecundaria.setPadding(new Insets(10)); //separa los botones secundarios de la ventana
-        botoneraSecundaria.setAlignment(Pos.TOP_CENTER); //alinea los botones secundarios
-
-        this.getChildren().addAll(imagenVista,border);
+        botoneraSecundaria.setAlignment(Pos.TOP_LEFT); //alinea los botones secundarios
+        this.getChildren().add(border);
+        this.getStylesheets().add("file:CSS/escenaComenzar.css");
     }
 
     public MediaPlayer iniciarMusica(){

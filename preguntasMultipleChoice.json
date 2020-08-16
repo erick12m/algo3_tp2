@@ -5,7 +5,7 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
-    "enunciado": "Seleccione los numeros pares",
+    "enunciado": "Seleccione los números pares",
     "opciones": [
       "1",
       "2",
@@ -28,7 +28,7 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
-    "enunciado": "Seleccione los numeros impares",
+    "enunciado": "Seleccione los números impares",
     "opciones": [
       "1",
       "2",
@@ -39,7 +39,8 @@
     "respuestaCorrecta": {
       "respuestas": [
         "1",
-        "3"
+        "3",
+        "5"
       ],
       "puntosObtenidos": 0
     }
@@ -51,16 +52,16 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
-    "enunciado": "Quien vino primero?",
+    "enunciado": "Quién vino primero?",
     "opciones": [
       "El huevo",
-      "Aun no sabemos la respuesta a esta interrogante",
+      "Aún no sabemos la respuesta a esta interrogante",
       "La gallina",
-      "La respuesta esta en tu corazon"
+      "La respuesta esta en tu corazón"
     ],
     "respuestaCorrecta": {
       "respuestas": [
-        "Aun no sabemos la respuesta a esta interrogante"
+        "Aún no sabemos la respuesta a esta interrogante"
       ],
       "puntosObtenidos": 0
     }
@@ -72,7 +73,7 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
       "DATA": {}
     },
-    "enunciado": "Cuales de los siguientes elementos pertenecen a la tabla periodica",
+    "enunciado": "Cuáles de los siguientes elementos pertenecen a la tabla periódica?",
     "opciones": [
       "Potasio K",
       "Cianuro CN",
@@ -84,6 +85,344 @@
         "Potasio K",
         "Molibdeno Mo",
         "Wolframio W"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Cuál de los siguientes nombres no pertenece a un continente?",
+    "opciones": [
+      "América",
+      "Asia",
+      "Australia",
+      "África"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Australia"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Cuántos libros tiene la saga de Harry Potter?",
+    "opciones": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "7"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Naranja es un ...",
+    "opciones": [
+      "Color",
+      "Fruta",
+      "Ninguna",
+      "Ambos"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Ambos"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Cuántas provincias tiene Argentina?",
+    "opciones": [
+      "19",
+      "20",
+      "25",
+      "Ninguna es correcta"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Ninguna es correcta"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Cuál de estos nombres corresponde a un personaje de Friends?",
+    "opciones": [
+      "Ted",
+      "Barney",
+      "Charly",
+      "Phoebe"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Phoebe"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Una aventura es mas divertida si huele a ...",
+    "opciones": [
+      "Peligro",
+      "Muerte",
+      "Rosas",
+      "Vida"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Peligro"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Fulano, Mengano y ...",
+    "opciones": [
+      "Zutano",
+      "Zultano",
+      "Lujano",
+      "Mariano"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Zutano"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorParcial",
+      "DATA": {}
+    },
+    "enunciado": "Godzilla es el nombre de ...",
+    "opciones": [
+      "Un monstruo",
+      "Una canción",
+      "Ambas opciones son correctas",
+      "Ninguna opcion es correcta"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Ambas opciones son correctas"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "La muralla China mide ...",
+    "opciones": [
+      "21196 km",
+      "2119 km",
+      "7176 km",
+      "13542 km"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "21196 km"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "El salto más importante de las Cataratas del Iguazú se llama: ",
+    "opciones": [
+      "Garganta del diablo",
+      "Garganta del demonio",
+      "Garganta del angel",
+      "Garganta de Dios"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Garganta del diablo"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Cuántos Roland Garros posee Rafa Nadal?",
+    "opciones": [
+      "11",
+      "10",
+      "13",
+      "12"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "12"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Según la fe católica cuál es el septimo mandamiento?",
+    "opciones": [
+      "No robarás",
+      "No matarás",
+      "No codiciarás los bienes ajenos",
+      "No mentirás"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "No robarás"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorPenalidad",
+      "DATA": {}
+    },
+    "enunciado": "Pololo en Chile significa:",
+    "opciones": [
+      "Novio",
+      "Amigo",
+      "Amigo con derecho",
+      "Esposo"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Novio"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorParcial",
+      "DATA": {}
+    },
+    "enunciado": "Taburete es:",
+    "opciones": [
+      "Una banda musical",
+      "Un asiento individual",
+      "Ninguna es correcta",
+      "Ambas son correctas"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Ambas son correctas"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Magenta es sinonimo de:",
+    "opciones": [
+      "Rojo",
+      "Amarillo",
+      "Naranja",
+      "Verde"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Rojo"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Multiple Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorParcial",
+      "DATA": {}
+    },
+    "enunciado": "Kiwi es:",
+    "opciones": [
+      "Una fruta",
+      "Un ave",
+      "Una aerolínea",
+      "Un pez"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Una fruta",
+        "Un ave",
+        "Una aerolínea"
       ],
       "puntosObtenidos": 0
     }

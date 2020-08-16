@@ -32,6 +32,7 @@ public class Ventana {
         VBox layout = new VBox(10, label, boton);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 400 ,300);
+        scene.getStylesheets().add("file:CSS/ventanaGanador.css");
 
         ventana.setScene(scene);
         ventana.show();
@@ -56,7 +57,7 @@ public class Ventana {
         VBox layout = new VBox(10, label, boton);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 400 ,300);
-
+        scene.getStylesheets().add("file:CSS/ventanaAlerta.css");
         ventana.setScene(scene);
         delay.play();
         ventana.show();
@@ -81,7 +82,7 @@ public class Ventana {
         VBox layout = new VBox(10, label, label2, botonCerrar);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 400 ,300);
-
+        scene.getStylesheets().add("file:CSS/ventanaAlerta.css");
         ventana.setScene(scene);
         ventana.show();
     }

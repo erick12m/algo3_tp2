@@ -5,8 +5,6 @@ import edu.fiuba.algo3.Vistas.eventos.EventHandlerTeclado;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -15,15 +13,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ContenedorCargaDeNombres extends BorderPane {
-    private MediaPlayer media;
+    //private MediaPlayer media;
 
     public ContenedorCargaDeNombres(Stage ventana, MediaPlayer media){
         ControladorJuego controladorJuego = new ControladorJuego(ventana);
         controladorJuego.setAudio(media);
-        //Imagen de Fondo de la escena
-        Image imagen = new Image("file:Imagenes/fondo_abstracto.jpg",640,460, true, true);
-        final ImageView imagenVista = new ImageView(imagen);
-        this.getChildren().addAll(imagenVista);
+        this.getStylesheets().add("file:CSS/escenaCargaNombres.css");
 
         //Solicitud de nombres a los jugadores
         Text instruccionesJugador1 = new Text("Nombre jugador 1:");
@@ -42,7 +37,8 @@ public class ContenedorCargaDeNombres extends BorderPane {
 
         //Acciones botones y teclado
         botonSalir.setOnAction(e -> ventana.close());
-        botonJugar.setOnAction(e -> { controladorJuego.iniciarJuego(nombreJugador1.getText()
+        botonJugar.setOnAction(e -> {
+            controladorJuego.iniciarJuego(nombreJugador1.getText()
                 ,nombreJugador2.getText()); });
 
         botonSonido.setOnAction(e ->{
@@ -54,10 +50,20 @@ public class ContenedorCargaDeNombres extends BorderPane {
         nombreJugador1.setOnKeyPressed(eventoTeclado);
         nombreJugador2.setOnKeyPressed(eventoTeclado);
 
-        VBox botoneraCarga = new VBox(40, hBoxJugador1, hBoxJugador2, botonJugar, botonSalir, botonSonido);
+        VBox botoneraCarga = new VBox(40, hBoxJugador1, hBoxJugador2);
+        HBox botoneraOpciones = new HBox(50, botonJugar, botonSalir);
+        HBox botoneraSonido = new HBox(40, botonSonido);
+
+        //Alineacion botoneras
+        botoneraSonido.setAlignment(Pos.TOP_LEFT);
+        botoneraOpciones.setAlignment(Pos.CENTER);
         botoneraCarga.setAlignment(Pos.CENTER);//alinea los botones principales
 
         this.setCenter(botoneraCarga);
+        this.setBottom(botoneraOpciones);
+        this.setTop(botoneraSonido);
+        this.getStylesheets().add("file:CSS/escenaCargaNombres.css");
+
 
     }
 }

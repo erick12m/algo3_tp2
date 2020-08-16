@@ -31,7 +31,7 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
-    "enunciado": "Separe los deportes que requieran balon de los que no",
+    "enunciado": "Separe los deportes que requieran balón de los que no",
     "opciones": [
       "Beisbol",
       "Futbol",
@@ -46,6 +46,136 @@
       "segundoGrupo": [
         "Atletismo",
         "Surf"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe los colores en primarios y secundarios",
+    "opciones": [
+      "Rojo",
+      "Azul",
+      "Verde",
+      "Morado"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Azul",
+        "Rojo"
+      ],
+      "segundoGrupo": [
+        "Morado",
+        "Verde"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe las bandas inglesas de las estadounidenses",
+    "opciones": [
+      "Coldplay",
+      "Queen",
+      "The Killers",
+      "Imagine Dragons"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Imagine Dragons",
+        "The Killers"
+      ],
+      "segundoGrupo": [
+        "Coldplay",
+        "Queen"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Agrupar cada país con su capital",
+    "opciones": [
+      "Lituania",
+      "Letonia",
+      "Vilna",
+      "Riga"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Lituania",
+        "Vilna"
+      ],
+      "segundoGrupo": [
+        "Letonia",
+        "Riga"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe los elementos que se encuentran en la bandera de México de los que no",
+    "opciones": [
+      "Aguila",
+      "Serpiente",
+      "Cactus",
+      "Cuervo"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Aguila",
+        "Cactus",
+        "Serpiente"
+      ],
+      "segundoGrupo": [
+        "Cuervo"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Agrupe las canciones de The Killers que pertenecen al mismo álbum",
+    "opciones": [
+      "Read My Mind",
+      "The Way It Was",
+      "Bones",
+      "Be Still"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Bones",
+        "Read My Mind"
+      ],
+      "segundoGrupo": [
+        "Be Still",
+        "The Way It Was"
       ],
       "puntosObtenidos": 0
     }
