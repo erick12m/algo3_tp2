@@ -6,10 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -40,6 +37,7 @@ public class ContenedorComenzar extends StackPane {
 
         Image imagen = new Image("file:Imagenes/logo_kahoot.jpeg",640,360,true,true);
         final ImageView imagenVista = new ImageView(imagen);
+
         VBox botoneraPrincipal = new VBox(40, botonComenzar, botonSalir);
         HBox botoneraSecundaria = new HBox(300, botonSonido);
         BorderPane border = new BorderPane();

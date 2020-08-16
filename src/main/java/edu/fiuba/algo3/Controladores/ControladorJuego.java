@@ -42,10 +42,12 @@ public class ControladorJuego {
             preguntaActual = kahoot.getPreguntaActual();
             this.controladorPregunta = this.getControladorCorrecto();
             ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, this);
-            Scene juego = new Scene(contenedorPrincipal, 640, 400); // OJO
-            //juego.getStylesheets().add("file:juegoEscena.css");
+            Scene juego = new Scene(contenedorPrincipal, 720, 480); // OJO
+            juego.getStylesheets().add("file:juegoEscena.css");
 
             ventana.setScene(juego);
+            ventana.setMaximized(true);
+            ventana.setResizable(false);
         }
 
     }

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.Controladores.ControladorJuego;
 import javafx.animation.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,9 +24,10 @@ public class ContenedorPrincipal extends BorderPane {
 
             //ventana.setFullScreen(true);
 
-            Image imagen = new Image("file:Imagenes/fondo_azul.jpg",700,460, true, true);
-            final ImageView imagenVista = new ImageView(imagen);
-            this.getChildren().addAll(imagenVista);
+            //Image imagen = new Image("file:Imagenes/fondo_azul.jpg",700,460, true, true);
+            //final ImageView imagenVista = new ImageView(imagen);
+            //this.getChildren().addAll(imagenVista);
+
             MediaPlayer media = controlador.getMedia();
             Button botonSonido = new Button("Sonido");
             botonSonido.setOnAction(e ->{
@@ -79,10 +81,11 @@ public class ContenedorPrincipal extends BorderPane {
             });
             tiempoRestante.setMinWidth(430);
 
-            Region region = new Region();
-            HBox.setHgrow(region, Priority.ALWAYS);
-            HBox botonera = new HBox(tiempoRestante, region, botonContinuar);
+            //Region region = new Region();
+            //HBox.setHgrow(region, Priority.ALWAYS);
 
+            HBox botonera = new HBox(tiempoRestante, botonContinuar);
+            botonera.setPadding(new Insets(30));
             VBox botonOpciones = new VBox (botonSonido);
             botonera.setSpacing(40);
             botonOpciones.setAlignment(Pos.TOP_LEFT);
