@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class VistaPregunta extends VBox {
-    private String respuesta;
 
     public VistaPregunta(ControladorPregunta controladorPregunta) {
 
@@ -73,22 +72,22 @@ public class VistaPregunta extends VBox {
 
         //Seteo acciones de los botones especiales
         botonGrupo1.setOnAction(e ->{
-            controladorPregunta.setGrupo(botonGrupo1.getText());
+            controladorPregunta.setGrupo(botonGrupo1);
         });
 
         botonGrupo2.setOnAction(e ->{
-            controladorPregunta.setGrupo(botonGrupo2.getText());
+            controladorPregunta.setGrupo(botonGrupo2);
         });
 
         botonMultiplicadorx2.setOnAction(e ->{
-            controladorPregunta.activarMultiplicadorx2();
+            controladorPregunta.activarMultiplicadorx2(botonMultiplicadorx2);
         });
         botonMultiplicadorx3.setOnAction(e ->{
-            controladorPregunta.activarMultiplicadorx3();
+            controladorPregunta.activarMultiplicadorx3(botonMultiplicadorx3);
         });
 
         botonExclusividad.setOnAction(e ->{
-            controladorPregunta.activarExclusividad();
+            controladorPregunta.activarExclusividad(botonExclusividad);
         });
 
         HBox botonera = new HBox(botonExclusividad,botonMultiplicadorx2,botonMultiplicadorx3, botonGrupo1, botonGrupo2);
@@ -104,11 +103,5 @@ public class VistaPregunta extends VBox {
         botonExclusividad.setVisible(!controladorPregunta.esPreguntaConPenalidad());
 
         this.getChildren().addAll(stack,opciones,botonera);
-    }
-
-    public ArrayList<String> getRespuesta(){
-        ArrayList<String> respuestas = new ArrayList<String>();
-        respuestas.add(respuesta);
-        return respuestas;
     }
 }

@@ -15,6 +15,7 @@ public abstract class ControladorPregunta {
     protected ArrayList<String> opciones;
     protected Respuesta respuestaCorrecta;
     protected ArrayList<Button> botonesOpciones;
+    protected ArrayList<Button> botonesActivos = new ArrayList<>();
     protected Kahoot kahoot;
     protected ArrayList<String> respuestaJugador = new ArrayList<>();
 
@@ -30,7 +31,7 @@ public abstract class ControladorPregunta {
         }
         else {
             respuestaJugador.add(textoOpcion);
-            botonOpcion.setStyle("-fx-border-color: #5eba46; -fx-border-width: 5px;");
+            this.activarBoton(botonOpcion);
         }
     }
 
@@ -69,17 +70,36 @@ public abstract class ControladorPregunta {
         return respuesta;
     }
 
-    public void activarMultiplicadorx2() {
+    public void activarMultiplicadorx2(Button boton) {
+        if (this.tieneUtilizableActivo()){
+            Ventana.mostrarMensajeError("Error", "Ya tiene un multiplicador activo");
+            return;
+        }
         try {
             kahoot.getJugadorActual().activarMultiplicadorx2();
+            this.activarBoton(boton);
         } catch (NoTieneMultiplicadorException e) {
             Ventana.mostrarMensajeError("Error", "La cagaste y no tienes multiplicador");
         }
     }
 
-    public void activarMultiplicadorx3() {
+    private boolean tieneUtilizableActivo() {
+        return !this.botonesActivos.isEmpty();
+    }
+
+    public void activarBoton(Button boton) {
+        this.botonesActivos.add(boton);
+        boton.setStyle("-fx-border-color: #5eba46; -fx-border-width: 2px;");
+    }
+
+    public void activarMultiplicadorx3(Button boton) {
+        if (this.tieneUtilizableActivo()){
+            Ventana.mostrarMensajeError("Error", "Ya tiene un multiplicador activo");
+            return;
+        }
         try {
             kahoot.getJugadorActual().activarMultiplicadorx3();
+            this.activarBoton(boton);
         } catch (NoTieneMultiplicadorException e) {
             Ventana.mostrarMensajeError("Error", "La cagaste y no tienes multiplicador");
 
@@ -87,9 +107,15 @@ public abstract class ControladorPregunta {
         }
     }
 
-    public void activarExclusividad(){
+
+    public void activarExclusividad(Button boton){
+        if (this.tieneUtilizableActivo()){
+            Ventana.mostrarMensajeError("Error", "Ya tiene exclusividad activo");
+            return;
+        }
         try {
             kahoot.usarExclusividad(kahoot.getJugadorActual());
+            this.activarBoton(boton);
         } catch (NoTieneExclusividadException e) {
             Ventana.mostrarMensajeError("Error", "La cagaste y no tienes exclusividad");
             //e.printStackTrace();
@@ -100,11 +126,19 @@ public abstract class ControladorPregunta {
         return kahoot.esPreguntaConPenalidad();
     }
 
-    public void setGrupo(String text){
+    public void setGrupo(Button botonGrupo){
         System.out.println("Setee grupo"); //TODO borrar esto despues, es para debuguear
+    }
+    public void refrescarOpciones(){
+        this.botonesOpciones.forEach(b -> b.setStyle(""));
+    }
+
+    public void refrescarUtilizables(){
+        this.botonesActivos.forEach(b -> b.setStyle(""));
     }
 
     public void refrescarBotones(){
-        this.botonesOpciones.forEach(b -> b.setStyle(""));
+        this.refrescarOpciones();
+        this.refrescarUtilizables();
     }
 }
