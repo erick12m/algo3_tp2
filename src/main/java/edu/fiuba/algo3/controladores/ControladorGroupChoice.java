@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Controladores;
+package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;

@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.Vistas.eventos;
+package edu.fiuba.algo3.controladores.eventos;
 
-import edu.fiuba.algo3.Vistas.ContenedorCargaDeNombres;
+import edu.fiuba.algo3.vistas.ContenedorCargaDeNombres;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

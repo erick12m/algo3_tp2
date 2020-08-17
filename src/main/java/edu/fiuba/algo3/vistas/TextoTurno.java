@@ -1,5 +1,4 @@
-package edu.fiuba.algo3.Vistas;
-
+package edu.fiuba.algo3.vistas;
 import edu.fiuba.algo3.modelo.Kahoot;
 import javafx.scene.control.Label;
 

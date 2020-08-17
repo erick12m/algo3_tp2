@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.Vistas;
+package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.Vistas.eventos.EventHandlerComenzar;
+import edu.fiuba.algo3.controladores.eventos.EventHandlerComenzar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

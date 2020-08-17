@@ -1,5 +1,5 @@
 ignore:
-  - "src/main/java/edu.fiuba.algo3/Controladores"
-  - "src/main/java/edu.fiuba.algo3/Vistas"
+  - "src/main/java/edu.fiuba.algo3/controladores"
+  - "src/main/java/edu.fiuba.algo3/vistas"
   - "src/main/java/edu.fiuba.algo3/App.java"
   - "src/main/java/edu.fiuba.algo3/Main.java"

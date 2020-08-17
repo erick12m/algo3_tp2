@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.Vistas;
+package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.Controladores.ControladorJuego;
-import edu.fiuba.algo3.Vistas.eventos.EventHandlerTeclado;
+import edu.fiuba.algo3.controladores.ControladorJuego;
+import edu.fiuba.algo3.controladores.eventos.EventHandlerTeclado;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

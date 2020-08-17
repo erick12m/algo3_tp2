@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.Vistas;
+package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.Controladores.ControladorPregunta;
+import edu.fiuba.algo3.controladores.ControladorPregunta;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -16,7 +16,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-import java.util.ArrayList;
 import java.util.Collections;
 
 public class VistaPregunta extends VBox {
