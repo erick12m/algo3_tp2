@@ -47,13 +47,6 @@ public class Respuesta {
         Resultado resultado = new Resultado(0, 0, 1);
         var primerGrupoJugador = respuestasJugador.getPrimerGrupo();
         var segundoGrupoJugador = respuestasJugador.getSegundoGrupo();
-        // TODO Borrar los println
-        /*Collections.sort(primerGrupoJugador);
-        Collections.sort(segundoGrupoJugador);
-        System.out.println("Respuesta 1: ".concat(String.valueOf(this.respuestas)));
-        System.out.println("Primer grupo: ".concat(String.valueOf(primerGrupoJugador)));
-        System.out.println("Segundo grupo: ".concat(String.valueOf(segundoGrupoJugador)));
-        System.out.println("Respuesta 2: ".concat(String.valueOf(this.segundoGrupo)));*/
         if (esGrupoValido(primerGrupoJugador)
                 && esGrupoValido(segundoGrupoJugador)){
             resultado.sumarCorrecta();

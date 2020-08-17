@@ -135,6 +135,7 @@ public abstract class ControladorPregunta {
 
     public void refrescarUtilizables(){
         this.botonesActivos.forEach(b -> b.setStyle(""));
+        this.botonesActivos.clear();
     }
 
     public void refrescarBotones(){
