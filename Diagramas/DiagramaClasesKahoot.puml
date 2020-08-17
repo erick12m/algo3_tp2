@@ -1,0 +1,117 @@
+@startuml AlgoHoot
+hide circle
+interface Corrector{
+    + corregirPregunta(resultado : Resultado) : int
+    + tienePenalidad() : boolean
+}
+class Jugador{
+    - nombre : String
+    - respuesta : Respuesta
+    - puntaje : Puntaje
+    - usosExclusividad: int
+    - multiplicador : Multiplicador
+    + usarExclusividad()
+    + usarMultiplicadorX2()
+    + usarMultiplicadorX3()
+    + respuestaElegida(respuesta : Respuesta)
+    + actualizarPuntaje()
+    + getPuntaje() : int
+    + getRespuesta() : Respuesta
+    + getNombre() : String
+}
+class Multiplicador{
+    - usos : Map<int,int>
+    - multiplicador : int
+    + activarMultiplicador(multiplicador : int)
+    + usarMultiplicador(puntos : int) : int
+    + resetear()
+}
+class Exclusividad{
+    - usos : int
+    + sumarUso(jugador : Jugador)
+    + aplicar(respuestas :  ArrayList<Respuesta>)
+    + calcularExclusividad(puntos: int) : int
+}
+class Puntaje{
+    - puntaje : int
+    + getPuntosObtenidos() : int
+    + actualizarPuntaje(puntosObtenidos : int)
+}
+class Pregunta{
+    # enunciado : String
+    # opciones : ArrayList<Opcion>
+    # respuesta : Respuesta
+    # puntos : int
+    # corrector : Corrector
+    + evaluarRespuesta(respuestaJugador : Respuesta)
+    + tienePenalidad() : boolean
+}
+class Kahoot{
+    - exclusividad : Exclusividad
+    - jugadores : Queue<Jugador>
+    - preguntaActual : Pregunta
+    - jugadorActual : Jugador
+    - listaPreguntas : Queue<Pregunta>
+    + crearJugadores(jugador1 : String, Jugador2 : String)
+    + siguienteTurno()
+    - siguienteJugador()
+    - siguientePregunta()
+    + getGanador()
+    - obtenerRespuestas()
+    + usarExclusividad(jugador : Jugador)
+    + puntuarPregunta(preguntaActual : Pregunta)
+    + esPreguntaConPenalidad() : boolean
+    + getPreguntaActual() : Pregunta
+    + getRespuestaCorrecta() : String
+    + imprimirPuntajesVista() : String
+    - seleccionarPreguntas(preguntas : ArrayList<Pregunta>) : Queue<Pregunta>
+
+}
+class Respuesta{
+    - respuestas : ArrayList<String>
+    - segundoGrupo : ArrayList<String>
+    - puntosObtenidos : int
+    + getRespuesta() : ArrayList<String>
+    + getGrupos() : ArrayList<String>
+    + compararCon(respuestasJugador : Respuesta) : Resultado
+    + compararOrden(respuestasJugador: Respuesta) : Resultado
+    + compararGrupos(respuestasJugador : Respuesta) : Resultado
+    - esGrupoValido(grupo : ArrayList<String>) : boolean
+    + asignarPuntaje(puntosObtenidos : int)
+    + esCorrecta() : boolean
+    + usarExclusividad(exclusividad : Exclusividad) : int
+    + getRespuestaCorrecta() : String
+}
+class Resultado{
+    - correctas : int
+    - incorrectas : int
+    - correctasEsperadas : int
+    + setCorrectas(correctas : int)
+    + setIncorrectas(incorrectas : int)
+    + getCorrectas() : int
+    + getIncorrectas() : int
+    + diferencia() : int
+}
+Pregunta "1" *-right- "1" Respuesta
+Pregunta "1" *-- "1" Corrector
+
+Kahoot "1" *-- "*" Jugador
+Kahoot "1" *-- "1" Pregunta
+Kahoot "1" *-- "1" Exclusividad
+
+Corrector <-- Resultado
+
+Jugador "1" o-- "1" Respuesta
+Jugador "1" *-- "1" Puntaje
+Jugador "1" *-- "1" Multiplicador
+
+
+Respuesta --> Puntaje
+Respuesta --> Resultado
+Respuesta --> Exclusividad
+
+Exclusividad --> Jugador
+
+skinparam classAttributeIconSize 0
+
+@enduml
