@@ -1,0 +1,24 @@
+@startuml AlgoHoot
+hide circle
+interface Corrector
+
+class CorrectorClasico{
+    + puntuarPregunta(resultado : Resultado) : int
+    + tienePenalidad() : boolean
+}
+class CorrectorParcial{
+    + puntuarPregunta(resultado : Resultado) : int
+    + tienePenalidad() : boolean
+}
+class CorrectorPenalidad{
+    + puntuarPregunta(resultado : Resultado) : int
+    + tienePenalidad() : boolean
+}
+Corrector <|-- CorrectorClasico
+Corrector <|-- CorrectorParcial
+Corrector <|-- CorrectorPenalidad
+
+
+skinparam classAttributeIconSize 0
+
+@enduml

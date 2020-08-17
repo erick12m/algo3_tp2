@@ -38,7 +38,8 @@ class Puntaje{
     + actualizarPuntaje(puntosObtenidos : int)
 }
 class Pregunta{
-    + evaluarRespuesta(respuesta : Respuesta)
+    + evaluarRespuesta(respuestasJugadores : ArrayList<Respuesta>)
+    + obtenerResultado(respuesta : Respuesta) : Resultado
     + tienePenalidad() : boolean
 }
 class Kahoot{
