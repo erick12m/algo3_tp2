@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.json;
+package edu.fiuba.algo3.modelo.persistencia;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

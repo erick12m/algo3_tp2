@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import edu.fiuba.algo3.json.GestorObjetosJson;
+import edu.fiuba.algo3.modelo.persistencia.GestorObjetosJson;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

@@ -1,13 +1,12 @@
-package edu.fiuba.algo3.Controladores;
+package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.Vistas.Ventana;
+import edu.fiuba.algo3.vistas.Ventana;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
 import javafx.scene.control.Button;
 import javafx.scene.text.TextAlignment;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

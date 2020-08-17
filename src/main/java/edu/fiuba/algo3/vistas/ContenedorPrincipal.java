@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.Vistas;
+package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.Controladores.ControladorJuego;
+import edu.fiuba.algo3.controladores.ControladorJuego;
 import javafx.animation.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

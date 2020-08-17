@@ -1,9 +1,8 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.Vistas.ContenedorComenzar;
+import edu.fiuba.algo3.vistas.ContenedorComenzar;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {

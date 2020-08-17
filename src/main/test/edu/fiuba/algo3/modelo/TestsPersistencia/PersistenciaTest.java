@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.json;
+package edu.fiuba.algo3.modelo.TestsPersistencia;
 
 import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class JsonTest {
+public class PersistenciaTest {
 
     /*@Test
     public void test01() throws IOException {
@@ -32,11 +32,11 @@ public class JsonTest {
         Gson gson = builder.setPrettyPrinting().create();
 
         // Convertimos una pregunta a JSON
-        String json = gson.toJson(pregunta);
+        String persistencia = gson.toJson(pregunta);
 
         // Pasa de JSON a pregunta
         Type tipoPreguntas = new TypeToken<ArrayList<MultipleChoice>>(){}.getType();
-        InputStream is = new FileInputStream (new File ("preguntasMultipleChoice.json"));
+        InputStream is = new FileInputStream (new File ("preguntasMultipleChoice.persistencia"));
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
         ArrayList<MultipleChoice> preguntaJson = gson.fromJson(bufferedReader, tipoPreguntas);
 

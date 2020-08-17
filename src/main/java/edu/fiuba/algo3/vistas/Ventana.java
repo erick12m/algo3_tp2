@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Vistas;
+package edu.fiuba.algo3.vistas;
 
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
