@@ -31,15 +31,9 @@ public class ContenedorPrincipal extends BorderPane {
             });
 
             Button botonContinuar = new Button("Continuar");
-            PauseTransition delay = new PauseTransition(Duration.seconds(10));
-            delay.setOnFinished( event -> {
-                Ventana.mostrarMensajeError("Tiempo Finalizado", "Terminó tu tiempo.");
-                botonContinuar.fire();
-            });
 
             Label textoTurno = new Label("Turno de ".concat(controlador.jugadorActual()));
             TextoTurno.getInstancia().guardarLabel(textoTurno);
-            //VistaPregunta vistaPregunta = new VistaPregunta(controlador);
             Rectangle panelJugador = new Rectangle();
             panelJugador.setHeight(50);
             panelJugador.setWidth(640);
@@ -58,14 +52,13 @@ public class ContenedorPrincipal extends BorderPane {
             ProgressBar tiempoRestante = new ProgressBar();
 
             IntegerProperty segundos = new SimpleIntegerProperty();
-            tiempoRestante.progressProperty().bind(segundos.divide(60.0));
+            tiempoRestante.progressProperty().bind(segundos.divide(25.0));
             Timeline timeline = new Timeline (
                     new KeyFrame(Duration.ZERO, new KeyValue(segundos, 0)),
-                    new KeyFrame(Duration.seconds(60), e-> {
-                        // TODO DETENER RELOJ LUEGO DE MENSAJE ERROR
+                    new KeyFrame(Duration.seconds(25), e-> {
                         Ventana.mostrarMensajeError("Tiempo Finalizado", "Terminó tu tiempo.");
                         botonContinuar.fire();
-                    }, new KeyValue(segundos, 60))
+                    }, new KeyValue(segundos, 25))
             );
             timeline.setCycleCount(Animation.INDEFINITE);
             controlador.setTimer(timeline);
@@ -75,9 +68,6 @@ public class ContenedorPrincipal extends BorderPane {
                 controlador.siguienteTurno(stackPregunta);
             });
             tiempoRestante.setMinWidth(430);
-
-            //Region region = new Region();
-            //HBox.setHgrow(region, Priority.ALWAYS);
 
             HBox botonera = new HBox(tiempoRestante, botonContinuar);
             botonera.setPadding(new Insets(30));

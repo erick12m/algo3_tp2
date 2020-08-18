@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.jugador;
 import edu.fiuba.algo3.modelo.Kahoot;
-import edu.fiuba.algo3.modelo.correcciones.Corrector;
-import edu.fiuba.algo3.modelo.utilizablesJugador.Multiplicador;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
+import edu.fiuba.algo3.modelo.utilizablesJugador.Multiplicador;
 
 public class Jugador {
 
@@ -63,7 +62,8 @@ public class Jugador {
         return respuesta;
     }
 
-    public void setearPuntaje(int puntos){ //Para testear
+    public void setearPuntaje(int puntos){ //Metodo creado para realizar tests
         puntaje.actualizarPuntaje(puntos);
     }
+
 }

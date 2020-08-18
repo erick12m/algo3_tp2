@@ -232,5 +232,4 @@ public class JugadorTest {
         assertEquals(true, excepcion);
     }
 
-
 }

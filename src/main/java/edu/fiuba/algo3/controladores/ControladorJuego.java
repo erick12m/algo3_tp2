@@ -1,22 +1,18 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.vistas.*;
+import edu.fiuba.algo3.MusicPlayer;
 import edu.fiuba.algo3.modelo.Kahoot;
 import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.GameOverException;
 import edu.fiuba.algo3.modelo.excepciones.RondaFinalizadaException;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.vistas.*;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
-import java.io.File;
-
-import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 public class ControladorJuego {
     private Stage ventana;
@@ -59,7 +55,7 @@ public class ControladorJuego {
     public void gameOver() {
         String ganador = kahoot.getGanador();
         media.stop();
-        media = this.iniciarMusica();
+        media = MusicPlayer.reproducirCancion("we-are-the-champions.mp3");
         Ventana.mostrarGanador(ganador, this.ventana);
         timer.stop();
     }
@@ -107,9 +103,7 @@ public class ControladorJuego {
         this.controladorPregunta.refrescarBotones();
     }
 
-    public void setTimer(Timeline timer){
-        this.timer = timer;
-    }
+    public void setTimer(Timeline timer){ this.timer = timer; }
 
     public ControladorPregunta getControladorCorrecto(){
         switch (kahoot.getPreguntaActual().getNombre()){
@@ -126,7 +120,6 @@ public class ControladorJuego {
 
     public void corregirRespuestas(){
         kahoot.puntuarPregunta(preguntaActual);
-        //kahoot.imprimirPuntajes();
     }
 
     public void setAudio(MediaPlayer media) { this.media = media;}
@@ -135,13 +128,4 @@ public class ControladorJuego {
         return this.media;
     }
 
-    public MediaPlayer iniciarMusica(){
-        String musicFile = "Musica/we-are-the-champions.mp3";
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-        mediaPlayer.setVolume(0.7);
-        mediaPlayer.setCycleCount(INDEFINITE);
-        return mediaPlayer;
-    }
 }

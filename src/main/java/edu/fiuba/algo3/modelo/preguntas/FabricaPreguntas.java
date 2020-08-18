@@ -43,22 +43,5 @@ public class FabricaPreguntas {
         Gson gson = GestorObjetosJson.crearGJson();
         return GestorObjetosJson.recuperarObjetosJson(gson, new TypeToken<ArrayList<GroupChoice>>(){}.getType()
                 ,"preguntasGroupChoice.json");
-
-        //SE ELIMINARIA EL gson Y EL LLAMADO A LA CLASE ESTATICA GESTOROBJETOSJSON E IGUAL ANDANDARIA
-        //SI SE DECIDE ELIMINAR LA CLASE GestorObjetosJson
     }
-
-    //TODO SI LA CLASE GESTOR DE OBJETOS ES MUY EXAGERADA SE ELIMINA Y QUEDA ESTO
-    /*private static ArrayList<Pregunta> recuperarObjetosJson(Type tipoPreguntas
-            ,String rutaObjetosJson) throws FileNotFoundException {
-
-        GsonBuilder builder = new GsonBuilder();
-        builder.registerTypeAdapter(Corrector.class, new AdaptadorCorrector());
-        Gson gson = builder.create();
-        InputStream is = new FileInputStream(new File(rutaObjetosJson));
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
-        ArrayList<Pregunta> preguntasJson = gson.fromJson(bufferedReader, tipoPreguntas);
-
-        return preguntasJson;
-    }*/
 }

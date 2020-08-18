@@ -43,8 +43,8 @@ public class PersistenciaTest {
         assertEquals(pregunta.getEnunciado(), preguntaJson.get(0).getEnunciado());
     }*/
 
-    @Test // LA PRUEBA NO SE SI NECESITAN IR, ESTAN PARA CHEQUEAR SI FUNCIONABA
-    public void test02SeCreanLasPreguntasConLaFabricaYDevuelveUnArregloDeTamanioMayorACero() throws FileNotFoundException {
+    @Test
+    public void test01SeCreanLasPreguntasConLaFabricaYDevuelveUnArregloDeTamanioMayorACero() throws FileNotFoundException {
 
         ArrayList<Pregunta> preguntas = FabricaPreguntas.crearPreguntas();
         assertNotEquals(0, preguntas.size());

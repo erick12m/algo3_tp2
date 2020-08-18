@@ -13,13 +13,13 @@ import javafx.util.Duration;
 
 public class Ventana {
 
-    public static void mostrarGanador (String nombreGanador, Stage ventanaJuego){
+    public static void mostrarGanador(String nombreGanador, Stage ventanaJuego){
 
         Stage ventana = new Stage();
 
         ventana.initModality(Modality.APPLICATION_MODAL);
 
-        Label label = (nombreGanador.equals("Empate")) ? new Label("Empate !") : new Label("El" +
+        Label label = (nombreGanador.equals("Empate")) ? new Label("Empate !") : new Label("El " +
                 "ganador es: ".concat(nombreGanador));
 
         Button boton = new Button("Finalizar");
@@ -39,8 +39,7 @@ public class Ventana {
 
     }
 
-    public static void mostrarMensajeError (String titulo, String mensaje){
-
+    public static void mostrarMensajeError(String titulo, String mensaje){
         PauseTransition delay = new PauseTransition(Duration.seconds(5));
         Stage ventana = new Stage();
 
@@ -50,11 +49,11 @@ public class Ventana {
         Label label = new Label("Mensaje");
         label.setText(mensaje);
 
-        Button boton = new Button("Ok");
-        boton.setOnAction(e -> ventana.close());
-        delay.setOnFinished( event -> boton.fire());
+        Button botonOK = new Button("Ok");
+        botonOK.setOnAction(e -> ventana.close());
+        delay.setOnFinished( event -> botonOK.fire());
 
-        VBox layout = new VBox(10, label, boton);
+        VBox layout = new VBox(10, label, botonOK);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 400 ,300);
         scene.getStylesheets().add("file:CSS/ventanaAlerta.css");
@@ -64,7 +63,7 @@ public class Ventana {
 
     }
 
-    public static void mostrarRespuestaCorrecta (String mensaje,String puntajes, Timeline timer){
+    public static void mostrarRespuestaCorrecta(String mensaje,String puntajes, Timeline timer){
         timer.stop();
         Stage ventana = new Stage();
         Button botonCerrar = new Button("Cerrar");

@@ -13,7 +13,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ContenedorCargaDeNombres extends BorderPane {
-    //private MediaPlayer media;
 
     public ContenedorCargaDeNombres(Stage ventana, MediaPlayer media){
         ControladorJuego controladorJuego = new ControladorJuego(ventana);
@@ -63,8 +62,6 @@ public class ContenedorCargaDeNombres extends BorderPane {
         this.setBottom(botoneraOpciones);
         this.setTop(botoneraSonido);
         this.getStylesheets().add("file:CSS/escenaCargaNombres.css");
-
-
     }
 }
 

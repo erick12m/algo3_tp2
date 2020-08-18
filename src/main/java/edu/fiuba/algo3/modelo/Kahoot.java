@@ -130,11 +130,6 @@ public class Kahoot {
         return preguntaActual.getRespuestaCorrecta();
     }
 
-    /*public void imprimirPuntajes(){
-        System.out.println("Puntaje de los jugadores");
-        this.jugadores.forEach(j -> System.out.println(j.getNombre().concat(": ").concat(String.valueOf(j.getPuntaje()))));
-    }*/
-
     public String imprimirPuntajesVista(){
         StringBuilder mensaje = new StringBuilder(200) ;
         mensaje.append("Puntaje de los jugadores: \n");

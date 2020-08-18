@@ -7,15 +7,13 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class Respuesta {
-
     private ArrayList<String> respuestas = new ArrayList<>();
-    //private ArrayList<String> primerGrupo = new ArrayList<>();
     private ArrayList<String> segundoGrupo = new ArrayList<>();
     private int puntosObtenidos = 0;
-    // TODO Si no se crea con dos grupos que guarde en el primero
+
     public Respuesta(ArrayList<String> respuestas) {
-        this.segundoGrupo = new ArrayList<String>();
         this.respuestas = new ArrayList<>(respuestas);
+        this.segundoGrupo = new ArrayList<String>();
     }
 
     public Respuesta(ArrayList<String> primerGrupo, ArrayList<String> segundoGrupo) {
