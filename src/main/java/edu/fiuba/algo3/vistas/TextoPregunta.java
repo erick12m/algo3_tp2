@@ -23,6 +23,6 @@ public class TextoPregunta {
 
     public void actualizarLabel(Kahoot kahoot){
         labelTextoPregunta.setText(kahoot.getPreguntaActual().getNombre() +":\n\n"
-                + kahoot.getPreguntaActual().getEnunciado());
+                + kahoot.getPreguntaActual().getEnunciado() +"\n\n");
     }
 }

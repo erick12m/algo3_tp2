@@ -20,47 +20,13 @@ import java.util.Collections;
 
 public class VistaPregunta extends VBox {
 
+
+
     public VistaPregunta(ControladorPregunta controladorPregunta) {
 
-        //Visualizacion pregunta
-        Rectangle rectangulo = new Rectangle();
-        rectangulo.setHeight(150);
-        rectangulo.setWidth(640);
-        rectangulo.setArcHeight(10);
-        rectangulo.setArcWidth(10);
-        rectangulo.setFill(Color.TRANSPARENT);
-        Text texto = new Text();
-        DropShadow ds = new DropShadow();
-        ds.setOffsetY(3.0f);
-        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
-        texto.setEffect(ds);
-        texto.setCache(true);
-        texto.setText(controladorPregunta.getNombre() +":\n\n"
-                + controladorPregunta.getEnunciado());
-        texto.setTextAlignment(TextAlignment.CENTER);
-        texto.setFont(Font.font("Montserrat", FontWeight.BOLD, 18));
-        texto.setWrappingWidth(600);
-        TextoPregunta.getInstancia().guardarLabel(texto);
-        StackPane stack = new StackPane();
-        stack.getChildren().addAll(rectangulo,texto);
+        StackPane stack = crearStackPregunta(controladorPregunta);
 
-        //Visualizacion Opciones
-        TilePane opciones = new TilePane();
-        opciones.setOrientation(Orientation.HORIZONTAL);
-        opciones.setTileAlignment(Pos.CENTER);
-        opciones.setPrefTileWidth(320);
-        opciones.setPrefTileHeight(60);
-        opciones.setAlignment(Pos.CENTER);
-        opciones.setPrefColumns(2);
-        var botonesOpciones = controladorPregunta.getBotonesOpciones();
-        Collections.shuffle(botonesOpciones);
-        botonesOpciones.forEach(b -> b.setStyle(""));
-        opciones.getChildren().addAll(botonesOpciones);
-        botonesOpciones.forEach(boton -> {
-            boton.setOnAction(e ->{
-                controladorPregunta.guardarRespuesta(boton);
-            });
-        });
+        TilePane opciones = crearTilePaneOpciones(controladorPregunta);
 
         //Botones utilizables
         Button botonGrupo1 = new Button("Grupo 1");
@@ -89,7 +55,13 @@ public class VistaPregunta extends VBox {
             controladorPregunta.activarExclusividad(botonExclusividad);
         });
 
-        HBox botonera = new HBox(botonExclusividad,botonMultiplicadorx2,botonMultiplicadorx3, botonGrupo1, botonGrupo2);
+        HBox botonera = crearBotonera(controladorPregunta, botonGrupo1, botonGrupo2, botonMultiplicadorx2, botonMultiplicadorx3, botonExclusividad);
+
+        this.getChildren().addAll(stack,opciones,botonera);
+    }
+
+    private HBox crearBotonera(ControladorPregunta controladorPregunta, Button botonGrupo1, Button botonGrupo2, Button botonMultiplicadorx2, Button botonMultiplicadorx3, Button botonExclusividad) {
+        HBox botonera = new HBox(botonExclusividad, botonMultiplicadorx2, botonMultiplicadorx3, botonGrupo1, botonGrupo2);
         //Seteamos las visibilidades en false siempre, asi solo se muestran los botones permitidos
         botonera.getChildren().forEach(b -> b.setVisible(false));
 
@@ -100,7 +72,53 @@ public class VistaPregunta extends VBox {
         botonMultiplicadorx2.setVisible(controladorPregunta.esPreguntaConPenalidad());
         botonMultiplicadorx3.setVisible(controladorPregunta.esPreguntaConPenalidad());
         botonExclusividad.setVisible(!controladorPregunta.esPreguntaConPenalidad());
+        return botonera;
+    }
 
-        this.getChildren().addAll(stack,opciones,botonera);
+    private TilePane crearTilePaneOpciones(ControladorPregunta controladorPregunta) {
+        //Visualizacion Opciones
+        TilePane opciones = new TilePane();
+        opciones.setOrientation(Orientation.HORIZONTAL);
+        opciones.setTileAlignment(Pos.CENTER);
+        opciones.setPrefTileWidth(320);
+        opciones.setPrefTileHeight(60);
+        opciones.setAlignment(Pos.CENTER);
+        opciones.setPrefColumns(2);
+        var botonesOpciones = controladorPregunta.getBotonesOpciones();
+        Collections.shuffle(botonesOpciones);
+        botonesOpciones.forEach(b -> b.setStyle(""));
+        opciones.getChildren().addAll(botonesOpciones);
+        botonesOpciones.forEach(boton -> {
+            boton.setOnAction(e ->{
+                controladorPregunta.guardarRespuesta(boton);
+            });
+        });
+        return opciones;
+    }
+
+
+    private StackPane crearStackPregunta(ControladorPregunta controladorPregunta) {
+        //Visualizacion pregunta
+        Rectangle rectangulo = new Rectangle();
+        rectangulo.setHeight(150);
+        rectangulo.setWidth(640);
+        rectangulo.setArcHeight(10);
+        rectangulo.setArcWidth(10);
+        rectangulo.setFill(Color.TRANSPARENT);
+        Text texto = new Text();
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(3.0f);
+        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
+        texto.setEffect(ds);
+        texto.setCache(true);
+        texto.setText(controladorPregunta.getNombre() +":\n\n"
+                + controladorPregunta.getEnunciado()+"\n\n");
+        texto.setTextAlignment(TextAlignment.CENTER);
+        texto.setFont(Font.font("Montserrat", FontWeight.BOLD, 36));
+        texto.setWrappingWidth(600);
+        TextoPregunta.getInstancia().guardarLabel(texto);
+        StackPane stack = new StackPane();
+        stack.getChildren().addAll(rectangulo,texto);
+        return stack;
     }
 }
