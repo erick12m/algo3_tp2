@@ -49,7 +49,7 @@ public class VistaPregunta extends VBox {
         opciones.setOrientation(Orientation.HORIZONTAL);
         opciones.setTileAlignment(Pos.CENTER);
         opciones.setPrefTileWidth(320);
-        opciones.setPrefTileHeight(50);
+        opciones.setPrefTileHeight(60);
         opciones.setAlignment(Pos.CENTER);
         opciones.setPrefColumns(2);
         var botonesOpciones = controladorPregunta.getBotonesOpciones();

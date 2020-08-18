@@ -55,7 +55,7 @@
     "enunciado": "Quién vino primero?",
     "opciones": [
       "El huevo",
-      "Aún no sabemos la respuesta a esta interrogante",
+      "Aún no sabemos la respuesta\n a esta interrogante",
       "La gallina",
       "La respuesta esta en tu corazón"
     ],

@@ -45,8 +45,9 @@ public abstract class ControladorPregunta {
 
             boton.setMinWidth(320);
             boton.setMinHeight(50);
-            boton.setWrapText(true);
+            boton.wrapTextProperty().setValue(true);
             boton.setTextAlignment(TextAlignment.CENTER);
+            boton.setStyle("-fx-wrap-text: true");
             botones.add(boton);
         }
         this.botonesOpciones = botones;
@@ -114,7 +115,7 @@ public abstract class ControladorPregunta {
             kahoot.usarExclusividad(kahoot.getJugadorActual());
             this.activarBoton(boton);
         } catch (NoTieneExclusividadException e) {
-            Ventana.mostrarMensajeError("Error", "No posees mas exclusividades");
+            Ventana.mostrarMensajeError("Error", "No posees más exclusividades");
         }
     }
 

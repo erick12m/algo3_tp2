@@ -26,12 +26,13 @@
 
 .button {
     -fx-background-color:
-            #c3c4c4,
-            linear-gradient(#d6d6d6 50%, white 100%),
-            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+            #64baba,
+            linear-gradient(#68c7b8 50%, #a4e3f5 100%),
+            radial-gradient(center 50% -40%, radius 200%, #a2eae7 45%, rgba(230,230,230,0) 50%);
     -fx-background-radius: 30;
     -fx-background-insets: 0,1,1;
     -fx-text-fill: black;
+    -fx-font-family: Montserrat;
     -fx-font-size: 16;
     -fx-wrap-text: true;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );

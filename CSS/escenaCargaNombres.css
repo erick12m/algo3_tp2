@@ -5,12 +5,15 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover, auto;
 }
-
+@font-face {
+    font-family: 'Montserrat';
+    src: "file:CSS/Fuente/montserratRegular.tff";
+}
 .label {
     -fx-font-size: 32;
     -fx-font-weight: bold;
     -fx-text-fill: black;
-    -fx-font-family: "Fira Code Retina";
+    -fx-font-family: Montserrat;
 }
 
 .button {
