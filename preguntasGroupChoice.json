@@ -10,16 +10,20 @@
       "uno",
       "dos",
       "tres",
-      "cuatro"
+      "cuatro",
+      "cinco",
+      "seis"
     ],
     "respuestaCorrecta": {
       "respuestas": [
+        "cinco",
         "tres",
         "uno"
       ],
       "segundoGrupo": [
         "cuatro",
-        "dos"
+        "dos",
+        "seis"
       ],
       "puntosObtenidos": 0
     }
@@ -36,15 +40,19 @@
       "Beisbol",
       "Futbol",
       "Surf",
-      "Atletismo"
+      "Atletismo",
+      "Remo",
+      "Tenis"
     ],
     "respuestaCorrecta": {
       "respuestas": [
         "Beisbol",
-        "Futbol"
+        "Futbol",
+        "Tenis"
       ],
       "segundoGrupo": [
         "Atletismo",
+        "Remo",
         "Surf"
       ],
       "puntosObtenidos": 0
@@ -88,16 +96,20 @@
       "Coldplay",
       "Queen",
       "The Killers",
-      "Imagine Dragons"
+      "Imagine Dragons",
+      "Take That",
+      "Blink 182"
     ],
     "respuestaCorrecta": {
       "respuestas": [
+        "Blink 182",
         "Imagine Dragons",
         "The Killers"
       ],
       "segundoGrupo": [
         "Coldplay",
-        "Queen"
+        "Queen",
+        "Take That"
       ],
       "puntosObtenidos": 0
     }
@@ -166,15 +178,19 @@
       "Read My Mind",
       "The Way It Was",
       "Bones",
-      "Be Still"
+      "Be Still",
+      "For Reasons Unknown",
+      "Runaways"
     ],
     "respuestaCorrecta": {
       "respuestas": [
         "Bones",
+        "For Reasons Unknown",
         "Read My Mind"
       ],
       "segundoGrupo": [
         "Be Still",
+        "Runaways",
         "The Way It Was"
       ],
       "puntosObtenidos": 0

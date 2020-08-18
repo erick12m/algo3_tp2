@@ -7,17 +7,19 @@
     },
     "enunciado": "Ordene los números en forma creciente",
     "opciones": [
-      "uno",
-      "dos",
-      "tres",
-      "cuatro"
+      "-120",
+      "-5",
+      "47",
+      "125",
+      "-160"
     ],
     "respuestaCorrecta": {
       "respuestas": [
-        "uno",
-        "dos",
-        "tres",
-        "cuatro"
+        "-160",
+        "-120",
+        "-5",
+        "47",
+        "125"
       ],
       "puntosObtenidos": 0
     }
@@ -81,14 +83,16 @@
       "Asia",
       "Africa",
       "Europa",
-      "America"
+      "America",
+      "Oceania"
     ],
     "respuestaCorrecta": {
       "respuestas": [
         "Asia",
         "America",
         "Africa",
-        "Europa"
+        "Europa",
+        "Oceania"
       ],
       "puntosObtenidos": 0
     }
@@ -105,10 +109,12 @@
       "Chi",
       "Phi",
       "Psi",
-      "Omega"
+      "Omega",
+      "Xi"
     ],
     "respuestaCorrecta": {
       "respuestas": [
+        "Xi",
         "Phi",
         "Chi",
         "Psi",

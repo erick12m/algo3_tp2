@@ -67,6 +67,8 @@ public class Ventana {
         timer.stop();
         Stage ventana = new Stage();
         Button botonCerrar = new Button("Cerrar");
+        ventana.setWidth(500);
+
         botonCerrar.setOnAction(e ->{
             ventana.close();
             timer.play();

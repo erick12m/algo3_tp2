@@ -87,7 +87,7 @@ public class Respuesta {
     public String getRespuestaCorrecta(){
         String cadena = this.respuestas.stream().collect(Collectors.joining(", "));
         if (segundoGrupo != null){
-            cadena = cadena.concat(" // ")
+            cadena = cadena.concat(" // \n")
                     .concat(this.segundoGrupo.stream().collect(Collectors.joining(", ")));
         }
         return cadena;

@@ -18,9 +18,6 @@ public abstract class ControladorPregunta {
     protected Kahoot kahoot;
     protected ArrayList<String> respuestaJugador = new ArrayList<>();
 
-    /*public ControladorPregunta(Kahoot kahoot){
-        this.kahoot = kahoot;
-    }*/
 
     public void guardarRespuesta(Button botonOpcion){
         String textoOpcion = botonOpcion.getText();
@@ -64,7 +61,6 @@ public abstract class ControladorPregunta {
     }
 
     public Respuesta getRespuestaJugador(){
-        System.out.println(kahoot.getJugadorActual().getNombre().concat(" resp: ").concat(String.valueOf(respuestaJugador)));
         Respuesta respuesta = new Respuesta(respuestaJugador);
         respuestaJugador.clear();
         return respuesta;

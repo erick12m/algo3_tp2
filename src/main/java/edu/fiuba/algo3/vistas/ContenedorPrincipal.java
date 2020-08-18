@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.controladores.ControladorJuego;
-import javafx.animation.*;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Insets;
@@ -16,12 +19,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class ContenedorPrincipal extends BorderPane {
 
-        public ContenedorPrincipal(Stage ventana, ControladorJuego controlador) {
+        public ContenedorPrincipal(ControladorJuego controlador) {
             
             MediaPlayer media = controlador.getMedia();
             Button botonSonido = new Button("Sonido");

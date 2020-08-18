@@ -28,19 +28,22 @@
       "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
       "DATA": {}
     },
-    "enunciado": "Seleccione los números impares",
+    "enunciado": "Seleccione los números primos",
     "opciones": [
-      "1",
+      "7",
       "2",
       "3",
-      "4",
-      "5"
+      "18",
+      "5",
+      "13"
     ],
     "respuestaCorrecta": {
       "respuestas": [
-        "1",
+        "2",
         "3",
-        "5"
+        "5",
+        "7",
+        "13"
       ],
       "puntosObtenidos": 0
     }
@@ -78,13 +81,15 @@
       "Potasio K",
       "Cianuro CN",
       "Molibdeno Mo",
-      "Wolframio W"
+      "Wolframio W",
+      "Nobelio No"
     ],
     "respuestaCorrecta": {
       "respuestas": [
         "Potasio K",
         "Molibdeno Mo",
-        "Wolframio W"
+        "Wolframio W",
+        "Nobelio No"
       ],
       "puntosObtenidos": 0
     }
@@ -122,7 +127,8 @@
       "6",
       "7",
       "8",
-      "9"
+      "9",
+      "5"
     ],
     "respuestaCorrecta": {
       "respuestas": [
@@ -164,7 +170,8 @@
       "19",
       "20",
       "25",
-      "Ninguna es correcta"
+      "Ninguna es correcta",
+      "22"
     ],
     "respuestaCorrecta": {
       "respuestas": [
@@ -185,7 +192,8 @@
       "Ted",
       "Barney",
       "Charly",
-      "Phoebe"
+      "Phoebe",
+      "Marshall"
     ],
     "respuestaCorrecta": {
       "respuestas": [
@@ -311,7 +319,8 @@
       "11",
       "10",
       "13",
-      "12"
+      "12",
+      "9"
     ],
     "respuestaCorrecta": {
       "respuestas": [

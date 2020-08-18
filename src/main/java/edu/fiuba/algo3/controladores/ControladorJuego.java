@@ -29,7 +29,7 @@ public class ControladorJuego {
         this.ventana = ventana;
     }
 
-    public void iniciarJuego(String nombreJugador1, String nombreJugador2) {
+    public void iniciarJuego(String nombreJugador1, String nombreJugador2){
         if (nombreJugador1.equals("") ||  nombreJugador2.equals("")){
             Ventana.mostrarMensajeError("Error", "Ambos jugadores deben tener un nombre");
         }else{
@@ -37,7 +37,7 @@ public class ControladorJuego {
             kahoot.crearJugadores(nombreJugador1, nombreJugador2);
             preguntaActual = kahoot.getPreguntaActual();
             this.controladorPregunta = this.getControladorCorrecto();
-            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(ventana, this);
+            ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(this);
             Scene juego = new Scene(contenedorPrincipal, 720, 480); // OJO
             juego.getStylesheets().add("file:CSS/escenaJuego.css");
 
@@ -80,8 +80,8 @@ public class ControladorJuego {
             this.actualizarTablero();
         }
         catch (GameOverException gameOverException) {
-                this.corregirRespuestas();
-                this.gameOver();
+            this.corregirRespuestas();
+            this.gameOver();
         }
     }
 
