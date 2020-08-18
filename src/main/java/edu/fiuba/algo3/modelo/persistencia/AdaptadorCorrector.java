@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.correcciones.Corrector;
 
 import java.lang.reflect.Type;
 
-public class AdaptadorCorrector implements JsonSerializer, JsonDeserializer {
+public class AdaptadorCorrector implements JsonDeserializer {
 
     private static final String CLASSNAME = "CLASSNAME";
     private static final String DATA = "DATA";
@@ -19,14 +19,6 @@ public class AdaptadorCorrector implements JsonSerializer, JsonDeserializer {
         String className = prim.getAsString();
         Class klass = getObjectClass(className);
         return jsonDeserializationContext.deserialize(jsonObject.get(DATA), klass);
-    }
-
-    @Override
-    public JsonElement serialize(Object jsonElement, Type type, JsonSerializationContext jsonSerializationContext) {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty(CLASSNAME, jsonElement.getClass().getName());
-        jsonObject.add(DATA, jsonSerializationContext.serialize(jsonElement));
-        return jsonObject;
     }
 
     public Class getObjectClass(String className) {
