@@ -1,0 +1,94 @@
+@startuml DiagramaDeSecuenciaExclusividad
+hide footbox
+title ExclusividadTest03 - Ambos jugadores usan exclusividad y el que responde correctamente gana 4 puntos.
+activate Test
+create Kahoot
+Test -> Kahoot : new
+activate Kahoot
+create Exclusividad
+Kahoot -> Exclusividad: new
+deactivate Kahoot
+Test -> Kahoot : crearJugadores()
+loop Para cada jugador
+    activate Kahoot
+    create Jugador
+    Kahoot -> Jugador : new
+    deactivate Kahoot
+end
+create CorrectorClasico
+Test -> CorrectorClasico: new
+create "Respuesta"
+Test -> "Respuesta": new
+loop Para cada jugador
+    Test -> Jugador : respuestaElegida()
+    activate Jugador
+    deactivate Jugador
+end
+create Pregunta
+Test -> Pregunta: new
+Test -> Kahoot: setPreguntaActual()
+activate Kahoot
+deactivate Kahoot
+
+loop Para cada Jugador
+    Test -> Kahoot: usarExclusividad(jugador)
+    activate Kahoot
+    Kahoot -> Pregunta: tienePenalidad()
+    activate Pregunta
+    Kahoot <-- Pregunta: false
+    deactivate Pregunta
+    Kahoot -> Exclusividad: sumarUso(jugador)
+    deactivate Kahoot
+    activate Exclusividad
+
+    Exclusividad -> Jugador: usarExclusividad()
+    activate Jugador
+
+    deactivate Jugador
+    deactivate Exclusividad
+
+end
+
+Test -> Kahoot: puntuarPregunta()
+activate Kahoot
+Kahoot -> Kahoot: obtenerRespuestas()
+loop Para cada Jugador
+    Kahoot -> Jugador: getRespuesta()
+    activate Jugador
+    Jugador --> Kahoot: Respuesta
+    deactivate Jugador
+end
+Kahoot -> Pregunta: evaluarRespuesta(respuestas)
+activate Pregunta
+deactivate Pregunta
+Kahoot -> Exclusividad: aplicar(respuestas)
+activate Exclusividad
+loop Para cada Respuesta
+    Exclusividad -> Respuesta: esCorrecta()
+    activate Respuesta
+    Respuesta --> Exclusividad: bool
+    deactivate Respuesta
+end
+group Solo para la respuesta Correcta
+    Exclusividad -> Respuesta: usarExclusividad()
+    activate Respuesta
+    Respuesta -> Exclusividad: calcularExclusividad(1)
+    Exclusividad --> Respuesta: 4
+    deactivate Respuesta
+end
+deactivate Exclusividad
+loop Para cada Jugador
+    Kahoot -> Jugador:actualizarPuntaje()
+    activate Jugador
+    deactivate Jugador
+end
+deactivate Kahoot
+loop Para cada jugador
+    Test -> Jugador: getPuntaje()
+    activate Jugador
+    Jugador --> Test: puntaje
+    deactivate Jugador
+end
+deactivate Test
+
+@enduml

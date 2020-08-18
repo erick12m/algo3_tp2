@@ -1,0 +1,72 @@
+@startuml DiagramaDeSecuenciaMultiplicador
+hide footbox
+title JugadorTest04 - Jugador activa multiplicador x3 y recibe triple de puntos
+activate Test
+create Kahoot
+Test -> Kahoot : new
+Test -> Kahoot : crearJugadores()
+activate Kahoot
+create Jugador
+Kahoot -> Jugador : new
+activate Jugador
+create Puntaje
+Jugador -> Puntaje : new
+create Multiplicador
+Jugador -> Multiplicador: new
+deactivate Jugador
+deactivate Kahoot
+create CorrectorPenalidad
+Test -> CorrectorPenalidad: new
+create "Respuesta"
+Test -> "Respuesta": new
+Test -> Jugador : respuestaElegida()
+activate Jugador
+deactivate Jugador
+create Pregunta
+Test -> Pregunta: new
+Test -> Kahoot: setPreguntaActual()
+activate Kahoot
+deactivate Kahoot
+
+Test -> Jugador: usarMultiplicadorX3()
+activate Jugador
+Jugador -> Kahoot: esPreguntaPenalidad()
+activate Kahoot
+Kahoot -> CorrectorPenalidad: esPreguntaPenalidad()
+activate CorrectorPenalidad
+CorrectorPenalidad --> Kahoot: true
+deactivate CorrectorPenalidad
+Kahoot --> Jugador: true
+deactivate Kahoot
+Jugador -> Multiplicador: activarMultiplicador(3)
+activate Multiplicador
+deactivate Multiplicador
+deactivate Jugador
+
+Test -> Pregunta: evaluarRespuesta(respuestas)
+activate Pregunta
+deactivate Pregunta
+
+Test -> Jugador: actualizarPuntaje()
+activate Jugador
+Jugador -> Respuesta: getPuntosObtenidos()
+activate Respuesta
+Respuesta --> Jugador:1
+deactivate Respuesta
+Jugador -> Multiplicador: usarMultiplicador(1)
+activate Multiplicador
+Jugador <-- Multiplicador: 3
+deactivate Multiplicador
+Jugador -> Puntaje: actualizarPuntaje(3)
+activate Puntaje
+deactivate Puntaje
+deactivate Jugador
+
+Test -> Jugador: getPuntaje()
+activate Jugador
+Jugador --> Test: 3
+deactivate Jugador
+
+deactivate Test
+
+@enduml
