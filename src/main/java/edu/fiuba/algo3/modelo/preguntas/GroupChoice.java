@@ -13,6 +13,7 @@ public class GroupChoice extends Pregunta{
         this.corrector = corrector;
         this.nombre = "Group Choice";
     }
+
     @Override
     public Resultado obtenerResultado(Respuesta respuestaJugador){
         return respuestaCorrecta.compararGrupos(respuestaJugador);

@@ -104,8 +104,10 @@ public class Kahoot {
         this.exclusividad.sumarUso(jugador);
     }
 
+
     public void puntuarPregunta(Pregunta preguntaActual){
         var respuestas   = this.obtenerRespuestas();
+
         preguntaActual.evaluarRespuesta(respuestas);
         exclusividad.aplicar(respuestas);
         this.jugadores.forEach(Jugador::actualizarPuntaje);

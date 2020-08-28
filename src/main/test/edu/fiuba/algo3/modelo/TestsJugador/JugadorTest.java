@@ -163,6 +163,7 @@ public class JugadorTest {
 
     }
 
+
     @Test
     public void test06ElJugadorIntentaActivaMultiplicadorx2EnPreguntaSinPenalidadYnoHaceEfecto() throws NoTieneMultiplicadorException, RondaFinalizadaException {
         ArrayList<String> opciones = new ArrayList<String>();
@@ -184,7 +185,6 @@ public class JugadorTest {
         respuestaJugador.add(jugador.getRespuesta());
 
         jugador.activarMultiplicadorx2();
-
         verdaderoFalso.evaluarRespuesta(respuestaJugador);
         jugador.actualizarPuntaje();
         assertEquals(1, jugador.getPuntaje());
@@ -192,6 +192,7 @@ public class JugadorTest {
 
     @Test
     public void test07ElJugadorActivaMultiplicadorx2IntentaUsarloNuevamenteYLanzaUnaExcepcion() throws NoTieneMultiplicadorException {
+
         ArrayList<String> opciones = new ArrayList<String>();
         opciones.add("Verdadero");
         opciones.add("Falso");
