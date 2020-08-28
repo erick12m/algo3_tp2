@@ -1,0 +1,41 @@
+@startuml VerdaderoOFalsoCorrectorClasico
+hide footbox
+title Correccion Pregunta VerdaderoOFalso con CorrectorClasico
+activate Kahoot
+Kahoot -> VerdaderoOFalso: evaluarRespuesta(respuestasJugadores)
+activate VerdaderoOFalso
+loop Para cada respuesta
+    deactivate Kahoot
+    VerdaderoOFalso -> VerdaderoOFalso: obtenerResultado(respuestaJugador)
+    activate VerdaderoOFalso
+    VerdaderoOFalso -> Respuesta : compararCon(respuestaJugador)
+    activate Respuesta
+    create Resultado
+    Respuesta -> Resultado: new
+    activate Resultado
+    Respuesta -> Respuesta: getRespuesta()
+    Respuesta -> Resultado: sumarCorrecta()
+    deactivate Resultado
+    Respuesta --> VerdaderoOFalso: resultado
+    deactivate Respuesta
+    VerdaderoOFalso <-- VerdaderoOFalso: resultado
+    deactivate VerdaderoOFalso
+
+    VerdaderoOFalso -> CorrectorClasico: corregirPregunta(resultado)
+    activate CorrectorClasico
+    CorrectorClasico -> Resultado: diferencia()
+    activate Resultado
+    Resultado --> CorrectorClasico: 0
+    CorrectorClasico --> Resultado: getIncorrectas()
+    Resultado --> CorrectorClasico: 0
+    deactivate Resultado
+    CorrectorClasico --> VerdaderoOFalso: 1
+    deactivate CorrectorClasico
+    VerdaderoOFalso -> Respuesta: asignarPuntaje(1)
+    activate Respuesta
+    deactivate VerdaderoOFalso
+    deactivate Respuesta
+
+end
+
+@enduml

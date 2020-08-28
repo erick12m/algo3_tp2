@@ -1,0 +1,26 @@
+.root{
+    -fx-background-color: #1d4a71;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: "file:CSS/Fuente/montserratRegular.tff";
+}
+
+.button {
+    -fx-background-color: #32485a;
+    -fx-font-family: Montserrat;
+    -fx-text-fill: "#ffffff";
+    -fx-font-size: 20;
+}
+
+.button:hover {
+    -fx-background-color: #466e92;
+    -fx-cursor: hand;
+}
+
+.label {
+    -fx-font-size: 16;
+    -fx-font-weight: 600;
+    -fx-text-fill: white;
+    -fx-font-family: Montserrat;
+}

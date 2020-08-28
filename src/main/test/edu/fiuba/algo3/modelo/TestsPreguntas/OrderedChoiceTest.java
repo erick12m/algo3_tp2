@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.modelo.TestsPreguntas;
 
-import edu.fiuba.algo3.modelo.correccion.CorrectorClasico;
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
+import edu.fiuba.algo3.modelo.correcciones.CorrectorClasico;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.preguntas.GroupChoice;
-import edu.fiuba.algo3.modelo.preguntas.MultipleChoice;
 import edu.fiuba.algo3.modelo.preguntas.OrderedChoice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -44,7 +42,6 @@ public class OrderedChoiceTest {
         OrderedChoice pregunta = new OrderedChoice("Ordene los numeros en forma creciente", respuestaCorrecta, opciones, clasico);
 
         jugador1.respuestaElegida(respuestaCorrecta);
-
 
         ArrayList<Respuesta> respuestas = new ArrayList<Respuesta>();
         respuestas.add(jugador1.getRespuesta());

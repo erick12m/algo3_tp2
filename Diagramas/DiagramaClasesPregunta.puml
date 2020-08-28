@@ -1,0 +1,30 @@
+@startuml AlgoHoot
+hide circle
+class Pregunta{
+    - enunciado : String
+    - opciones : ArrayList<Opcion>
+    # respuesta : Respuesta
+    # puntos : int
+    # corrector : Corrector
+    + evaluarRespuesta(respuestaJugador : ArrayList<Respuesta>)
+    + obtenerResultado(respuesta : Respuesta) : Resultado
+    + tienePenalidad() : boolean
+}
+class OrderedChoice{
+    + obtenerResultado(respuesta :  Respuesta) : Resultado
+}
+class GroupChoice{
+    + obtenerResultado(respuesta :  Respuesta) : Resultado
+}
+Pregunta <|-- OrderedChoice
+Pregunta <|-- GroupChoice
+Pregunta <|-left- VerdaderoFalso
+Pregunta <|-left- MultipleChoice
+
+
+
+
+
+skinparam classAttributeIconSize 0
+
+@enduml

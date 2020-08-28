@@ -1,17 +1,17 @@
 package edu.fiuba.algo3.modelo.preguntas;
-import edu.fiuba.algo3.modelo.correccion.Corrector;
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
-import edu.fiuba.algo3.modelo.correccion.Resultado;
+import edu.fiuba.algo3.modelo.correcciones.Corrector;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
+import edu.fiuba.algo3.modelo.correcciones.Resultado;
 
 import java.util.ArrayList;
 
 public abstract class Pregunta {
 
-    public String enunciado;
-    public ArrayList<String> opciones;
-    protected Respuesta respuestaCorrecta;
-    protected Corrector corrector;
     protected String nombre;
+    protected Corrector corrector;
+    protected String enunciado;
+    protected ArrayList<String> opciones;
+    protected Respuesta respuestaCorrecta;
 
     public void evaluarRespuesta(ArrayList<Respuesta> respuestasJugadores){
         for(Respuesta respuestaJugador: respuestasJugadores) {
@@ -40,4 +40,14 @@ public abstract class Pregunta {
     public String getEnunciado(){
         return this.enunciado;
     }
+
+    public String getRespuestaCorrecta(){
+        return this.respuestaCorrecta.getRespuestaCorrecta();
+    }
+
+    public Respuesta getRespuesta(){
+        return respuestaCorrecta;
+    }
+
+
 }

@@ -1,0 +1,199 @@
+[
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe los pares de los impares",
+    "opciones": [
+      "uno",
+      "dos",
+      "tres",
+      "cuatro",
+      "cinco",
+      "seis"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "cinco",
+        "tres",
+        "uno"
+      ],
+      "segundoGrupo": [
+        "cuatro",
+        "dos",
+        "seis"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe los deportes que requieran balón de los que no",
+    "opciones": [
+      "Beisbol",
+      "Futbol",
+      "Surf",
+      "Atletismo",
+      "Remo",
+      "Tenis"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Beisbol",
+        "Futbol",
+        "Tenis"
+      ],
+      "segundoGrupo": [
+        "Atletismo",
+        "Remo",
+        "Surf"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe los colores en primarios y secundarios",
+    "opciones": [
+      "Rojo",
+      "Azul",
+      "Verde",
+      "Morado"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Azul",
+        "Rojo"
+      ],
+      "segundoGrupo": [
+        "Morado",
+        "Verde"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe las bandas inglesas de las estadounidenses",
+    "opciones": [
+      "Coldplay",
+      "Queen",
+      "The Killers",
+      "Imagine Dragons",
+      "Take That",
+      "Blink 182"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Blink 182",
+        "Imagine Dragons",
+        "The Killers"
+      ],
+      "segundoGrupo": [
+        "Coldplay",
+        "Queen",
+        "Take That"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Agrupar cada país con su capital",
+    "opciones": [
+      "Lituania",
+      "Letonia",
+      "Vilna",
+      "Riga"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Lituania",
+        "Vilna"
+      ],
+      "segundoGrupo": [
+        "Letonia",
+        "Riga"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Separe los elementos que se encuentran en la bandera de México de los que no",
+    "opciones": [
+      "Aguila",
+      "Serpiente",
+      "Cactus",
+      "Cuervo"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Aguila",
+        "Cactus",
+        "Serpiente"
+      ],
+      "segundoGrupo": [
+        "Cuervo"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Group Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Agrupe las canciones de The Killers que pertenecen al mismo álbum",
+    "opciones": [
+      "Read My Mind",
+      "The Way It Was",
+      "Bones",
+      "Be Still",
+      "For Reasons Unknown",
+      "Runaways"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Bones",
+        "For Reasons Unknown",
+        "Read My Mind"
+      ],
+      "segundoGrupo": [
+        "Be Still",
+        "Runaways",
+        "The Way It Was"
+      ],
+      "puntosObtenidos": 0
+    }
+  }
+]

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
-import edu.fiuba.algo3.modelo.correccion.Corrector;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
+import edu.fiuba.algo3.modelo.correcciones.Corrector;
 
 import java.util.ArrayList;
 

@@ -1,0 +1,50 @@
+@startuml MultipleChoiceCorrectorPenalidad
+hide footbox
+
+title Correccion Pregunta MultipleChoice con CorrectorPenalidad
+activate Kahoot
+Kahoot -> MultipleChoice: evaluarRespuesta(respuestasJugadores)
+activate MultipleChoice
+loop Para cada respuesta
+    deactivate Kahoot
+    MultipleChoice -> MultipleChoice: obtenerResultado(respuestaJugador)
+    activate MultipleChoice
+    participant "Respuesta Correcta" as Respuesta
+    MultipleChoice -> Respuesta : compararCon(respuestaJugador)
+    activate Respuesta
+    create Resultado
+    Respuesta -> Resultado: new
+    Respuesta -> Respuesta: getRespuesta()
+    loop Para cada correcta
+        Respuesta -> Resultado: sumarCorrecta()
+        activate Resultado
+        deactivate Resultado
+    end
+    loop Para cada incorrecta
+        Respuesta -> Resultado: sumarIncorrecta()
+        activate Resultado
+        deactivate Resultado
+    end
+    Respuesta --> MultipleChoice: resultado
+    deactivate Respuesta
+    MultipleChoice <-- MultipleChoice: resultado
+    deactivate MultipleChoice
+
+    MultipleChoice -> CorrectorPenalidad: corregirPregunta(resultado)
+    activate CorrectorPenalidad
+    CorrectorPenalidad -> Resultado: getCorrectas()
+    activate Resultado
+    Resultado --> CorrectorPenalidad: correctas
+    CorrectorPenalidad --> Resultado: getIncorrectas()
+    Resultado --> CorrectorPenalidad: incorrectas
+    deactivate Resultado
+    CorrectorPenalidad --> MultipleChoice: correctas - incorrectas
+    deactivate CorrectorPenalidad
+    MultipleChoice -> Respuesta: asignarPuntaje(correctas - incorrectas)
+    activate Respuesta
+    deactivate MultipleChoice
+    deactivate Respuesta
+
+end
+
+@enduml

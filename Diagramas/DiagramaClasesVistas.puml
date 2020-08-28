@@ -1,0 +1,64 @@
+@startuml AlgoHoot
+hide circle
+class Kahoot{
+    - exclusividad : Exclusividad
+    - jugadores : Queue<Jugador>
+    - preguntaActual : Pregunta
+    - jugadorActual : Jugador
+    - listaPreguntas : Queue<Pregunta>
+    + crearJugadores(jugador1 : String, Jugador2 : String)
+    + siguienteTurno()
+    + getGanador()
+    + usarExclusividad(jugador : Jugador)
+    + puntuarPregunta(preguntaActual : Pregunta)
+    + esPreguntaConPenalidad() : boolean
+    + getPreguntaActual() : Pregunta
+}
+class ControladorJuego{
+    - ventana : Stage
+    - kahoot : Kahoot
+    - controladorPregunta : ControladorPregunta
+    - respuestaCorrecta : Respuesta
+    - timer : TimeLine
+    - preguntaActual : Pregunta
+    - media : MediaPlayer
+    + iniciarJuego()
+    + gameOver()
+    + siguienteTurno()
+    + comenzar()
+    + mostrarRespuestaCorrecta()
+    + actualizarTablero()
+    + corregirRespuestas()
+}
+class ControladorPregunta{
+    - opciones : ArrayList<String>
+    - respuestaCorrecta : Respuesta
+    - kahoot : Kahoot
+    - respuestasJugador : ArrayList<String>
+    - botonesOpciones : ArrayList<Button>
+    - botonesActivos : ArrayList<Button>
+    + guardarRespuesta()
+    + setGrupo()
+    + refrescarBotones()
+    + activarExclusividad()
+    + activarMultiplicadorX2()
+    + activarMultiplicadorX3()
+    + getRespuestaJugador() : Respuesta
+}
+ControladorJuego "1" *-- "1" Kahoot
+ControladorJuego *-- ControladorPregunta
+ControladorPregunta *-left- Kahoot
+
+ContenedorPrincipal --> ControladorJuego
+ContenedorPrincipal --> VistaPregunta
+ControladorJuego --> VistaPregunta
+VistaPregunta *-- ControladorPregunta
+
+Main --> ContenedorComenzar
+ContenedorComenzar --> EventHandlerComenzar
+EventHandlerComenzar --> ContenedorCargaNombres
+ContenedorCargaNombres --> ControladorJuego
+
+skinparam classAttributeIconSize 0
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+top to bottom direction
+package edu.fiuba.algo3{
+package "Modelo" {
+    package Preguntas{
+    }
+    package Correcciones{
+    }
+    package excepciones{
+    }
+    package jugador{
+    }
+    package utilizablesJugador{
+    }
+    package persistencia{
+    }
+
+}
+package "Vistas" {
+
+}
+package "Controladores" {
+package Eventos{
+    }
+}
+}
+"Vistas" ..> "Controladores"
+"Controladores" ..> Modelo
+Preguntas ..> persistencia
+Preguntas ..> Correcciones
+Preguntas ..> jugador
+Preguntas ..> excepciones
+
+jugador ..> excepciones
+Preguntas ..> utilizablesJugador
+Correcciones ..> utilizablesJugador
+utilizablesJugador ..> excepciones
+jugador ..> utilizablesJugador
+@enduml

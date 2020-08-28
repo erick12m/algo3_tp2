@@ -1,0 +1,150 @@
+[
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Ordene los números en forma creciente",
+    "opciones": [
+      "-120",
+      "-5",
+      "47",
+      "125",
+      "-160"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "-160",
+        "-120",
+        "-5",
+        "47",
+        "125"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Ordene de mayor a menor según el número de copas ganadas por equipo",
+    "opciones": [
+      "Independiente",
+      "River",
+      "Boca",
+      "Racing"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Boca",
+        "River",
+        "Independiente",
+        "Racing"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Ordene los siguientes números romanos para formar el 64",
+    "opciones": [
+      "X",
+      "V",
+      "L",
+      "I"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "L",
+        "X",
+        "I",
+        "V"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Ordene de mayor a menor los siguientes continentes según su superficie",
+    "opciones": [
+      "Asia",
+      "Africa",
+      "Europa",
+      "America",
+      "Oceania"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Asia",
+        "America",
+        "Africa",
+        "Europa",
+        "Oceania"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Ordene las siguientes letras griegas en orden alfabético",
+    "opciones": [
+      "Chi",
+      "Phi",
+      "Psi",
+      "Omega",
+      "Xi"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "Xi",
+        "Phi",
+        "Chi",
+        "Psi",
+        "Omega"
+      ],
+      "puntosObtenidos": 0
+    }
+  },
+
+  {
+    "nombre": "Ordered Choice",
+    "corrector": {
+      "CLASSNAME": "edu.fiuba.algo3.modelo.correcciones.CorrectorClasico",
+      "DATA": {}
+    },
+    "enunciado": "Ordene las siguientes películas de mayor a menor duración",
+    "opciones": [
+      "El Irlandes",
+      "El Lobo de Wall Street",
+      "Harry Potter y la Camara Secreta",
+      "Star Wars: The Last Jedi"
+    ],
+    "respuestaCorrecta": {
+      "respuestas": [
+        "El Irlandes",
+        "El Lobo de Wall Street",
+        "Harry Potter y la Camara Secreta",
+        "Star Wars: The Last Jedi"
+      ],
+      "puntosObtenidos": 0
+    }
+  }
+]

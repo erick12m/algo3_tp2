@@ -1,0 +1,25 @@
+.root{
+    -fx-background-image: url("Imagenes/winner_background.png");
+    -fx-scale-shape: true;
+    -fx-background-position: left top, center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+}
+.button {
+    -fx-background-color: #7f3caf;
+    -fx-font-family: "Fira Code Retina";
+    -fx-text-fill: "#ffffff";
+    -fx-font-size: 18;
+}
+
+.button:hover {
+    -fx-background-color: #4c2687;
+    -fx-cursor: hand;
+}
+
+.label {
+    -fx-font-size: 18;
+    -fx-font-weight: 600;
+    -fx-text-fill: white;
+    -fx-font-family: "Fira Code Retina";
+}

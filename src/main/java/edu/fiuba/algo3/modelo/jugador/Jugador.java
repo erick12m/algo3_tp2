@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.modelo.jugador;
 import edu.fiuba.algo3.modelo.Kahoot;
-import edu.fiuba.algo3.modelo.Multiplicador;
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneExclusividadException;
 import edu.fiuba.algo3.modelo.excepciones.NoTieneMultiplicadorException;
-
-import java.util.ArrayList;
-import java.util.Iterator;
+import edu.fiuba.algo3.modelo.utilizablesJugador.Multiplicador;
 
 public class Jugador {
 
@@ -18,7 +15,7 @@ public class Jugador {
     private Multiplicador multiplicador = new Multiplicador();
 
     public void usarExclusividad() throws NoTieneExclusividadException {
-        if (!Kahoot.esPreguntaConPenalidad() && usosExclusividad > 0) {
+        if (usosExclusividad > 0) {
             this.usosExclusividad--;
         } else {
             throw new NoTieneExclusividadException();
@@ -26,13 +23,13 @@ public class Jugador {
     }
 
     public void activarMultiplicadorx2() throws NoTieneMultiplicadorException {
-        if (Kahoot.esPreguntaConPenalidad()) {
+        if (Kahoot.esPreguntaConPenalidad()){
             this.multiplicador.activarMultiplicador(2);
         }
     }
 
     public void activarMultiplicadorx3() throws NoTieneMultiplicadorException {
-        if (Kahoot.esPreguntaConPenalidad()) {
+        if (Kahoot.esPreguntaConPenalidad()){
             this.multiplicador.activarMultiplicador(3);
         }
     }
@@ -64,4 +61,9 @@ public class Jugador {
     public Respuesta getRespuesta(){
         return respuesta;
     }
+
+    public void setearPuntaje(int puntos){ //Metodo creado para realizar tests
+        puntaje.actualizarPuntaje(puntos);
+    }
+
 }

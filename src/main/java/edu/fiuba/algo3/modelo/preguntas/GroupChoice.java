@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
-import edu.fiuba.algo3.modelo.correccion.Corrector;
-import edu.fiuba.algo3.modelo.correccion.Respuesta;
-import edu.fiuba.algo3.modelo.correccion.Resultado;
+import edu.fiuba.algo3.modelo.correcciones.Corrector;
+import edu.fiuba.algo3.modelo.correcciones.Respuesta;
+import edu.fiuba.algo3.modelo.correcciones.Resultado;
 import java.util.ArrayList;
 
 public class GroupChoice extends Pregunta{
@@ -16,6 +16,6 @@ public class GroupChoice extends Pregunta{
 
     @Override
     public Resultado obtenerResultado(Respuesta respuestaJugador){
-            return respuestaCorrecta.compararGrupos(respuestaJugador);
+        return respuestaCorrecta.compararGrupos(respuestaJugador);
     }
 }

@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+[*] -up> Comienzo
+Comienzo -> [*] : botonSalir EventHandler
+Comienzo -up> CargaDeNombres : botonComenzar EventHandler
+CargaDeNombres -> [*] :  botonSalir EventHandler
+state ParaCadaPregunta{
+    CargaDeNombres -down> MostrandoPregunta: controladorJuego.inicializarJuego()
+    MostrandoPregunta -down> MostrandoPregunta : siguienteTurno()
+}
+MostrandoPregunta -down> MostrandoGanador: GameOverException
+MostrandoGanador -down> [*]
+
+
+
+@enduml
